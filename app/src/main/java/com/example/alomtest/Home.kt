@@ -31,6 +31,7 @@ class Home : Fragment() {
 
         // Set the min, max and current
         // values to the SeekBar
+        //tes
         var mMin = 0
         var mMax = 100
         var mCurrent = 20
