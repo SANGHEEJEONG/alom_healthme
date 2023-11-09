@@ -3,7 +3,10 @@
     android:shape="oval"
     android:useLevel="false">
     <solid
-        android:color="#00E88F"/>
+
+        android:color="#00E88F"
+
+        />
     <!-- 테두리 -->
     <stroke
         android:width="2dp"

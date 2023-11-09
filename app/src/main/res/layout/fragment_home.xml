@@ -20,7 +20,7 @@
         android:format12Hour="yyyy년MM월dd일\na hh:mm:ss"
         android:format24Hour="yyyy년MM월dd일\nHH:mm:ss"
         android:textColor="#FFFFFF"
-        android:textSize="30dp" />
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/editTextText"
@@ -57,10 +57,17 @@
         android:layout_marginEnd="-134dp"
         android:layout_marginBottom="54dp"
         android:src="@drawable/img_1" />
+    <!--
+    11/09 건희 seekbar 가이드 제거
+     style="@style/Widget.AppCompat.SeekBar.Discrete"
 
+    -->
     <SeekBar
         android:id="@+id/seekBar"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
+
+
+
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -75,7 +82,9 @@
         android:progress="3"
         android:rotation="270"
         android:progressDrawable="@drawable/seekbar"
-        android:thumb="@drawable/seekthumb"/>
+        android:thumb="@drawable/seekthumb"
+
+        />
 
 
 </RelativeLayout>
