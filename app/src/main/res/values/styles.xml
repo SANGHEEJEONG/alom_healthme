@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    11/09 건희 추가 navbar 상단 모서리 둥글게 설정-->
+    <style name="RoundedBottomNavBar">
+        <item name="cornerFamily">rounded</item>
+
+        <item name="cornerSizeTopLeft">50dp</item>
+        <item name="cornerSizeTopRight">50dp</item>
+    </style>
+
+
+</resources>
+
+<!--app:shapeAppearanceOverlay="@style/RoundedBottomNavBar"-->

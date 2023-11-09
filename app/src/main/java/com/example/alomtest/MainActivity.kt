@@ -13,6 +13,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(Home())
+        binding.bottomNavigationView .selectedItemId=R.id.home //11/09 추가 - 첫 화면을 홈화면으로 설정
+
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.exercise -> replaceFragment(exercise())
@@ -36,5 +38,7 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.frame_layout,fragment)
         fragmentTransaction.commit()
     }
-    
+
+
+
 }

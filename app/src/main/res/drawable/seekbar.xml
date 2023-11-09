@@ -9,4 +9,5 @@
             android:scaleHeight="10%"
             android:scaleWidth="100%" />
     </item>
+
 </layer-list>

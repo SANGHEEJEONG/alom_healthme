@@ -16,8 +16,14 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 class Home : Fragment() {
+
+
+
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentHomeBinding.inflate(inflater,container,false)
@@ -28,17 +34,38 @@ class Home : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val mSeekBar = binding.seekBar
-
+        mSeekBar.isEnabled = false //
         // Set the min, max and current
         // values to the SeekBar
         //tes
         var mMin = 0
-        var mMax = 100
+        var mMax = 30
         var mCurrent = 20
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             mSeekBar.min = mMin
             mSeekBar.max = mMax
         }
+        //bmi계산 후 seekbar의 thumb위치 설정
+        var weight:Double
+        var height:Double
+
+
+        weight=80.0
+        height=1.74
+
+        var bmi:Double
+
+
+
+        bmi=weight/(height*height)
+
+
+        println(bmi)
+
+        mSeekBar.thumbOffset= (bmi).toInt()
+
+
+
 
         // Set the current to progress
         // and display in the TextView
@@ -55,6 +82,7 @@ class Home : Fragment() {
             override fun onStopTrackingTouch(p0: SeekBar?) {}
         })
     }
+
 
 
 

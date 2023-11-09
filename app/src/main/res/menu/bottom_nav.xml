@@ -13,7 +13,9 @@
         android:title="Home"
         android:id="@+id/home"
         android:icon="@drawable/baseline_home_24"
-        android:checkable ="true"/>
+        android:checkable ="true"
+        android:checked="true"
+        />
     <item
         android:title="Schedule"
         android:id="@+id/profile"
