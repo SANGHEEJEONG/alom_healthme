@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval"
-    android:useLevel="false">
-    <solid
-
-        android:color="#00E88F"
-
-        />
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- 테두리 -->
-    <stroke
-        android:width="2dp"
-        android:color="#00E88F" />
-    <!-- 크기 -->
-    <size
-        android:width="26dp"
-        android:height="26dp"/>
-</shape>
+    <item android:id="@android:id/background">
+        <shape
+            android:shape="oval">
+
+            <size
+                android:width="10dp"
+                android:height="10dp"/>
+        </shape>
+    </item>
+    <!-- 내부 이미지 -->
+    <item android:id="@android:id/progress">
+        <bitmap
+
+
+            android:src="@drawable/seekbar_character3"
+            android:gravity="center"
+
+            />
+    </item>
+</layer-list>

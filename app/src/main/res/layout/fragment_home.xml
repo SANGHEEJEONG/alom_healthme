@@ -14,13 +14,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
-        android:format12Hour="yyyy년MM월dd일\na hh:mm:ss"
-        android:format24Hour="yyyy년MM월dd일\nHH:mm:ss"
+        android:format12Hour="MM월 dd일"
+        android:format24Hour="MM월 dd일"
+
         android:textColor="#FFFFFF"
         android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="83dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:text="오늘의 응원 한 줄 " />
 
     <EditText
         android:id="@+id/editTextText"
@@ -30,6 +42,8 @@
         android:layout_marginTop="100dp"
         android:gravity="center"
         android:background="@drawable/round_botton"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:ems="10"
         android:inputType="text"
         android:textSize="20dp"
@@ -66,25 +80,24 @@
         android:id="@+id/seekBar"
 
 
-
-
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
+        android:layout_height="match_parent"
+
+
         android:layout_marginStart="20dp"
+
         android:layout_marginTop="170dp"
         android:layout_marginBottom="50dp"
-        android:translationX="-140dp"
+        android:clickable="false"
         android:max="100"
         android:min="0"
-        android:progress="3"
-        android:rotation="270"
+        android:progress="50"
         android:progressDrawable="@drawable/seekbar"
-        android:thumb="@drawable/seekthumb"
+        android:rotation="270"
 
-        />
+
+        android:thumb="@drawable/seekthumb"
+        android:thumbOffset="00dp" />
 
 
 </RelativeLayout>
