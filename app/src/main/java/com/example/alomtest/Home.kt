@@ -34,6 +34,11 @@ class Home : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val mSeekBar = binding.seekBar
+        //이미지 겹칠 때 앞서게 설정
+        val image1=binding.imageView4
+        val image2=binding.imageView5
+        image2.bringToFront();
+
         mSeekBar.isEnabled = false //
         // Set the min, max and current
         // values to the SeekBar
