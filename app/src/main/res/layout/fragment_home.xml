@@ -19,27 +19,45 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.7"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColor="@color/white"
+            android:background="@drawable/textclock_design"
             android:gravity="bottom"
+            android:paddingBottom="10dp"
+
+            android:format12Hour="MM월 dd일"
+            android:format24Hour="MM월 dd일"
+
+            android:format="MM월 dd일"
             />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="bottom"
+            android:layout_weight=".5"
+            android:textAlignment="textStart"
             android:paddingLeft="30dp"
             android:text="오늘의 응원 한 줄" />
 
-        <Button
-            android:id="@+id/button"
+
+
+        <EditText
+            android:id="@+id/editTextText"
+
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:background="@drawable/saying_design"
+            android:textColor="#E7F1FF"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:textAlignment="center"
+            android:ems="10"
+
             android:text="그래도 해야지 어떡해!" />
 
         <LinearLayout
@@ -76,6 +94,7 @@
 
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:translationX="10dp"
 
                     android:src="@drawable/seekbar_character5" />
 
@@ -115,11 +134,12 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
 
             >
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="30dp"
                 android:layout_weight="1"
@@ -130,25 +150,32 @@
                 <TextView
                     android:id="@+id/textView11"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="TextView"
-                    android:textAlignment="center"
+                    android:text="거리"
+                    android:textColor="#C6C6E3"
+                    android:gravity="bottom|center"
+                    android:background="@drawable/info_topleft"
 
                     />
 
                 <TextView
                     android:id="@+id/textView13"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="TextView"
-                    android:textAlignment="center" />
+                    android:text="2.8km"
+                    android:textStyle="bold"
+                    android:textColor="#4E57E4"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:background="@drawable/info_bottomleft"
+                    />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
@@ -156,22 +183,33 @@
                 <TextView
                     android:id="@+id/textView14"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="TextView"
-                    android:textAlignment="center" />
+                    android:text="시간"
+                    android:textColor="#C6C6E3"
+                    android:gravity="bottom|center"
+
+
+
+                    android:background="@drawable/info_topcenter"
+                    />
 
                 <TextView
                     android:id="@+id/textView15"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="TextView"
-                    android:textAlignment="center" />
+                    android:text="8h 32m"
+                    android:textStyle="bold"
+                    android:textColor="#4E57E4"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:background="@drawable/info_bottomcenter"
+                    />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="30dp"
                 android:layout_weight="1"
@@ -180,18 +218,27 @@
                 <TextView
                     android:id="@+id/textView16"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="TextView"
-                    android:textAlignment="center" />
+                    android:text="칼로리"
+                    android:textColor="#C6C6E3"
+                    android:gravity="bottom|center"
+                    android:background="@drawable/info_topright"
+                    />
 
                 <TextView
                     android:id="@+id/textView17"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="TextView"
-                    android:textAlignment="center" />
+                    android:text="860 kcal"
+                    android:textStyle="bold"
+                    android:textColor="#4E57E4"
+                    android:textSize="20sp"
+
+                    android:textAlignment="center"
+                    android:background="@drawable/info_bottomright"
+                    />
 
             </LinearLayout>
         </LinearLayout>
