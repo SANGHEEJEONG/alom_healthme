@@ -3,25 +3,25 @@
     <item
         android:title="Exercise"
         android:id="@+id/exercise"
-        android:icon="@drawable/baseline_exercise"/>
+        android:icon="@drawable/exercise_unselected"/>
     <item
         android:title="Food"
         android:id="@+id/food"
-        android:icon="@drawable/baseline_food_bank_24"/>
+        android:icon="@drawable/food_unselected"/>
 
     <item
         android:title="Home"
         android:id="@+id/home"
-        android:icon="@drawable/baseline_home_24"
+        android:icon="@drawable/home_unselected"
         android:checkable ="true"
         android:checked="true"
         />
     <item
         android:title="Schedule"
         android:id="@+id/profile"
-        android:icon="@drawable/baseline_person_24" />
+        android:icon="@drawable/schedule_unselected" />
     <item
         android:title="My page"
         android:id="@+id/settings"
-        android:icon="@drawable/baseline_settings_24" />
+        android:icon="@drawable/mypage_unselected" />
 </menu>
