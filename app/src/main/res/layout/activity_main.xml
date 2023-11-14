@@ -13,12 +13,15 @@ bottomnav 글자 항상 나오게 설정
         android:id="@+id/bottomNavigationView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#CCCFFF"
+        android:background="#cccfff"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav"
+        app:itemBackground="@color/bottomnav_remove_effect"
+        style="@style/bottom_nav_no_effect"
+
 
 
 

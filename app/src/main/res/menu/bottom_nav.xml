@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
     <item
         android:title="Exercise"
         android:id="@+id/exercise"
-        android:icon="@drawable/exercise_unselected"/>
+        android:icon="@drawable/exercise_selector"/>
     <item
         android:title="Food"
         android:id="@+id/food"
-        android:icon="@drawable/food_unselected"/>
+        android:icon="@drawable/food_selector"/>
 
     <item
         android:title="Home"
         android:id="@+id/home"
-        android:icon="@drawable/home_unselected"
-        android:checkable ="true"
+        android:icon="@drawable/home_selector"
         android:checked="true"
         />
     <item
         android:title="Schedule"
         android:id="@+id/profile"
-        android:icon="@drawable/schedule_unselected" />
+        android:icon="@drawable/schedule_selector" />
     <item
         android:title="My page"
         android:id="@+id/settings"
-        android:icon="@drawable/mypage_unselected" />
+        android:icon="@drawable/mypage_selector" />
 </menu>

@@ -1,20 +1,15 @@
 package com.example.alomtest
 
-import android.os.Build
+import android.content.Context
+import android.content.res.Resources
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
+import android.util.DisplayMetrics
+import android.view.Display
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.SeekBar
-import android.widget.TextClock
+import androidx.fragment.app.Fragment
 import com.example.alomtest.databinding.FragmentHomeBinding
-import com.example.alomtest.databinding.FragmentSettingsBinding
-
-import java.time.LocalDate
-import java.time.LocalDateTime
 
 class Home : Fragment() {
 
@@ -33,6 +28,40 @@ class Home : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val mseekbar = binding.bmigauge
+
+
+
+        //디바이스의 width와 height를 가져오는 코드
+        fun getScreenWidth(context: Home): Int {
+            val displayMetrics = DisplayMetrics()
+
+            var phonewidth=Resources.getSystem().displayMetrics.widthPixels
+            var phoneheight=Resources.getSystem().displayMetrics.heightPixels
+
+            return phonewidth
+        }
+
+
+
+
+
+        println("width출력")
+        println(getScreenWidth(this))
+
+
+        //픽셀을 dp로 변경
+        fun pxToDp(context: Home, px: Int): Float {
+            val displayMetrics = context.resources.displayMetrics
+            return px / displayMetrics.density
+        }
+        println("width픽셀로 출력")
+        println(pxToDp(this,getScreenWidth(this)))
+
+        val seekbar_x = -1*pxToDp(this,getScreenWidth(this))
+        mseekbar.translationX=seekbar_x+seekbar_x/2
+
 
 //        val mSeekBar = binding.seekBar
 //        //이미지 겹칠 때 앞서게 설정

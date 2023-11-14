@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,6 +11,27 @@
     android:layout_height="match_parent"
     android:background="#6A73FF"
     tools:context=".Home">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00FFFFFF">
+        >
+
+
+
+        <SeekBar
+            android:id="@+id/bmigauge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rotation="270"
+
+
+
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
     <LinearLayout
@@ -74,40 +99,16 @@
 <!--
             숫자부분과 단위(km,h,kcal)부분을 분리함으로써 api에서 받아온 거리, 시간, 칼로리를 걍 settext하면 됨
 -->
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2.5"
-
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                >
-
-                <ImageView
-                    android:id="@+id/imageView"
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="25dp"
 
 
-                    android:src="@drawable/seekbar_image"
-                    />
-
-                <ImageView
-                    android:id="@+id/circle"
-
-                    android:layout_gravity="center|left"
-
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:translationX="10dp"
-
-                    android:src="@drawable/seekbar_character5" />
 
 
-            </FrameLayout>
 
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5.5" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -331,10 +332,15 @@
                     android:layout_weight="1" />
 
             </LinearLayout>
+
         </LinearLayout>
 
 
 
+
     </LinearLayout>
+
+
+
 
 </RelativeLayout>

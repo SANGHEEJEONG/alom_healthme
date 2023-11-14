@@ -7,7 +7,12 @@
         <item name="cornerSizeTopLeft">50dp</item>
         <item name="cornerSizeTopRight">50dp</item>
     </style>
+<!--bottomnav 효과 없애는 코드 11/14 추가-->
 
+    <style name="bottom_nav_no_effect">
+        <item name="android:itemBackground">@android:color/transparent</item>
+        <item name="android:colorControlHighlight">@android:color/transparent</item>
+    </style>
 
 </resources>
 
