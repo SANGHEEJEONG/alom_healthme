@@ -3,7 +3,12 @@
     <item
         android:id="@android:id/background"
         android:drawable="@drawable/bg_appcolorwhite_radius"/>
+
     <item android:id="@android:id/progress">
+        <shape>
+<!--            seekbar의 두께 설정-->
+            <size android:height="18dp" />
+        </shape>
         <scale
             android:drawable="@drawable/bg_appcolorwhite_radius"
             android:scaleHeight="10%"

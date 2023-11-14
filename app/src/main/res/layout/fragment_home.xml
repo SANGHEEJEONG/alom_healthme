@@ -15,20 +15,60 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#00FFFFFF">
+        android:background="#00FFFFFF"
+        android:layout_marginLeft="10dp"
         >
 
 
 
+<!--    seekbar의 위치 이동(translationX)은 코틀린 코드로 옮김    -->
         <SeekBar
             android:id="@+id/bmigauge"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:rotation="270"
+            android:thumb="@drawable/seekbar_character1"
+            android:progressDrawable="@drawable/seekbar"
 
 
 
             />
+        <SeekBar
+            android:id="@+id/veryfat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rotation="270"
+            android:thumb="@drawable/seekbar_character1"
+            android:progressDrawable="@drawable/seekbar"
+
+
+
+            />
+        <SeekBar
+            android:id="@+id/normal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rotation="270"
+            android:thumb="@drawable/seekbar_character1"
+            android:progressDrawable="@drawable/seekbar"
+
+
+
+            />
+        <SeekBar
+            android:id="@+id/lowweight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rotation="270"
+            android:thumb="@drawable/seekbar_character1"
+            android:progressDrawable="@drawable/seekbar"
+
+
+
+            />
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -108,12 +148,12 @@
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="5.5" />
+                android:layout_weight="2" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="7.5"
+                android:layout_weight="8"
                 android:orientation="vertical"
                 android:gravity="right"
 

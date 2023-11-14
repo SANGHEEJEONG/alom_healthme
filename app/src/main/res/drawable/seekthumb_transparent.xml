@@ -13,9 +13,10 @@
     <!-- 내부 이미지 -->
     <item android:id="@android:id/progress">
         <bitmap
-            android:src="@drawable/seekbar_bigcharacter"
             android:gravity="center"
-            />
+
+            android:textSize="20sp"
+            android:textColor="@color/black" />
         <shape>
             <size
                 android:width="10dp"

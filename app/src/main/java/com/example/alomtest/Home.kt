@@ -2,6 +2,7 @@ package com.example.alomtest
 
 import android.content.Context
 import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.Display
@@ -30,6 +31,9 @@ class Home : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val mseekbar = binding.bmigauge
+        val seekbar_veryfat=binding.veryfat
+        val seekbar_normal=binding.normal
+        val seekbar_lowweight=binding.lowweight
 
 
 
@@ -69,35 +73,39 @@ class Home : Fragment() {
 //        //val image2=binding.imageView5
 //        //image2.bringToFront();
 //
-//        mSeekBar.isEnabled = false //
-//        // Set the min, max and current
-//        // values to the SeekBar
+        mseekbar.isEnabled = false //
+        // Set the min, max and current
+        // values to the SeekBar
 //        //tes
-//        var mMin = 0
-//        var mMax = 30
-//        var mCurrent = 20
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            mSeekBar.min = mMin
-//            mSeekBar.max = mMax
-//        }
-//        //bmi계산 후 seekbar의 thumb위치 설정
-//        var weight:Double
-//        var height:Double
-//
-//
-//        weight=80.0
-//        height=1.74
-//
-//        var bmi:Double
-//
-//
-//
-//        bmi=weight/(height*height)
-//
-//
-//        println(bmi)
-//
-//        mSeekBar.thumbOffset= (bmi).toInt()
+
+        var mMin = 0
+        var mMax = 300
+        var mCurrent = 20
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            mseekbar.min = mMin
+            mseekbar.max = mMax
+        }
+        //bmi계산 후 seekbar의 thumb위치 설정
+        var weight:Double
+        var height:Double
+
+
+        weight=80.0
+        height=1.74
+
+        var bmi:Double
+
+
+
+        bmi=weight/(height*height)*10
+        if(bmi>300){
+            bmi=300.0
+        }
+
+
+        println(bmi)
+
+        mseekbar.progress=bmi.toInt()
 //
 //
 //
