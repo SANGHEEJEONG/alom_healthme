@@ -1,16 +1,15 @@
 package com.example.alomtest
 
-import android.content.Context
 import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.view.Display
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.alomtest.databinding.FragmentHomeBinding
+import kotlin.math.roundToInt
 
 class Home : Fragment() {
 
@@ -31,9 +30,11 @@ class Home : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val mseekbar = binding.bmigauge
-        val seekbar_veryfat=binding.veryfat
-        val seekbar_normal=binding.normal
-        val seekbar_lowweight=binding.lowweight
+
+        //글자를 seekbar로 배치할 예정
+        //val seekbar_veryfat=binding.veryfat
+        //val seekbar_normal=binding.normal
+        //val seekbar_lowweight=binding.lowweight
 
 
 
@@ -53,18 +54,46 @@ class Home : Fragment() {
 
         println("width출력")
         println(getScreenWidth(this))
+//수정
 
+        val width_px = Resources.getSystem().displayMetrics.widthPixels
+        val height_px =Resources.getSystem().displayMetrics.heightPixels
+        val pixeldpi = Resources.getSystem().displayMetrics.densityDpi
+        println("pixeldpi"+pixeldpi)
+
+
+        val width_dp = width_px / pixeldpi * 160
+        val height_dp = height_px / pixeldpi * 160
+        println("widthdp"+width_dp)
+
+
+        fun pxToDp2(px: Int): Int {
+            val displayMetrics = context?.resources?.displayMetrics
+            return (px / (displayMetrics!!.xdpi / DisplayMetrics.DENSITY_DEFAULT)).roundToInt()
+        }
+
+
+
+        //
 
         //픽셀을 dp로 변경
         fun pxToDp(context: Home, px: Int): Float {
             val displayMetrics = context.resources.displayMetrics
             return px / displayMetrics.density
         }
+
+
+
         println("width픽셀로 출력")
         println(pxToDp(this,getScreenWidth(this)))
+        val widthpx=pxToDp2(getScreenWidth(this))
+        println("widthpx"+widthpx)
+
 
         val seekbar_x = -1*pxToDp(this,getScreenWidth(this))
-        mseekbar.translationX=seekbar_x+seekbar_x/2
+
+        mseekbar.translationX= (-0.85*width_px.toFloat()/2).toFloat()//최종코드
+            //(-2*widthpx.toFloat()/2).toFloat()//(-1.4*(width_dp.toDouble())).toFloat()
 
 
 //        val mSeekBar = binding.seekBar
@@ -81,10 +110,10 @@ class Home : Fragment() {
         var mMin = 0
         var mMax = 300
         var mCurrent = 20
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            mseekbar.min = mMin
-            mseekbar.max = mMax
-        }
+
+        mseekbar.min = mMin
+        mseekbar.max = mMax
+
         //bmi계산 후 seekbar의 thumb위치 설정
         var weight:Double
         var height:Double

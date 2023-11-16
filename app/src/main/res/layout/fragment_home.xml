@@ -21,7 +21,7 @@
 
 
 
-<!--    seekbar의 위치 이동(translationX)은 코틀린 코드로 옮김    -->
+<!--    seekbar의 위치 이동(translationX)은 코틀린 코드 로 옮김    -->
         <SeekBar
             android:id="@+id/bmigauge"
             android:layout_width="match_parent"
@@ -33,6 +33,7 @@
 
 
             />
+<!--
         <SeekBar
             android:id="@+id/veryfat"
             android:layout_width="match_parent"
@@ -64,7 +65,7 @@
             android:progressDrawable="@drawable/seekbar"
 
 
-
+-->
             />
 
 
