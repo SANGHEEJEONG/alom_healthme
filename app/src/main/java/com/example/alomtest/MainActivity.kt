@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.food -> replaceFragment(food())
                 R.id.home -> replaceFragment(Home())
                 R.id.profile -> replaceFragment(Profile())
-                R.id.settings -> replaceFragment(Settings())
+                R.id.settings -> replaceFragment(mypage_main())
                 else ->{
 
                 }
