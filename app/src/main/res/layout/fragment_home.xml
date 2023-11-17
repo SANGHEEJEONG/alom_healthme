@@ -33,42 +33,48 @@
 
 
             />
-<!--
-        <SeekBar
-            android:id="@+id/veryfat"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:rotation="270"
-            android:thumb="@drawable/seekbar_character1"
-            android:progressDrawable="@drawable/seekbar"
 
 
 
-            />
-        <SeekBar
-            android:id="@+id/normal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:rotation="270"
-            android:thumb="@drawable/seekbar_character1"
-            android:progressDrawable="@drawable/seekbar"
+
+        <!--
+                <SeekBar
+                    android:id="@+id/veryfat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:rotation="270"
+                    android:thumb="@drawable/seekbar_thumb_text_veryfat"
+                    android:background="#00FFFFFF"
 
 
 
-            />
-        <SeekBar
-            android:id="@+id/lowweight"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:rotation="270"
-            android:thumb="@drawable/seekbar_character1"
-            android:progressDrawable="@drawable/seekbar"
+                    />
 
 
--->
-            />
+                <SeekBar
+                    android:id="@+id/normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:rotation="270"
+                    android:thumb="@drawable/seekbar_character1"
+                    android:progressDrawable="@drawable/seekbar"
 
 
+
+                    />
+                <SeekBar
+                    android:id="@+id/lowweight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:rotation="270"
+                    android:thumb="@drawable/seekbar_character1"
+                    android:progressDrawable="@drawable/seekbar"
+
+
+
+                    />
+
+        -->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -142,14 +148,26 @@
 -->
 
 
+<!--일단 대충 글자는 이미지로 구현-->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/status_text"
+                android:layout_weight="2"
 
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginBottom="110dp"
+                />
 
-
-
+<!--
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2" />
+-->
+
 
             <LinearLayout
                 android:layout_width="0dp"

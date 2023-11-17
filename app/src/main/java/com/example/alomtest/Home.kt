@@ -30,6 +30,7 @@ class Home : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val mseekbar = binding.bmigauge
+        //val seekbar_veryfat=binding.veryfat
 
         //글자를 seekbar로 배치할 예정
         //val seekbar_veryfat=binding.veryfat
@@ -94,7 +95,7 @@ class Home : Fragment() {
 
         mseekbar.translationX= (-0.85*width_px.toFloat()/2).toFloat()//최종코드
             //(-2*widthpx.toFloat()/2).toFloat()//(-1.4*(width_dp.toDouble())).toFloat()
-
+        //seekbar_veryfat.translationX = (-0.55*width_px.toFloat()/2).toFloat()
 
 //        val mSeekBar = binding.seekBar
 //        //이미지 겹칠 때 앞서게 설정
