@@ -21,6 +21,33 @@ class Home : Fragment() {
     private lateinit var binding2 : ActivityMainBinding
     private lateinit var binding3 :FragmentMypageMainBinding
 
+
+    //data//
+
+    var mMin = 0
+    var mMax = 300
+    var mCurrent = 20
+
+    var weight:Double=64.0
+    var height:Double=170.0
+
+
+    //weight=80.0
+    //height=1.74
+
+    var bmi:Double=(weight)/((height/100.0)*(height/100.0))*10
+
+
+
+
+
+
+
+
+
+
+
+    //data//
     private val binding get() = _binding!!
     //private val binding2 get() = _binding2!!
 
@@ -45,7 +72,14 @@ class Home : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //height=height/100.0
+        println("bmi"+bmi)
+        println("weight"+weight)
+        println("height"+height)
 
+        if(bmi>300){
+            bmi=300.0
+        }
 
 
 
@@ -129,33 +163,33 @@ class Home : Fragment() {
         // values to the SeekBar
 //        //tes
 
-        var mMin = 0
-        var mMax = 300
-        var mCurrent = 20
+//        var mMin = 0
+//        var mMax = 300
+//        var mCurrent = 20
 
         mseekbar.min = mMin
         mseekbar.max = mMax
 
         //bmi계산 후 seekbar의 thumb위치 설정
-        var weight:Double
-        var height:Double
-
-
-        weight=80.0
-        height=1.74
-
-        var bmi:Double
-
-
-
-        bmi=weight/(height*height)*10
-        if(bmi>300){
-            bmi=300.0
-        }
-
-
-        println(bmi)
-
+//        var weight:Double
+//        var height:Double
+//
+//
+//        weight=80.0
+//        height=1.74
+//
+//        var bmi:Double
+//
+//
+//
+//        bmi=weight/(height*height)*10
+//        if(bmi>300){
+//            bmi=300.0
+//        }
+//
+//
+//        println(bmi)
+        println("bmi"+bmi)
         mseekbar.progress=bmi.toInt()
 //
 //

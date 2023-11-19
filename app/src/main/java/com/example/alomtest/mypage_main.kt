@@ -77,6 +77,23 @@ class mypage_main : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val homeinstance = Home()
+
+        val w:String="${"%.1f".format(homeinstance.weight)}"
+        val h:String="${"%.1f".format(homeinstance.height)}"
+        val b: String = "${"%.2f".format(homeinstance.bmi/10)}"
+
+
+
+        binding.height.text = h
+        binding.weight.text = w
+        binding.bmi.text=b
+
+
+
+
+
+
         fun getScreenHeight(context: mypage_main): Int {
             val displayMetrics = DisplayMetrics()
 

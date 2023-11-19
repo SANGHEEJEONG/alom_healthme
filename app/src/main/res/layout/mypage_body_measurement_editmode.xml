@@ -22,47 +22,47 @@
             >
 
 
-                <ImageView
-                    android:id="@+id/backicon_btn"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:paddingTop="9dp"
-                    android:paddingBottom="9dp"
-                    android:gravity="center|center_vertical"
-                    android:textColor="#fff"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:src="@drawable/back_icon"
-                    android:clickable="true"
-                    />
-
-
-            <TextView
-
+            <ImageView
+                android:id="@+id/backicon_btn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="Body Measurements"
-                android:layout_weight="7"
+                android:layout_weight="2"
+                android:paddingTop="9dp"
+                android:paddingBottom="9dp"
                 android:gravity="center|center_vertical"
                 android:textColor="#fff"
                 android:textSize="20sp"
                 android:textStyle="bold"
-
+                android:src="@drawable/back_icon"
+                android:clickable="true"
                 />
-            <ImageView
-                android:id="@+id/edit_mode_icon"
+
+<!--EditMode 글자 없앨 때 20sp로 수정할 것-->
+            <TextView
+
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text=""
+                android:text="Body Measurements Editmode"
+                android:layout_weight="7"
+                android:gravity="center|center_vertical"
+                android:textColor="#fff"
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                />
+            <TextView
+                android:id="@+id/save_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="저장"
                 android:layout_weight="2"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:gravity="center|center_vertical"
                 android:textColor="#fff"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                android:src="@drawable/editmode_icon"
+
 
                 />
 

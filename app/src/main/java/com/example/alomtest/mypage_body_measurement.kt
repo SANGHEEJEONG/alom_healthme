@@ -22,6 +22,7 @@ private const val ARG_PARAM2 = "param2"
 class mypage_body_measurement : Fragment() {
     private lateinit var binding: FragmentMypageBodyMeasurementBinding
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentMypageBodyMeasurementBinding.inflate((layoutInflater))
@@ -30,6 +31,25 @@ class mypage_body_measurement : Fragment() {
         binding.backiconBtn.setOnClickListener {
             replaceFragment(mypage_main())
         }
+        binding.editModeIcon.setOnClickListener {
+            replaceFragment(mypage_body_measurement_editmode())
+        }
+
+        val homeinstance = Home()
+
+        val w:String=homeinstance.weight.toString()
+        val h:String=homeinstance.height.toString()
+
+
+        binding.weightOutput.setText(w)
+        binding.heightOutput.setText(h)
+
+        val weight_edittext=binding.weightOutput
+        weight_edittext.keyListener = null
+
+        val height_edittext=binding.heightOutput
+        height_edittext.keyListener = null
+
 
 //        binding.backiconBtn2.setOnClickListener {
 //            replaceFragment(mypage_main())
@@ -63,6 +83,28 @@ override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, saved
         println("success")
     }
 
+
+
+
+    //saying.keyListener = null
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        //weight_edittext.setText()
+
+
+
+
+    }
+
+    fun access_weight_height(){
+        val homeinstance = Home()
+        var w=homeinstance.weight
+        var h=homeinstance.height
+        //val w=homeinstance.weight
+    }
 
     companion object {
         /**
