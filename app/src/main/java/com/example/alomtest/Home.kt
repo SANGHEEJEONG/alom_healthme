@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentHomeBinding
+import com.example.alomtest.databinding.FragmentMypageMainBinding
 import kotlin.math.roundToInt
 
 class Home : Fragment() {
@@ -16,18 +18,36 @@ class Home : Fragment() {
 
 
     private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding2 : ActivityMainBinding
+    private lateinit var binding3 :FragmentMypageMainBinding
 
+    private val binding get() = _binding!!
+    //private val binding2 get() = _binding2!!
 
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentHomeBinding.inflate(inflater,container,false)
+
         return binding.root
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding2= ActivityMainBinding.inflate(layoutInflater)
+        binding3= FragmentMypageMainBinding.inflate(layoutInflater)
+        binding3.backiconBtn.setOnClickListener {
+            binding2.bottomNavigationView.selectedItemId=R.id.home
+
+        }
+        true
+
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
 
         val mseekbar = binding.bmigauge
         //val seekbar_veryfat=binding.veryfat
@@ -36,6 +56,7 @@ class Home : Fragment() {
         //val seekbar_veryfat=binding.veryfat
         //val seekbar_normal=binding.normal
         //val seekbar_lowweight=binding.lowweight
+        //binding2.bottomNavigationView.selectedItemId=R.id.home
 
 
 

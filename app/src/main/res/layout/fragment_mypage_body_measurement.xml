@@ -21,21 +21,23 @@
             android:layout_weight="1"
             >
 
-            <ImageView
 
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:text=""
-                android:layout_weight="1"
-                android:paddingTop="9dp"
-                android:paddingBottom="9dp"
-                android:gravity="center|center_vertical"
-                android:textColor="#fff"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:src="@drawable/back_icon"
+                <ImageView
+                    android:id="@+id/backicon_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="9dp"
+                    android:paddingBottom="9dp"
+                    android:gravity="center|center_vertical"
+                    android:textColor="#fff"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:src="@drawable/back_icon"
+                    android:clickable="true"
+                    />
 
-                />
+
             <TextView
 
                 android:layout_width="0dp"

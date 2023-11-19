@@ -20,18 +20,62 @@ android:background="#636CFF"
 
         >
 
-        <TextView
-            android:id="@+id/textView5"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="MY Page"
+            android:orientation="horizontal"
             android:layout_weight="1"
-            android:gravity="center|center_vertical"
-            android:textColor="#BEC2FF"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            >
 
-            />
+            <ImageView
+                android:id="@+id/backicon_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+
+                android:layout_weight="1"
+                android:paddingTop="9dp"
+                android:paddingBottom="9dp"
+                android:gravity="center|center_vertical"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:src="@drawable/back_icon"
+                android:background="@color/black"
+
+
+                />
+<!--뒤로가기 사진 배경색을 일단 검은색으로 두었음. 배경색이랑 같아서 안보임
+    아래 textview도 글자색을 일단 검은색으로 설정
+-->
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="My Page"
+                android:layout_weight="7"
+                android:gravity="center|center_vertical"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+
+                />
+            <ImageView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="1"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center|center_vertical"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:src="@drawable/editmode_icon"
+
+                />
+
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/imageView"
