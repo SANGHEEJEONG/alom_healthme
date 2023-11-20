@@ -7,10 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import com.example.alomtest.Home.Companion.home_bmi
 import com.example.alomtest.Home.Companion.home_height
 import com.example.alomtest.Home.Companion.home_weight
+import kotlin.text.toDoubleOrNull
 
 import com.example.alomtest.databinding.FragmentMypageBodyMeasurementBinding
 import com.example.alomtest.databinding.FragmentMypageBodyMeasurementEditmodeBinding
@@ -30,21 +32,33 @@ class mypage_body_measurement_editmode : Fragment() {
         }
         binding.savemode.setOnClickListener {
             //변수에 입력한 값들을 저장하고 fragment 변경
-            val homeinstance = Home()
 
-//            homeinstance.height=binding.heightOutput.text.toString().toDouble()
-//            homeinstance.weight=binding.weightOutput.text.toString().toDouble()
-            home_height=binding.heightOutput.text.toString().toDouble()
-            home_weight=binding.weightOutput.text.toString().toDouble()
-            home_bmi=(home_weight)/((home_height/100.0)*(home_height/100.0))*10
-            if(home_bmi>300){
-                home_bmi=300.0
-            }
+            //if문으로 예외처리
+            //공백이 입력된 경우
+           if(binding.heightOutput.text.toString().isEmpty() || binding.weightOutput.text.toString().isEmpty()){
+               Toast.makeText(requireContext(), "신장 또는 몸무게를 입력 후 저장버튼을 누르세요.", Toast.LENGTH_SHORT).show()
 
-            println("변경된이후 키:"+ home_height)
-            println("변경된이후 몸무게:"+ home_weight)
+           }
+            //신장 혹은 몸무게가 0으로 입력된 경우
+            else if(binding.heightOutput.text.toString().toDouble()==0.0 || binding.weightOutput.text.toString().toDouble()==0.0){
+               Toast.makeText(requireContext(), "신장 또는 몸무게가 0이 될 수 없습니다.", Toast.LENGTH_SHORT).show()
 
-            replaceFragment(mypage_body_measurement())
+           }
+
+            else{
+               home_height=binding.heightOutput.text.toString().toDouble()
+               home_weight=binding.weightOutput.text.toString().toDouble()
+               home_bmi=(home_weight)/((home_height/100.0)*(home_height/100.0))*10
+               if(home_bmi>300){
+                   home_bmi=300.0
+               }
+
+               println("변경된이후 키:"+ home_height)
+               println("변경된이후 몸무게:"+ home_weight)
+
+               replaceFragment(mypage_body_measurement())
+           }
+
         }
 
 

@@ -3,5 +3,10 @@
     <style name="Base.Theme.Alomtest" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+<!--        <item name="colorPrimary">#00FFFFFF</item>-->
+<!--        <item name ="colorPrimaryVariant">#00FFFFFF</item>-->
+        <item name="colorPrimary">#6A73FF</item>
+        <item name ="colorPrimaryVariant">#B6B6FF</item>
     </style>
 </resources>

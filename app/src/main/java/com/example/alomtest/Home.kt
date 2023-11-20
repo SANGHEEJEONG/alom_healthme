@@ -84,16 +84,16 @@ class Home : Fragment() {
             override fun handleOnBackPressed() {
                 val currentTime = System.currentTimeMillis()
 
-                if (currentTime - backPressedTime > 5000) {
+                if (currentTime - backPressedTime > 3000) {
                     // 첫 번째 뒤로가기
                     backPressedTime = currentTime
-                    // 5초 안에 두 번 뒤로가기를 누르면 앱 종료
+                    // 3초 안에 두 번 뒤로가기를 누르면 앱 종료
 
                     Toast.makeText(requireContext(), "버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
 
                     Handler(Looper.getMainLooper()).postDelayed({
                         backPressedTime = 0
-                    }, 5000)
+                    }, 3000)
                 } else {
                     // 두 번째 뒤로가기
                     requireActivity().finish()
