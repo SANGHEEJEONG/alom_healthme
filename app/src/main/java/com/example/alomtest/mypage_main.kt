@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.alomtest.Home.Companion.home_bmi
+import com.example.alomtest.Home.Companion.home_height
+import com.example.alomtest.Home.Companion.home_weight
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentMypageMainBinding
 import com.example.alomtest.databinding.FragmentMypageBodyMeasurementBinding
@@ -79,9 +82,12 @@ class mypage_main : Fragment() {
 
         val homeinstance = Home()
 
-        val w:String="${"%.1f".format(homeinstance.weight)}"
-        val h:String="${"%.1f".format(homeinstance.height)}"
-        val b: String = "${"%.2f".format(homeinstance.bmi/10)}"
+//        val w:String="${"%.1f".format(homeinstance.weight)}"
+//        val h:String="${"%.1f".format(homeinstance.height)}"
+//        val b: String = "${"%.2f".format(homeinstance.bmi/10)}"
+        val w:String="${"%.1f".format(home_weight)}"
+        val h:String="${"%.1f".format(home_height)}"
+        val b: String = "${"%.2f".format(home_bmi/10)}"
 
 
 

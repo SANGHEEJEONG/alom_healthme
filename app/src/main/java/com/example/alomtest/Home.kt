@@ -28,14 +28,13 @@ class Home : Fragment() {
     var mMax = 300
     var mCurrent = 20
 
-    var weight:Double=64.0
-    var height:Double=170.0
+
 
 
     //weight=80.0
     //height=1.74
 
-    var bmi:Double=(weight)/((height/100.0)*(height/100.0))*10
+
 
 
 
@@ -60,7 +59,12 @@ class Home : Fragment() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
+
+
+
         binding2= ActivityMainBinding.inflate(layoutInflater)
         binding3= FragmentMypageMainBinding.inflate(layoutInflater)
         binding3.backiconBtn.setOnClickListener {
@@ -73,12 +77,12 @@ class Home : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //height=height/100.0
-        println("bmi"+bmi)
-        println("weight"+weight)
-        println("height"+height)
+        println("bmi"+home_bmi)
+        println("weight"+home_weight)
+        println("height"+home_height)
 
-        if(bmi>300){
-            bmi=300.0
+        if(home_bmi>300){
+            home_bmi=300.0
         }
 
 
@@ -189,8 +193,8 @@ class Home : Fragment() {
 //
 //
 //        println(bmi)
-        println("bmi"+bmi)
-        mseekbar.progress=bmi.toInt()
+        println("bmi"+ home_bmi)
+        mseekbar.progress=home_bmi.toInt()
 //
 //
 //
@@ -215,6 +219,13 @@ class Home : Fragment() {
     }
 
 
+    companion object{
+
+        var home_weight:Double=64.0
+        var home_height:Double=170.0
+        var home_bmi:Double=(home_weight)/((home_height/100.0)*(home_height/100.0))*10
+
+    }
 
 
 

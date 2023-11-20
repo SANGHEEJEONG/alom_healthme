@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mypage_body_measurement">
+    tools:context=".mypage_body_measurement_editmode">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
 
                 />
             <TextView
-                android:id="@+id/save_icon"
+                android:id="@+id/savemode"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="저장"
@@ -63,6 +63,9 @@
                 android:textSize="15sp"
                 android:textStyle="bold"
 
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
 
                 />
 

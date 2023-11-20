@@ -5,55 +5,77 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.alomtest.Home.Companion.home_bmi
+import com.example.alomtest.Home.Companion.home_height
+import com.example.alomtest.Home.Companion.home_weight
+import com.example.alomtest.databinding.FragmentMypageBodyMeasurementBinding
+import com.example.alomtest.databinding.FragmentMypageBodyMeasurementEditmodeBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [mypage_body_measurement_editmode.newInstance] factory method to
- * create an instance of this fragment.
- */
 class mypage_body_measurement_editmode : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var binding: FragmentMypageBodyMeasurementEditmodeBinding
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        binding=FragmentMypageBodyMeasurementEditmodeBinding.inflate(layoutInflater)
+
+        binding.backiconBtn.setOnClickListener {
+            replaceFragment(mypage_body_measurement())
         }
+        binding.savemode.setOnClickListener {
+            //변수에 입력한 값들을 저장하고 fragment 변경
+            val homeinstance = Home()
+
+//            homeinstance.height=binding.heightOutput.text.toString().toDouble()
+//            homeinstance.weight=binding.weightOutput.text.toString().toDouble()
+            home_height=binding.heightOutput.text.toString().toDouble()
+            home_weight=binding.weightOutput.text.toString().toDouble()
+            home_bmi=(home_weight)/((home_height/100.0)*(home_height/100.0))*10
+            if(home_bmi>300){
+                home_bmi=300.0
+            }
+
+            println("변경된이후 키:"+ home_height)
+            println("변경된이후 몸무게:"+ home_weight)
+
+            replaceFragment(mypage_body_measurement())
+        }
+
+
+
+
+    }
+    private var _binding: FragmentMypageBodyMeasurementEditmodeBinding? = null
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
+        // Inflate the layout for this fragment
+
+        _binding = FragmentMypageBodyMeasurementEditmodeBinding.inflate(inflater,container,false)
+        return binding.root
+        //return inflater.inflate(R.layout.fragment_mypage_body_measurement_editmode, container, false)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.mypage_body_measurement_editmode, container, false)
+
+
+
+
+
+
+
+
+
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentManager = parentFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout,fragment)
+        fragmentTransaction.commit()
+        println("success")
     }
+
+
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment mypage_body_measurement_editmode.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            mypage_body_measurement_editmode().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
+
 }

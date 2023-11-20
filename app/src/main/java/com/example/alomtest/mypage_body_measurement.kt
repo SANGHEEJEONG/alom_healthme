@@ -5,20 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.alomtest.databinding.FragmentMypageMainBinding
-import com.example.alomtest.databinding.ActivityMainBinding
+import com.example.alomtest.Home.Companion.home_height
+import com.example.alomtest.Home.Companion.home_weight
 import com.example.alomtest.databinding.FragmentMypageBodyMeasurementBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [mypage_body_measurement.newInstance] factory method to
- * create an instance of this fragment.
- */
 class mypage_body_measurement : Fragment() {
     private lateinit var binding: FragmentMypageBodyMeasurementBinding
 
@@ -37,8 +28,13 @@ class mypage_body_measurement : Fragment() {
 
         val homeinstance = Home()
 
-        val w:String=homeinstance.weight.toString()
-        val h:String=homeinstance.height.toString()
+//        val w:String=homeinstance.weight.toString()
+//        val h:String=homeinstance.height.toString()
+
+        val w:String=home_weight.toString()
+        val h:String= home_height.toString()
+
+
 
 
         binding.weightOutput.setText(w)
@@ -92,38 +88,40 @@ override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, saved
         super.onViewCreated(view, savedInstanceState)
 
 
-        //weight_edittext.setText()
+
 
 
 
 
     }
 
-    fun access_weight_height(){
+
+    override fun onResume() {
+        super.onResume()
         val homeinstance = Home()
-        var w=homeinstance.weight
-        var h=homeinstance.height
-        //val w=homeinstance.weight
+
+//        val w:String=homeinstance.weight.toString()
+//        val h:String=homeinstance.height.toString()
+
+        val w:String= home_weight.toString()
+        val h:String= home_height.toString()
+
+
+
+        binding.weightOutput.setText(w)
+        binding.heightOutput.setText(h)
+        println("변경된 w"+w)
+        println("변경된 h"+h)
     }
+
+//    fun access_weight_height(){
+//        val homeinstance = Home()
+//        var w=homeinstance.weight
+//        var h=homeinstance.height
+//        //val w=homeinstance.weight
+//    }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment mypage_body_measurement.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            mypage_body_measurement().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 
 
