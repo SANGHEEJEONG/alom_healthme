@@ -3,15 +3,20 @@ package com.example.alomtest
 import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentHomeBinding
 import com.example.alomtest.databinding.FragmentMypageMainBinding
 import kotlin.math.roundToInt
+import kotlin.system.exitProcess
 
 class Home : Fragment() {
 
@@ -57,6 +62,7 @@ class Home : Fragment() {
 
         return binding.root
     }
+    private var backPressedTime: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -72,6 +78,33 @@ class Home : Fragment() {
 
         }
         true
+
+        //2번 뒤로가기 누르면 앱 완전 종료
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val currentTime = System.currentTimeMillis()
+
+                if (currentTime - backPressedTime > 5000) {
+                    // 첫 번째 뒤로가기
+                    backPressedTime = currentTime
+                    // 5초 안에 두 번 뒤로가기를 누르면 앱 종료
+
+                    Toast.makeText(requireContext(), "버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        backPressedTime = 0
+                    }, 5000)
+                } else {
+                    // 두 번째 뒤로가기
+                    requireActivity().finish()
+                    exitProcess(0)
+                }
+            }
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+
+
 
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

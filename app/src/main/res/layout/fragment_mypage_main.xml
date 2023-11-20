@@ -15,7 +15,7 @@ android:background="#636CFF"
         android:layout_height="match_parent"
         android:orientation="vertical"
 
-        android:background="#fff"
+        android:background="@drawable/mypage_main_backgrount_design"
         android:elevation="10dp"
 
         >
@@ -150,6 +150,7 @@ android:background="#636CFF"
             android:background="@drawable/info_total_design"
 
             android:orientation="horizontal"
+            android:elevation="10dp"
 
             >
 
@@ -321,12 +322,23 @@ android:background="#636CFF"
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".3"
+            android:layout_marginHorizontal="30dp"
+
+            android:background="@drawable/dot_line_design"
+            >
+
+        </TextView>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_weight="9"
+            android:layout_weight="8.7"
 
 
             >
@@ -341,7 +353,8 @@ android:background="#636CFF"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="30dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="2"
                     android:background="@drawable/mypage_button_design"
 
@@ -420,7 +433,8 @@ android:background="#636CFF"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="30dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="2"
                     android:background="@drawable/mypage_button_design"
 
@@ -495,7 +509,8 @@ android:background="#636CFF"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="30dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="2"
                     android:background="@drawable/mypage_button_design"
 
@@ -556,7 +571,10 @@ android:background="#636CFF"
                                 android:textColor="#000000"
 
                                 android:textSize="20sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+
+
+                                />
 
 
                         </LinearLayout>
@@ -569,7 +587,8 @@ android:background="#636CFF"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="30dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="2"
                     android:background="@drawable/mypage_button_design"
 

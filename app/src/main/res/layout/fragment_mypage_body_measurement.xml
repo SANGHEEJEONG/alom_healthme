@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
 
-        android:background="#6A73FF"
+        android:background="@drawable/body_measurement_backgrount_design"
         android:elevation="10dp"
 
         >
