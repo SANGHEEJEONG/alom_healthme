@@ -11,9 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import com.example.alomtest.Home.Companion.home_bmi
-import com.example.alomtest.Home.Companion.home_height
-import com.example.alomtest.Home.Companion.home_weight
+
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentMypageMainBinding
 import com.example.alomtest.databinding.FragmentMypageBodyMeasurementBinding
@@ -118,9 +116,17 @@ class mypage_main : Fragment() {
 //        val w:String="${"%.1f".format(homeinstance.weight)}"
 //        val h:String="${"%.1f".format(homeinstance.height)}"
 //        val b: String = "${"%.2f".format(homeinstance.bmi/10)}"
-        val w:String="${"%.1f".format(home_weight)}"
-        val h:String="${"%.1f".format(home_height)}"
-        val b: String = "${"%.2f".format(home_bmi/10)}"
+
+        val weight: String = SharedPreferenceUtils.loadData(requireContext(), "weight", "")
+        //val w:String=home_weight.toString()
+        //val h:String= home_height.toString()
+        val height: String = SharedPreferenceUtils.loadData(requireContext(), "height", "")
+        val bmi: String = SharedPreferenceUtils.loadData(requireContext(), "bmi", "")
+
+
+        val w:String="${"%.1f".format(weight.toDouble())}"
+        val h:String="${"%.1f".format(height.toDouble())}"
+        val b: String = "${"%.2f".format(bmi.toDouble()/10)}"
 
 
 

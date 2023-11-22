@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
-import com.example.alomtest.Home.Companion.home_height
-import com.example.alomtest.Home.Companion.home_weight
+
 import com.example.alomtest.databinding.FragmentMypageBodyMeasurementBinding
 
 
@@ -32,8 +31,12 @@ class mypage_body_measurement : Fragment() {
 //        val w:String=homeinstance.weight.toString()
 //        val h:String=homeinstance.height.toString()
 
-        val w:String=home_weight.toString()
-        val h:String= home_height.toString()
+
+        val w: String = SharedPreferenceUtils.loadData(requireContext(), "weight", "")
+        //val w:String=home_weight.toString()
+        //val h:String= home_height.toString()
+        val h: String = SharedPreferenceUtils.loadData(requireContext(), "height", "")
+
 
 
 
@@ -118,13 +121,17 @@ override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, saved
 
     override fun onResume() {
         super.onResume()
-        val homeinstance = Home()
+        //val homeinstance = Home()
 
 //        val w:String=homeinstance.weight.toString()
 //        val h:String=homeinstance.height.toString()
 
-        val w:String= home_weight.toString()
-        val h:String= home_height.toString()
+        val w: String = SharedPreferenceUtils.loadData(requireContext(), "weight", "")
+        //val w:String=home_weight.toString()
+        //val h:String= home_height.toString()
+        val h: String = SharedPreferenceUtils.loadData(requireContext(), "height", "")
+
+
 
 
 

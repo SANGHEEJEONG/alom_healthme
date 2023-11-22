@@ -110,13 +110,13 @@ class Home : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //height=height/100.0
-        println("bmi"+home_bmi)
-        println("weight"+home_weight)
-        println("height"+home_height)
-
-        if(home_bmi>300){
-            home_bmi=300.0
-        }
+//        println("bmi"+home_bmi)
+//        println("weight"+home_weight)
+//        println("height"+home_height)
+//
+//        if(home_bmi>300){
+//            home_bmi=300.0
+//        }
 
 
 
@@ -226,8 +226,11 @@ class Home : Fragment() {
 //
 //
 //        println(bmi)
-        println("bmi"+ home_bmi)
-        mseekbar.progress=home_bmi.toInt()
+
+        val bmi: Double = SharedPreferenceUtils.loadData(requireContext(), "bmi", "").toDouble()
+        println("bmi"+ bmi)
+
+        mseekbar.progress=bmi.toInt()
 //
 //
 //
@@ -254,9 +257,7 @@ class Home : Fragment() {
 
     companion object{
 
-        var home_weight:Double=64.0
-        var home_height:Double=170.0
-        var home_bmi:Double=(home_weight)/((home_height/100.0)*(home_height/100.0))*10
+
 
     }
 
