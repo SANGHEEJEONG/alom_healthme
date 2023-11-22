@@ -131,6 +131,7 @@ override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, saved
         //val h:String= home_height.toString()
         val h: String = SharedPreferenceUtils.loadData(requireContext(), "height", "")
 
+        val bmi:String= SharedPreferenceUtils.loadData(requireContext(), "bmi", "")
 
 
 

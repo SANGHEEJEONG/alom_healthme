@@ -26,6 +26,7 @@ class mypage_body_measurement_editmode : Fragment() {
         binding=FragmentMypageBodyMeasurementEditmodeBinding.inflate(layoutInflater)
 
         binding.backiconBtn.setOnClickListener {
+
             replaceFragment(mypage_body_measurement())
         }
         binding.savemode.setOnClickListener {
@@ -56,14 +57,12 @@ class mypage_body_measurement_editmode : Fragment() {
                 var calculate_bmi: Double = (binding.weightOutput.text.toString().toDouble()) / ((binding.heightOutput.text.toString().toDouble() / 100.0) * (binding.heightOutput.text.toString().toDouble() / 100.0)) * 10
 
 
+                    if(calculate_bmi>300){
+                        calculate_bmi=300.0
+                    }
 
 
-
-                    SharedPreferenceUtils.saveData(
-                        requireContext(),
-                        "bmi",
-                        (calculate_bmi.toString())
-                    )
+                    SharedPreferenceUtils.saveData(requireContext(), "bmi", (calculate_bmi.toString()))
 
 
                     //home_height=binding.heightOutput.text.toString().toDouble()

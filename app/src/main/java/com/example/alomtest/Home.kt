@@ -30,7 +30,7 @@ class Home : Fragment() {
     //data//
 
     var mMin = 0
-    var mMax = 300
+    var mMax = 310
     var mCurrent = 20
 
 
