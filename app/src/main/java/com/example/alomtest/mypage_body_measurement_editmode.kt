@@ -57,7 +57,7 @@ class mypage_body_measurement_editmode : Fragment() {
                 var calculate_bmi: Double = (binding.weightOutput.text.toString().toDouble()) / ((binding.heightOutput.text.toString().toDouble() / 100.0) * (binding.heightOutput.text.toString().toDouble() / 100.0)) * 10
 
 
-                    if(calculate_bmi>300){
+                    if(calculate_bmi>300.0){
                         calculate_bmi=300.0
                     }
 
@@ -120,6 +120,8 @@ class mypage_body_measurement_editmode : Fragment() {
         fragmentTransaction.replace(R.id.frame_layout,fragment)
         fragmentTransaction.commit()
         println("success")
+
+
     }
 
 

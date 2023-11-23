@@ -63,6 +63,7 @@ class mypage_health_detail : Fragment() {
         fragmentTransaction.replace(R.id.frame_layout,fragment)
         fragmentTransaction.commit()
         println("success")
+
     }
 
 
