@@ -8,5 +8,7 @@
 <!--        <item name ="colorPrimaryVariant">#00FFFFFF</item>-->
         <item name="colorPrimary">#6A73FF</item>
         <item name ="colorPrimaryVariant">#B6B6FF</item>
+        <item name="android:fontFamily">@font/gmarketsansttfmedium</item>
     </style>
+
 </resources>

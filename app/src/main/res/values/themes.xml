@@ -7,7 +7,9 @@
         <item name="colorPrimary">#4E57E4</item>
         <item name ="colorPrimaryVariant">#B6B6FF</item>
          -->
+        <item name="android:fontFamily">@font/gmarketsansttfmedium</item>
     </style>
+
 
     <style name="Theme.Alomtest" parent="Base.Theme.Alomtest" />
 </resources>

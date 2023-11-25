@@ -45,10 +45,10 @@
                         android:id="@+id/textView5"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_weight="1.5"
 
                         android:textColor="#BFC9D9"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:gravity="bottom"
 
                         android:format12Hour="yyyy년 MM월 dd일"
@@ -61,9 +61,10 @@
                         android:layout_height="0dp"
                         android:layout_weight="2"
                         android:text="Exercise"
+
                         android:textColor="#fff"
                         android:textSize="40sp"
-                        android:gravity="center_vertical"
+                        android:gravity="start"
                         android:textStyle="bold"
                         />
 
@@ -75,7 +76,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
 
-                    android:padding="10dp"
+                    android:padding="15dp"
                     android:src="@drawable/seekbar_character5" />
             </LinearLayout>
         </FrameLayout>
@@ -99,8 +100,269 @@
             android:background="@drawable/exercise_summary_background_design"
             android:layout_marginHorizontal="15dp"
 
+
+
+
+
+
             >
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/exercise_main_info"
+
+                    android:elevation="10dp"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"></LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/mypage_button_design"
+
+                    android:elevation="10dp"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="1"
+
+                        android:gravity="center"
+                        android:orientation="vertical"
+
+
+                        >
+
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20dp"
+
+
+                            android:background="@drawable/notice_icon"
+
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="4"
+
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:orientation="horizontal">
+
+                            <TextView
+
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="left|center"
+                                android:paddingLeft="10dp"
+                                android:text="공지사항"
+                                android:textColor="#000000"
+
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/mypage_button_design"
+
+                    android:elevation="10dp"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="1"
+
+                        android:gravity="center"
+                        android:orientation="vertical"
+
+
+                        >
+
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20dp"
+
+
+                            android:background="@drawable/notice_icon"
+
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="4"
+
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:orientation="horizontal">
+
+                            <TextView
+
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="left|center"
+                                android:paddingLeft="10dp"
+                                android:text="공지사항"
+                                android:textColor="#000000"
+
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/mypage_button_design"
+
+                    android:elevation="10dp"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="1"
+
+                        android:gravity="center"
+                        android:orientation="vertical"
+
+
+                        >
+
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20dp"
+
+
+                            android:background="@drawable/notice_icon"
+
+
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="4"
+
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:orientation="horizontal">
+
+                            <TextView
+
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="left|center"
+                                android:paddingLeft="10dp"
+                                android:text="공지사항"
+                                android:textColor="#000000"
+
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
         </FrameLayout>
 
         <TextView
@@ -123,7 +385,81 @@
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Button"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/exercise_routine_background_design"
+                        />
+                    <Button
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Button"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/exercise_routine_background_design"
+                        />
+                    <Button
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Button"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/exercise_routine_background_design"
+                        />
+                    <Button
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Button"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/exercise_routine_background_design"
+                        />
+                    <Button
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Button"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/exercise_routine_background_design"
+                        />
+                    <Button
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Button"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/exercise_routine_background_design"
+                        />
+                    <Button
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Button"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/exercise_routine_background_design"
+                        />
+
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
         </FrameLayout>
 
         <TextView
@@ -154,6 +490,69 @@
                 android:layout_marginHorizontal="10dp"
                 >
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        android:layout_weight="1.5"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView18"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:text="연속 출석 일수"
+                                android:gravity="center"
+                                android:textSize="8sp"
+                                android:textColor="#00E88F"
+                                />
+
+                            <TextView
+                                android:id="@+id/textView19"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:text="13일"
+                                android:textColor="#fff"
+                                android:gravity="center"
+
+                                />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@drawable/seekbar_character5"
+
+
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+
+                        />
+                </LinearLayout>
+
             </FrameLayout>
 
             <FrameLayout
@@ -165,6 +564,11 @@
                 android:background="@drawable/exercise_trend_background_design"
                 >
 
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"></LinearLayout>
             </FrameLayout>
         </LinearLayout>
 
