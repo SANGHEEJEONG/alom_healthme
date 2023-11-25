@@ -112,256 +112,70 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight="2"
-                    android:background="@drawable/exercise_main_info"
-
-                    android:elevation="10dp"
-                    android:orientation="horizontal"
-
+                    android:layout_height="0dp"
+                    android:layout_weight="93"
                     >
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
                     <LinearLayout
                         android:layout_width="match_parent"
+
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"></LinearLayout>
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight="2"
-                    android:background="@drawable/mypage_button_design"
-
-                    android:elevation="10dp"
-                    android:orientation="horizontal"
-
-                    >
-
+                        android:orientation="horizontal"
+                        >
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-
-                        android:layout_weight="1"
-
-                        android:gravity="center"
                         android:orientation="vertical"
-
-
+                        android:layout_weight="198"
                         >
 
-                        <ImageView
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
-
-
-                            android:background="@drawable/notice_icon"
-
-
-                            />
 
                     </LinearLayout>
-
-                    <LinearLayout
+                    <ProgressBar
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-
-                        android:layout_weight="4"
-
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="2"
-                            android:orientation="horizontal">
-
-                            <TextView
-
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="left|center"
-                                android:paddingLeft="10dp"
-                                android:text="공지사항"
-                                android:textColor="#000000"
-
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
+                        android:layout_weight="99"
+                        android:max="100"
+                        android:progress="50"
+                        android:indeterminate="false"
 
 
-                        </LinearLayout>
+
+
+                        />
 
                     </LinearLayout>
 
-                </LinearLayout>
 
-                <LinearLayout
+
+                </FrameLayout>
+
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight="2"
-                    android:background="@drawable/mypage_button_design"
+                    android:layout_height="0dp"
+                    android:layout_weight="65">
 
-                    android:elevation="10dp"
-                    android:orientation="horizontal"
 
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="65"
                     >
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
 
-                        android:layout_weight="1"
+                </FrameLayout>
 
-                        android:gravity="center"
-                        android:orientation="vertical"
-
-
-                        >
-
-                        <ImageView
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
-
-
-                            android:background="@drawable/notice_icon"
-
-
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-
-                        android:layout_weight="4"
-
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="2"
-                            android:orientation="horizontal">
-
-                            <TextView
-
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="left|center"
-                                android:paddingLeft="10dp"
-                                android:text="공지사항"
-                                android:textColor="#000000"
-
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight="2"
-                    android:background="@drawable/mypage_button_design"
-
-                    android:elevation="10dp"
-                    android:orientation="horizontal"
-
+                    android:layout_height="0dp"
+                    android:layout_weight="65"
                     >
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
 
-                        android:layout_weight="1"
-
-                        android:gravity="center"
-                        android:orientation="vertical"
-
-
-                        >
-
-                        <ImageView
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
-
-
-                            android:background="@drawable/notice_icon"
-
-
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-
-                        android:layout_weight="4"
-
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="2"
-                            android:orientation="horizontal">
-
-                            <TextView
-
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="left|center"
-                                android:paddingLeft="10dp"
-                                android:text="공지사항"
-                                android:textColor="#000000"
-
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
+                </FrameLayout>
             </LinearLayout>
         </FrameLayout>
 
@@ -485,74 +299,142 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginHorizontal="10dp"
 
                 android:background="@drawable/exercise_trend_background_design"
-                android:layout_marginHorizontal="10dp"
                 >
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        />
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:orientation="horizontal"
-                        android:layout_weight="1.5"
-                        >
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="141"
+                        android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:orientation="horizontal"
+                            android:layout_weight="100"
+                            >
 
-                            <TextView
-                                android:id="@+id/textView18"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="연속 출석 일수"
-                                android:gravity="center"
-                                android:textSize="8sp"
-                                android:textColor="#00E88F"
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_weight="55"
+                                >
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="23"
+                                    android:text="연속 출석 일수"
+                                    android:textColor="#00E88F"
+                                    android:textSize="8sp"
+                                    android:gravity="bottom|left"
+                                    />
+                                <Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="7"
+
+
+
+                                    />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:orientation="horizontal"
+                                    android:layout_weight="25"
+                                    >
+                                    <!--wrapcontent로 구현-->
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+
+                                        android:text="145"
+
+                                        android:textColor="#fff"
+                                        android:gravity="left|center"
+                                        />
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+
+                                        android:orientation="vertical">
+
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="7"
+                                            android:gravity="left|center"
+
+                                            android:text="일"
+                                            android:textColor="#fff"
+
+
+                                            />
+
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="55"
+                                android:layout_gravity="bottom"
+                                android:src="@drawable/exercise_main_info_consumed_continuous_counter_icon"
                                 />
 
-                            <TextView
-                                android:id="@+id/textView19"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="13일"
-                                android:textColor="#fff"
-                                android:gravity="center"
 
-                                />
 
                         </LinearLayout>
 
-                        <ImageView
-                            android:id="@+id/imageView4"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:src="@drawable/seekbar_character5"
 
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="55"
+                            android:textSize="8sp"
+                            android:text="코드로 구현"
+                            android:textColor="#fff"
                             />
+
+
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/textView12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="TextView"
 
-                        />
+
+
+
+
+
+
+
+
+
                 </LinearLayout>
-
             </FrameLayout>
 
             <FrameLayout
@@ -568,7 +450,144 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"></LinearLayout>
+                    android:orientation="horizontal">
+
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="141"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:orientation="horizontal"
+                            android:layout_weight="100"
+                            >
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_weight="55"
+                                >
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="23"
+                                    android:text="소모한 칼로리"
+                                    android:textColor="#FF4646"
+                                    android:textSize="8sp"
+                                    android:gravity="bottom|left"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="7"
+                                    android:text="하루 평균"
+                                    android:textColor="#95B0F9"
+                                    android:textSize="6sp"
+
+                                    />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:orientation="horizontal"
+                                    android:layout_weight="25"
+                                    >
+<!--wrapcontent로 구현-->
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+
+                                        android:text="1345"
+
+                                        android:textColor="#fff"
+                                        android:gravity="left|center"
+                                        />
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+
+                                        android:orientation="vertical">
+
+                                        <Space
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="13"
+
+                                            />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="7"
+                                            android:text=" Kcal"
+                                            android:textSize="6sp"
+                                            android:gravity="top"
+                                            android:textColor="#fff"
+
+
+                                            />
+                                        <Space
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="3"
+
+                                            />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="55"
+                            android:layout_gravity="bottom"
+                            android:src="@drawable/exercise_main_info_consumed_calories_icon"
+                            />
+
+
+
+                        </LinearLayout>
+
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="55"
+                            android:text="코드로 구현"
+                            android:textSize="8sp"
+                            android:textColor="#fff"
+                            />
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+                </LinearLayout>
             </FrameLayout>
         </LinearLayout>
 

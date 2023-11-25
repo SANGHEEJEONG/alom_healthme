@@ -160,13 +160,8 @@ class mypage_main : Fragment() {
         }
 
 
-        val circle_background = pxToDp(this,getScreenHeight(this))
 
-        val background=binding.circleBackground
 
-        var background_param=background.layoutParams
-        background_param.height=circle_background.toInt()
-        background.layoutParams=background_param
 
 
 

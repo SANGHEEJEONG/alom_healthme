@@ -20,6 +20,8 @@ android:background="#636CFF"
 
         >
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -662,15 +664,15 @@ android:background="#636CFF"
         </FrameLayout>
 
     </LinearLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/circle_background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#6A73FF"
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/circle_background"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="#6A73FF"-->
 
-        >
+<!--        >-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
 </RelativeLayout>
