@@ -235,6 +235,15 @@ class Home : Fragment() {
             SharedPreferenceUtils.saveData(requireContext(), "height", "0")
             SharedPreferenceUtils.saveData(requireContext(), "weight", "0")
             SharedPreferenceUtils.saveData(requireContext(), "bmi", "0")
+
+            //이름, 생년월일, 성별
+            SharedPreferenceUtils.saveData(requireContext(), "name", "0")
+            SharedPreferenceUtils.saveData(requireContext(), "birthday", "0000-00-00")
+            SharedPreferenceUtils.saveData(requireContext(), "gender", "0")
+
+
+
+
         }
 
         val bmi: Double = SharedPreferenceUtils.loadData(requireContext(), "bmi", "").toDouble()

@@ -99,10 +99,10 @@ android:background="#636CFF"
 
             >
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/name_output"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="정 건희"
+                android:text=""
                 android:layout_weight="1"
                 android:gravity="center"
 
@@ -360,9 +360,9 @@ android:background="#636CFF"
                     android:layout_weight="2"
                     android:background="@drawable/mypage_button_design"
 
+                    android:clickable="true"
                     android:elevation="5dp"
                     android:orientation="horizontal"
-                    android:clickable="true"
 
 
                     >
@@ -384,10 +384,10 @@ android:background="#636CFF"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="20dp"
+                            android:background="@drawable/health_detail_icon"
+
+
                             android:clickable="true"
-
-
-                            android:background="@drawable/body_info_icon"
 
 
                             />
@@ -410,14 +410,14 @@ android:background="#636CFF"
 
                             <TextView
                                 android:id="@+id/body_measurement_btn"
-                                android:clickable="true"
-
                                 android:layout_width="0dp"
+
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:clickable="true"
                                 android:gravity="left|center"
                                 android:paddingLeft="10dp"
-                                android:text="신체계측"
+                                android:text="신체정보"
                                 android:textColor="#000000"
 
                                 android:textSize="20sp"
@@ -464,7 +464,7 @@ android:background="#636CFF"
                             android:layout_margin="20dp"
 
 
-                            android:background="@drawable/health_detail_icon"
+                            android:background="@drawable/settings_icon"
 
 
                             />
@@ -493,7 +493,7 @@ android:background="#636CFF"
                                 android:layout_weight="1"
                                 android:gravity="left|center"
                                 android:paddingLeft="10dp"
-                                android:text="건강 세부사항"
+                                android:text="환경설정"
                                 android:textColor="#000000"
 
                                 android:textSize="20sp"
@@ -540,7 +540,7 @@ android:background="#636CFF"
                             android:layout_margin="20dp"
 
 
-                            android:background="@drawable/app_setting_icon"
+                            android:background="@drawable/notice_icon"
 
 
                             />
@@ -569,7 +569,7 @@ android:background="#636CFF"
                                 android:layout_weight="1"
                                 android:gravity="left|center"
                                 android:paddingLeft="10dp"
-                                android:text="앱 설정"
+                                android:text="공지사항"
                                 android:textColor="#000000"
 
                                 android:textSize="20sp"
@@ -594,8 +594,8 @@ android:background="#636CFF"
                     android:layout_weight="2"
                     android:background="@drawable/mypage_button_design"
 
-                    android:orientation="horizontal"
                     android:elevation="10dp"
+                    android:orientation="horizontal"
 
                     >
 
@@ -605,8 +605,8 @@ android:background="#636CFF"
 
                         android:layout_weight="1"
 
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
 
 
                         >
@@ -618,8 +618,7 @@ android:background="#636CFF"
                             android:layout_margin="20dp"
 
 
-                            android:background="@drawable/notice_icon"
-
+                            android:background="@drawable/app_version_icon"
 
 
                             />
@@ -647,7 +646,7 @@ android:background="#636CFF"
                                 android:layout_weight="1"
                                 android:gravity="left|center"
                                 android:paddingLeft="10dp"
-                                android:text="공지사항"
+                                android:text="앱 버전"
                                 android:textColor="#000000"
 
                                 android:textSize="20sp"

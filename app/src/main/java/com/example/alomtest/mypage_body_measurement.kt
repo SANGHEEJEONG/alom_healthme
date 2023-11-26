@@ -41,13 +41,13 @@ class mypage_body_measurement : Fragment() {
 
 
 
-        binding.weightOutput.setText(w)
-        binding.heightOutput.setText(h)
+        binding.weightOutput2.setText(w)
+        binding.heightOutput2.setText(h)
 
-        val weight_edittext=binding.weightOutput
+        val weight_edittext=binding.weightOutput2
         weight_edittext.keyListener = null
 
-        val height_edittext=binding.heightOutput
+        val height_edittext=binding.heightOutput2
         height_edittext.keyListener = null
 
 
@@ -136,8 +136,8 @@ override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, saved
 
 
 
-        binding.weightOutput.setText(w)
-        binding.heightOutput.setText(h)
+        binding.weightOutput2.setText(w)
+        binding.heightOutput2.setText(h)
         println("변경된 w"+w)
         println("변경된 h"+h)
     }

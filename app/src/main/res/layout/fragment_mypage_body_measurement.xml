@@ -120,7 +120,7 @@
                     android:background="@drawable/body_measurements_total_design"
                     >
                     <EditText
-                        android:id="@+id/height_output"
+                        android:id="@+id/height_output2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="4"
@@ -167,7 +167,7 @@
                     android:background="@drawable/body_measurements_total_design"
                     >
                     <EditText
-                        android:id="@+id/weight_output"
+                        android:id="@+id/weight_output2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="4"

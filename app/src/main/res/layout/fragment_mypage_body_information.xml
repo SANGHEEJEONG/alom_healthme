@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mypage_health_detail">
+    tools:context=".mypage_body_information">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
 
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="Health Settings"
+                android:text="신체정보"
                 android:layout_weight="7"
                 android:gravity="center|center_vertical"
                 android:textColor="#fff"
@@ -82,6 +82,19 @@
             android:background="@android:color/transparent"
             />
 
+        <TextView
+            android:id="@+id/name_output"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text=""
+
+
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -99,88 +112,14 @@
 
                 >
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="성"
-                    android:textSize="20sp"
-                    android:gravity="bottom"
-                    android:textColor="#B0B4FF"
-                    android:layout_marginLeft="30dp"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:orientation="horizontal"
-                    android:layout_weight="2"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:background="@drawable/body_measurements_total_design"
-                    >
-                    <EditText
 
-                        android:id="@+id/lastname"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="4"
-                        android:text="180"
-                        android:textColor="#fff"
-                        android:textSize="30sp"
-                        android:inputType="number"
-                        android:cursorVisible="false"
-                        android:background="@drawable/body_measurements_design"
-
-                        />
-
-
-                </LinearLayout>
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="이름"
-                    android:layout_marginTop="15dp"
-                    android:textSize="20sp"
-                    android:gravity="bottom"
-                    android:textColor="#B0B4FF"
-                    android:layout_marginLeft="30dp"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:orientation="horizontal"
-                    android:layout_weight="2"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:background="@drawable/body_measurements_total_design"
-                    >
-                    <EditText
-                        android:id="@+id/firstname"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="4"
-                        android:text="180"
-                        android:cursorVisible="false"
-                        android:textColor="#fff"
-                        android:textSize="30sp"
-                        android:inputType="number"
-
-                        android:background="@drawable/body_measurements_design"
-
-                        />
-
-
-                </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="생년월일"
                     android:layout_marginTop="15dp"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:gravity="bottom"
                     android:textColor="#B0B4FF"
                     android:layout_marginLeft="30dp"
@@ -195,17 +134,18 @@
                     android:background="@drawable/body_measurements_total_design"
                     >
                     <EditText
+                        android:id="@+id/birthday_output"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="4"
-                        android:text="180"
+                        android:text=""
                         android:cursorVisible="false"
-
                         android:textColor="#fff"
-                        android:textSize="30sp"
-                        android:inputType="number"
+                        android:textSize="20sp"
+                        android:inputType="date"
 
                         android:background="@drawable/body_measurements_design"
+
 
                         />
 
@@ -215,9 +155,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:layout_marginTop="15dp"
                     android:text="성별"
-                    android:textSize="20sp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="18sp"
                     android:gravity="bottom"
                     android:textColor="#B0B4FF"
                     android:layout_marginLeft="30dp"
@@ -232,16 +172,15 @@
                     android:background="@drawable/body_measurements_total_design"
                     >
                     <EditText
-                        android:id="@+id/gender"
+                        android:id="@+id/gender_output"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="4"
-                        android:text="180"
+                        android:text=""
                         android:cursorVisible="false"
 
-                        android:layout_marginTop="15dp"
                         android:textColor="#fff"
-                        android:textSize="30sp"
+                        android:textSize="20sp"
                         android:inputType="number"
 
                         android:background="@drawable/body_measurements_design"
@@ -254,15 +193,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="혈액형"
                     android:layout_marginTop="15dp"
+                    android:text="신장"
                     android:textSize="20sp"
                     android:gravity="bottom"
                     android:textColor="#B0B4FF"
                     android:layout_marginLeft="30dp"
                     />
                 <LinearLayout
-                    android:id="@+id/bloodtype"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:orientation="horizontal"
@@ -272,21 +210,77 @@
                     android:background="@drawable/body_measurements_total_design"
                     >
                     <EditText
-                        android:id="@+id/birthdate"
+                        android:id="@+id/height_output"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="4"
-                        android:text="180"
-                        android:cursorVisible="false"
-
+                        android:text="occur_error"
                         android:textColor="#fff"
-                        android:textSize="30sp"
+                        android:textSize="20sp"
                         android:inputType="number"
 
                         android:background="@drawable/body_measurements_design"
 
                         />
 
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:text="cm"
+                        android:gravity="center|center_vertical"
+                        android:textColor="#B0B4FF"
+                        android:textSize="18sp"
+                        />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="몸무게"
+                    android:layout_marginTop="15dp"
+                    android:textSize="18sp"
+                    android:gravity="bottom"
+                    android:textColor="#B0B4FF"
+                    android:layout_marginLeft="30dp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="2"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/body_measurements_total_design"
+                    >
+                    <EditText
+                        android:id="@+id/weight_output"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:text="occur_error"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        android:inputType="number"
+
+                        android:background="@drawable/body_measurements_design"
+
+                        />
+
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:text="kg"
+                        android:gravity="center|center_vertical"
+                        android:textColor="#B0B4FF"
+                        android:textSize="18sp"
+                        />
 
                 </LinearLayout>
 

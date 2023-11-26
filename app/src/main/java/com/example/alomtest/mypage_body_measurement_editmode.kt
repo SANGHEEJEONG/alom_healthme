@@ -29,56 +29,56 @@ class mypage_body_measurement_editmode : Fragment() {
 
             replaceFragment(mypage_body_measurement())
         }
-        binding.savemode.setOnClickListener {
-            //변수에 입력한 값들을 저장하고 fragment 변경
-
-            //if문으로 예외처리
-            //공백이 입력된 경우
-            if (binding.heightOutput.text.toString()
-                    .isEmpty() || binding.weightOutput.text.toString().isEmpty()
-            ) {
-                Toast.makeText(requireContext(), "신장 또는 몸무게를 입력 후 저장버튼을 누르세요.", Toast.LENGTH_SHORT)
-                    .show()
-
-            }
-            //신장 혹은 몸무게가 0으로 입력된 경우
-            else if (binding.heightOutput.text.toString()
-                    .toDouble() == 0.0 || binding.weightOutput.text.toString().toDouble() == 0.0
-            ) {
-                Toast.makeText(requireContext(), "신장 또는 몸무게가 0이 될 수 없습니다.", Toast.LENGTH_SHORT)
-                    .show()
-
-            } else {
-
-
-                SharedPreferenceUtils.saveData(requireContext(), "height", binding.heightOutput.text.toString())
-                SharedPreferenceUtils.saveData(requireContext(), "weight", binding.weightOutput.text.toString())
-                //bmi 계산
-                var calculate_bmi: Double = (binding.weightOutput.text.toString().toDouble()) / ((binding.heightOutput.text.toString().toDouble() / 100.0) * (binding.heightOutput.text.toString().toDouble() / 100.0)) * 10
-
-
-                    if(calculate_bmi>300){
-                        calculate_bmi=300.0
-                    }
-
-
-                    SharedPreferenceUtils.saveData(requireContext(), "bmi", (calculate_bmi.toString()))
-
-
-                    //home_height=binding.heightOutput.text.toString().toDouble()
-                    //home_weight=binding.weightOutput.text.toString().toDouble()
-                    //home_bmi=(home_weight)/((home_height/100.0)*(home_height/100.0))*10
+//        binding.savemode.setOnClickListener {
+//            //변수에 입력한 값들을 저장하고 fragment 변경
 //
-
-                    //println("변경된이후 키:" + home_height)
-                    //println("변경된이후 몸무게:" + home_weight)
-
-                    replaceFragment(mypage_body_measurement())
-
-
-            }
-
-        }
+//            //if문으로 예외처리
+//            //공백이 입력된 경우
+//            if (binding.heightOutput.text.toString()
+//                    .isEmpty() || binding.weightOutput.text.toString().isEmpty()
+//            ) {
+//                Toast.makeText(requireContext(), "신장 또는 몸무게를 입력 후 저장버튼을 누르세요.", Toast.LENGTH_SHORT)
+//                    .show()
+//
+//            }
+//            //신장 혹은 몸무게가 0으로 입력된 경우
+//            else if (binding.heightOutput.text.toString()
+//                    .toDouble() == 0.0 || binding.weightOutput.text.toString().toDouble() == 0.0
+//            ) {
+//                Toast.makeText(requireContext(), "신장 또는 몸무게가 0이 될 수 없습니다.", Toast.LENGTH_SHORT)
+//                    .show()
+//
+//            } else {
+//
+//
+//                SharedPreferenceUtils.saveData(requireContext(), "height", binding.heightOutput.text.toString())
+//                SharedPreferenceUtils.saveData(requireContext(), "weight", binding.weightOutput.text.toString())
+//                //bmi 계산
+//                var calculate_bmi: Double = (binding.weightOutput.text.toString().toDouble()) / ((binding.heightOutput.text.toString().toDouble() / 100.0) * (binding.heightOutput.text.toString().toDouble() / 100.0)) * 10
+//
+//
+//                    if(calculate_bmi>300){
+//                        calculate_bmi=300.0
+//                    }
+//
+//
+//                    SharedPreferenceUtils.saveData(requireContext(), "bmi", (calculate_bmi.toString()))
+//
+//
+//                    //home_height=binding.heightOutput.text.toString().toDouble()
+//                    //home_weight=binding.weightOutput.text.toString().toDouble()
+//                    //home_bmi=(home_weight)/((home_height/100.0)*(home_height/100.0))*10
+////
+//
+//                    //println("변경된이후 키:" + home_height)
+//                    //println("변경된이후 몸무게:" + home_weight)
+//
+//                    replaceFragment(mypage_body_measurement())
+//
+//
+//            }
+//
+//        }
 
        //뒤로가기 처리
         val callback = object : OnBackPressedCallback(true /* enabled by default */) {

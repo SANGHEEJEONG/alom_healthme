@@ -14,7 +14,6 @@ import androidx.activity.OnBackPressedCallback
 
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentMypageMainBinding
-import com.example.alomtest.databinding.FragmentMypageBodyMeasurementBinding
 import kotlin.system.exitProcess
 
 
@@ -29,24 +28,24 @@ class mypage_main : Fragment() {
         binding2 = ActivityMainBinding.inflate(layoutInflater)
         //
         binding.bodyMeasurementBtn3.setOnClickListener {
-            replaceFragment(mypage_body_measurement())
+            replaceFragment(mypage_body_information())
         }
         binding.bodyMeasurementBtn.setOnClickListener {
-            replaceFragment(mypage_body_measurement())
+            replaceFragment(mypage_body_information())
         }
         binding.bodyMeasurementBtn2.setOnClickListener {
-            replaceFragment(mypage_body_measurement())
+            replaceFragment(mypage_body_information())
         }
 
         //건강 세부사항
         binding.bodyMeasurementBtn4.setOnClickListener {
-            replaceFragment(mypage_health_detail())
+            replaceFragment(mypage_setting())
         }
         binding.bodyMeasurementBtn5.setOnClickListener {
-            replaceFragment(mypage_health_detail())
+            replaceFragment(mypage_setting())
         }
         binding.bodyMeasurementBtn6.setOnClickListener {
-            replaceFragment(mypage_health_detail())
+            replaceFragment(mypage_setting())
         }
         binding.backiconBtn.setOnClickListener {
             binding2.bottomNavigationView.selectedItemId=R.id.home
@@ -175,9 +174,17 @@ class mypage_main : Fragment() {
     }
 
 
+    override fun onResume() {
+        super.onResume()
+        val name:String= SharedPreferenceUtils.loadData(requireContext(), "name", "")
 
 
 
+
+        binding.nameOutput.setText(name)
+
+
+    }
 
 
     companion object {

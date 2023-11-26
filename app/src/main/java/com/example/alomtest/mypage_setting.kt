@@ -6,32 +6,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
-import com.example.alomtest.databinding.FragmentMypageHealthDetailBinding
-import com.example.alomtest.databinding.FragmentMypageHealthDetailEditmodeBinding
+import com.example.alomtest.databinding.FragmentMypageSettingBinding
 
 
-class mypage_health_detail_editmode : Fragment() {
-
-    private lateinit var binding:FragmentMypageHealthDetailEditmodeBinding
+class mypage_setting : Fragment() {
+    private lateinit var binding: FragmentMypageSettingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding=FragmentMypageHealthDetailEditmodeBinding.inflate(layoutInflater)
+        binding = FragmentMypageSettingBinding.inflate((layoutInflater))
 
         binding.backiconBtn.setOnClickListener {
-            replaceFragment(mypage_health_detail())
+            replaceFragment(mypage_main())
         }
-
-
-
-
-        //뒤로가기 처리
+        binding.editModeIcon.setOnClickListener {
+            replaceFragment(mypage_setting_editmode())
+        }
         val callback = object : OnBackPressedCallback(true /* enabled by default */) {
             override fun handleOnBackPressed() {
                 // 뒤로가기 이벤트가 발생했을 때 수행할 작업
                 // 예를 들어 특정 상황에서만 뒤로가기를 처리하고 싶은 경우 여기에 작성
 
-                replaceFragment(mypage_health_detail())
+                replaceFragment(mypage_main())
 
             }
         }
@@ -41,27 +36,39 @@ class mypage_health_detail_editmode : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
 
 
+
+
+        val name_edittext=binding.nameOutput2
+        name_edittext.keyListener = null
+        val email_edittext=binding.emailOutput
+        email_edittext.keyListener = null
+
     }
-
-
-
-
-    private var _binding: FragmentMypageHealthDetailEditmodeBinding? = null
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-
-        _binding = FragmentMypageHealthDetailEditmodeBinding.inflate(inflater,container,false)
+    private var _binding: FragmentMypageSettingBinding? = null
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        _binding = FragmentMypageSettingBinding.inflate(inflater,container,false)
         return binding.root
-        //return inflater.inflate(R.layout.fragment_mypage_body_measurement_editmode, container, false)
     }
-
     private fun replaceFragment(fragment: Fragment){
         val fragmentManager = parentFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frame_layout,fragment)
         fragmentTransaction.commit()
         println("success")
+    }
+
+
+
+    override fun onResume() {
+        super.onResume()
+        val name:String= SharedPreferenceUtils.loadData(requireContext(), "name", "")
+
+
+
+
+        binding.nameOutput.setText(name)
+
+
     }
     companion object {
 

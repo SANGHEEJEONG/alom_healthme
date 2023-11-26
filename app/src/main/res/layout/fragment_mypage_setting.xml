@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mypage_body_measurement_editmode">
+    tools:context=".mypage_setting">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,35 +37,33 @@
                 android:clickable="true"
                 />
 
-<!--EditMode 글자 없앨 때 20sp로 수정할 것-->
+
             <TextView
 
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="Body Measurements Editmode"
+                android:text="환경설정"
                 android:layout_weight="7"
                 android:gravity="center|center_vertical"
                 android:textColor="#fff"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
 
+
                 />
-            <TextView
-                android:id="@+id/savemode"
+            <ImageView
+                android:id="@+id/edit_mode_icon"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="저장"
+                android:text=""
                 android:layout_weight="2"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:gravity="center|center_vertical"
                 android:textColor="#fff"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-
-                android:clickable="true"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
+                android:src="@drawable/editmode_icon"
 
                 />
 
@@ -85,12 +83,25 @@
             android:background="@android:color/transparent"
             />
 
+        <TextView
+            android:id="@+id/name_output"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text=""
+
+
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_weight="7"
+            android:layout_weight="6"
 
 
             >
@@ -101,117 +112,80 @@
                 android:orientation="vertical">
 
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:text="이름"
+                    android:textColor="#B0B4FF"
+                    android:textSize="20sp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/body_measurements_total_design"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/name_output2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:background="@drawable/body_measurements_design"
+
+                        android:cursorVisible="false"
+                        android:inputType="number"
+                        android:text="occur_error"
+
+                        android:textColor="#fff"
+                        android:textSize="30sp" />
+
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="신장"
-                    android:textSize="20sp"
-                    android:gravity="bottom"
-                    android:textColor="#B0B4FF"
                     android:layout_marginLeft="30dp"
-                    />
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:text="이메일"
+                    android:textColor="#B0B4FF"
+                    android:textSize="20sp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:orientation="horizontal"
-                    android:layout_weight="2"
-                    android:layout_marginRight="30dp"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_weight="2"
                     android:background="@drawable/body_measurements_total_design"
-                    >
-<!--                    android:id="@+id/height_output2"-->
-                    <EditText
+                    android:orientation="horizontal">
 
+                    <EditText
+                        android:id="@+id/email_output"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="4"
-                        android:text=""
-
-                        android:textColor="#fff"
-                        android:textSize="30sp"
-                        android:inputType="numberDecimal"
-
                         android:background="@drawable/body_measurements_design"
-                        android:cursorVisible="false"
+                        android:inputType="number"
+                        android:text="occur_error"
+                        android:textColor="#fff"
+
+                        android:textSize="30sp"
+
                         />
 
-
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.5"
-                        android:text="cm"
-                        android:gravity="center|center_vertical"
-                        android:textColor="#B0B4FF"
-                        android:textSize="20sp"
-                        />
 
                 </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="몸무게"
-                    android:textSize="20sp"
-                    android:gravity="bottom"
-                    android:textColor="#B0B4FF"
-                    android:layout_marginLeft="30dp"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:orientation="horizontal"
-                    android:layout_weight="2"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:background="@drawable/body_measurements_total_design"
-                    >
-<!--                      android:id="@+id/weight_output2"-->
-                    <EditText
-
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="4"
-                        android:text=""
-                        android:textColor="#fff"
-                        android:textSize="30sp"
-                        android:inputType="numberDecimal"
-
-                        android:background="@drawable/body_measurements_design"
-                        android:cursorVisible="false"
-
-                        />
-
-
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.5"
-                        android:text="kg"
-                        android:gravity="center|center_vertical"
-                        android:textColor="#B0B4FF"
-                        android:textSize="20sp"
-                        />
-
-                </LinearLayout>
-
-
-
-
-
-
-
-
-
 
 
             </LinearLayout>
-
 
 
         </FrameLayout>
