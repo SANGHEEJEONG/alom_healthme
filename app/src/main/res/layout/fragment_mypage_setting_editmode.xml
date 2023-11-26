@@ -135,15 +135,15 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/height_output2"
+                        android:id="@+id/name_output2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="4"
                         android:background="@drawable/body_measurements_design"
 
                         android:cursorVisible="false"
-                        android:inputType="number"
-                        android:text="occur_error"
+                        android:inputType="textPersonName"
+                        android:text=""
 
                         android:textColor="#fff"
                         android:textSize="30sp" />
@@ -176,8 +176,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="4"
                         android:background="@drawable/body_measurements_design"
-                        android:inputType="number"
-                        android:text="occur_error"
+                        android:inputType="textEmailAddress"
+                        android:text=""
                         android:textColor="#fff"
 
                         android:textSize="30sp"

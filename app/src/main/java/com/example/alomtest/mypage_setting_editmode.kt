@@ -20,6 +20,22 @@ class mypage_setting_editmode : Fragment() {
             replaceFragment(mypage_setting())
         }
         binding.savemode.setOnClickListener {
+            if(binding.nameOutput2.text.toString().isNotEmpty()) {
+                SharedPreferenceUtils.saveData(
+                    requireContext(),
+                    "name",
+                    binding.nameOutput2.text.toString()
+                )
+            }
+            if(binding.emailOutput.text.toString().isNotEmpty()){
+                SharedPreferenceUtils.saveData(requireContext(), "email", binding.emailOutput.text.toString())}
+
+
+
+
+
+
+
             replaceFragment(mypage_setting())
         }
         val callback = object : OnBackPressedCallback(true /* enabled by default */) {
@@ -52,14 +68,18 @@ class mypage_setting_editmode : Fragment() {
     override fun onResume() {
         super.onResume()
         val name:String= SharedPreferenceUtils.loadData(requireContext(), "name", "")
+        val email:String= SharedPreferenceUtils.loadData(requireContext(), "email", "")
 
 
 
 
+
+        binding.nameOutput2.hint=name
+        binding.emailOutput.hint=email
         binding.nameOutput.setText(name)
 
-
     }
+
     companion object {
 
 

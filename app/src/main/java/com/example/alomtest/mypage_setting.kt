@@ -62,11 +62,13 @@ class mypage_setting : Fragment() {
     override fun onResume() {
         super.onResume()
         val name:String= SharedPreferenceUtils.loadData(requireContext(), "name", "")
-
+        val email:String= SharedPreferenceUtils.loadData(requireContext(), "email", "")
 
 
 
         binding.nameOutput.setText(name)
+        binding.nameOutput2.setText(name)
+        binding.emailOutput.setText(email)
 
 
     }
