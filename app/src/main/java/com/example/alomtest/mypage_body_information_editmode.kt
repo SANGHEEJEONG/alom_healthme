@@ -1,5 +1,6 @@
 package com.example.alomtest
 
+import SharedPreferenceUtils
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -63,7 +64,12 @@ class mypage_body_information_editmode : Fragment() {
 //                SharedPreferenceUtils.saveData(requireContext(), "gender", binding.genderOutput.text.toString())
 //                SharedPreferenceUtils.saveData(requireContext(), "birthday", binding.birthdayInput.text.toString())
                 //bmi 계산
-                var calculate_bmi: Double = (binding.weightOutput.text.toString().toDouble()) / ((binding.heightOutput.text.toString().toDouble() / 100.0) * (binding.heightOutput.text.toString().toDouble() / 100.0)) * 10
+
+                var weight:Double = (SharedPreferenceUtils.loadData(requireContext(),"weight","")).toDouble()
+                var height:Double = (SharedPreferenceUtils.loadData(requireContext(),"height","")).toDouble()
+
+
+                var calculate_bmi: Double = (weight) / ((height / 100.0) * (height / 100.0)) * 10
 
 
                     if(calculate_bmi>300){
