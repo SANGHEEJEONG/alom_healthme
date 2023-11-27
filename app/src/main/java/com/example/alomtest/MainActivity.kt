@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
+                //R.id.exercise -> {replaceFragment()
                R.id.exercise -> {replaceFragment(exercise_main())
                 //R.id.exercise -> {replaceFragment(exercise())
                 }

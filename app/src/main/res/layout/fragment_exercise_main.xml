@@ -147,6 +147,7 @@
                         android:progressDrawable="@drawable/circular_progressbar"
                         android:indeterminateOnly="false"
                         android:rotation="35"
+                        android:padding="15dp"
 
 
 
@@ -174,31 +175,196 @@
 
                 </FrameLayout>
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="65">
 
 
-                </FrameLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="65"
+                        android:orientation="horizontal"
+                        android:layout_marginHorizontal="20dp"
+                        android:background="@drawable/exercise_main_info_element_background_design"
 
-                <FrameLayout
+                        >
+<!--                        239:48-->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_weight="239"
+                            android:layout_marginHorizontal="20dp"
+
+                            >
+
+
+<!--                            22:29-->
+                           <TextView
+                               android:layout_width="match_parent"
+                               android:layout_height="0dp"
+                               android:layout_weight="20"
+                               android:text="걸음수"
+                               android:textColor="#C0D0FF"
+                               android:gravity="bottom"
+                                android:textSize="9sp"
+                               />
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="29"
+                                android:gravity="top"
+                                android:textColor="#00FF9D"
+                                android:text="7000/9000"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+
+
+                                />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="48"
+                            android:src="@drawable/exercise_main_info_walking_icon"
+                            android:layout_margin="20dp"
+
+                            />
+
+                    </LinearLayout>
+
+
+
+
+
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="65"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@drawable/exercise_main_info_element_background_design"
+                    android:layout_marginTop="10dp"
                     >
+                    <!--                        239:48-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="239"
+                        android:layout_marginHorizontal="20dp"
+
+                        >
 
 
-                </FrameLayout>
+                        <!--                            22:29-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="20"
+                            android:text="운동 시간"
+                            android:textColor="#C0D0FF"
+                            android:gravity="bottom"
+                            android:textSize="9sp"
+                            />
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="29"
+                            android:gravity="top"
+                            android:textColor="#00FF9D"
+                            android:text="1h 26m"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
 
-                <FrameLayout
+
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="48"
+                        android:src="@drawable/exercise_main_info_exercising_icon"
+                        android:layout_margin="20dp"
+
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="65"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@drawable/exercise_main_info_element_background_design"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
                     >
+                    <!--                        239:48-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="239"
+                        android:layout_marginHorizontal="20dp"
+
+                        >
 
 
-                </FrameLayout>
+                        <!--                            22:29-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="20"
+                            android:text="거리"
+                            android:textColor="#C0D0FF"
+                            android:gravity="bottom"
+                            android:textSize="9sp"
+                            />
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="29"
+                            android:gravity="top"
+                            android:textColor="#00FF9D"
+                            android:text="3.27 km"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+
+
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="48"
+                        android:src="@drawable/exercise_main_info_distance_icon"
+                        android:layout_margin="20dp"
+
+                        />
+
+                </LinearLayout>
             </LinearLayout>
         </FrameLayout>
 

@@ -47,7 +47,42 @@
             android:layout_height="0dp"
             android:orientation="horizontal"
             android:layout_weight="70"
+            android:layout_marginHorizontal="10dp"
+
             >
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="길동이의 아침운동"
+                android:textSize="20sp"
+                android:textColor="#657CFF"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+
+
+
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/exercising_indicator_icon"
+                android:scaleType="fitCenter"
+                android:layout_marginHorizontal="3dp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="운동 중"
+                android:textColor="#E20404"
+                android:gravity="center_vertical"
+
+                />
 
 
 
