@@ -389,78 +389,79 @@
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scrollbars="none"
-                >
+                android:scrollbars="none">
 
                 <LinearLayout
+                    android:id="@+id/routine_info_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+
+                    >
+<!--
+                    <Button
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/exercise_routine_background_design"
+                        android:text="Button" />
 
                     <Button
 
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="Button"
                         android:layout_marginHorizontal="10dp"
+                        android:layout_weight="1"
                         android:background="@drawable/exercise_routine_background_design"
-                        />
+                        android:text="Button" />
+
                     <Button
 
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="Button"
                         android:layout_marginHorizontal="10dp"
+                        android:layout_weight="1"
                         android:background="@drawable/exercise_routine_background_design"
-                        />
+                        android:text="Button" />
+
                     <Button
 
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="Button"
                         android:layout_marginHorizontal="10dp"
+                        android:layout_weight="1"
                         android:background="@drawable/exercise_routine_background_design"
-                        />
+                        android:text="Button" />
+
                     <Button
 
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="Button"
                         android:layout_marginHorizontal="10dp"
+                        android:layout_weight="1"
                         android:background="@drawable/exercise_routine_background_design"
-                        />
+                        android:text="Button" />
+
                     <Button
 
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="Button"
                         android:layout_marginHorizontal="10dp"
+                        android:layout_weight="1"
                         android:background="@drawable/exercise_routine_background_design"
-                        />
+                        android:text="Button" />
+-->
                     <Button
+                        android:id="@+id/addbtn"
 
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="Button"
                         android:layout_marginHorizontal="10dp"
-                        android:background="@drawable/exercise_routine_background_design"
-                        />
-                    <Button
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="Button"
-                        android:layout_marginHorizontal="10dp"
                         android:background="@drawable/exercise_routine_background_design"
-                        />
-
+                        android:text="+" />
 
 
                 </LinearLayout>
