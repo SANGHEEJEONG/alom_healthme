@@ -116,19 +116,68 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="93"
+                    android:layout_marginLeft="20dp"
                     >
                     <LinearLayout
                         android:layout_width="match_parent"
 
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
+                        android:layout_marginHorizontal="20dp"
                         >
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:layout_weight="198"
-                        >
+                        android:layout_weight="198">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="30"
+                            android:text="길동이의 아침운동"
+                            android:gravity="bottom"
+                            android:textColor="#DBE9E4"
+                            android:textSize="8sp"
+
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:orientation="horizontal"
+                            android:layout_weight="25"
+
+                            >
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="20"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/doing_exercise_indicate_icon"
+                                />
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="10"
+
+                                />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="188"
+                                android:text="운동 중"
+                                android:textStyle="bold"
+                                android:textColor="#FF1313"
+                                android:gravity="bottom"
+
+                                android:textSize="25sp"
+                                />
+
+
+
+                        </LinearLayout>
 
 
                     </LinearLayout>
@@ -453,14 +502,49 @@
                         android:background="@drawable/exercise_routine_background_design"
                         android:text="Button" />
 -->
-                    <Button
-                        android:id="@+id/addbtn"
+<!--
+                        android:backgroundTint="#2633FF"
 
+-->                 <RelativeLayout
+                    android:id="@+id/allocation_btn_layout"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+<!--                        android:background="@drawable/exercise_routine_background_design"
+-->                     
+<!--                주석    <Button-->
+<!--                        android:id="@+id/btn2"-->
+<!--                        android:text="editmode"-->
+<!--                        android:textSize="5sp"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:backgroundTint="@color/white"-->
+<!--                        android:background="@drawable/exercise_routine_background_design"-->
+<!--                        />-->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:id="@+id/btn2"
+                        android:gravity="center_horizontal"
+
+
+                        />
+
+                </RelativeLayout>
+
+
+
+
+                    <Button
+                        android:id="@+id/addbtn"
                         android:background="@drawable/exercise_routine_background_design"
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10px"
+                        android:layout_weight="1"
                         android:text="+" />
 
 
