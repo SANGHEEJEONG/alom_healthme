@@ -423,6 +423,7 @@
             android:layout_height="0dp"
             android:text="루틴"
 
+
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:textColor="#E7F1FF"
@@ -445,7 +446,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-
                     >
 <!--
                     <Button
@@ -541,10 +541,11 @@
                         android:id="@+id/addbtn"
                         android:background="@drawable/exercise_routine_background_design"
 
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginRight="10px"
-                        android:layout_weight="1"
+                        android:gravity="center"
+
                         android:text="+" />
 
 

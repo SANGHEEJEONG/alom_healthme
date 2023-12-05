@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".add_routine_page"
+    android:background="#000778">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+<!--상단메뉴-->
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:orientation="horizontal"
+          android:paddingHorizontal="10dp"
+          android:layout_weight="1"
+          >
+          <TextView
+              android:id="@+id/cancelicon"
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:text="취소"
+              android:textColor="#fff"
+              android:layout_weight="1"
+              android:textAlignment="textEnd"
+              />
+
+          <TextView
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:text="Add routine"
+              android:textColor="#fff"
+              android:layout_weight="10"
+              android:textAlignment="center"
+              />
+
+          <TextView
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:text="저장"
+              android:textColor="#00FF9D"
+              android:layout_weight="1"
+              android:textAlignment="textStart"
+
+              />
+
+
+
+
+
+
+      </LinearLayout>
+
+<!--       커스텀 4-->
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="2"
+          android:orientation="horizontal"
+          android:layout_marginHorizontal="30dp"
+
+          >
+          <EditText
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:text="커스텀 4"
+              android:textSize="30sp"
+              android:textColor="#E7F1FF"
+              android:inputType="text"
+              android:textStyle="bold"
+
+
+              />
+
+
+
+      </LinearLayout>
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="1"
+          android:text="총 0코스"
+          android:textColor="#B9BDFE"
+          android:layout_marginHorizontal="30dp"
+
+          />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="1"
+          android:text="커스텀 리스트"
+          android:textColor="#B9BDFE"
+          android:textSize="10sp"
+          android:layout_marginHorizontal="30dp"
+          />
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/exercise_view"
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="18"
+          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+          android:orientation ="vertical"
+          tools:listitem="@layout/custom_exercise_list"
+
+
+
+          />
+      <Button
+          android:id="@+id/exercise_add_btn"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="추가_exercise_add_btn"
+          />
+
+
+      <!--      총 0코스 / 0h 0m-->
+
+
+<!--
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"/>
+
+      -->
+<!--커스텀 리스트-->
+<!--
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"/>
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+
+
+</androidx.recyclerview.widget.RecyclerView>
+
+
+-->
+
+  </LinearLayout>
+
+
+</FrameLayout>

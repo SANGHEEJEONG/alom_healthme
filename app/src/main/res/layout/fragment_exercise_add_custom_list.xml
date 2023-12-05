@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".exercise_add_custom_list"
+    android:background="#000778">
+<!--
+상단 바와 아래 비율 1:22+warp_content
+
+-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--상단메뉴-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/backicon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="취소"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Add routine"
+                android:textColor="#fff"
+                android:layout_weight="10"
+                android:textAlignment="center"
+                />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+
+                android:layout_weight="1"
+                />
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="부위별 목록"
+            android:textColor="#B9BDFE"
+            android:textSize="15sp"
+            android:layout_marginHorizontal="30dp"
+            android:gravity="center_vertical"
+            />
+
+        <LinearLayout
+            android:id="@+id/exercise_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="18"
+            android:orientation ="vertical"
+            tools:listitem="@layout/custom_exercise_list">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:background="#2546FF"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="1"
+
+                >
+
+
+
+                <ImageView
+                    android:id="@+id/exercise_img1"
+                    android:layout_width="0dp"
+                    android:layout_weight="20"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/character_0"
+                    />
+
+
+
+
+
+
+
+                <TextView
+                    android:id="@+id/exercise_name1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="55"
+
+
+
+                    android:text="가슴"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+
+                    android:gravity="center"
+
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:text=">"
+                    android:textColor="#000DE3"
+                    android:gravity="center"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+
+                    />
+
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:background="#2546FF"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="1"
+
+
+
+                >
+
+
+
+                <ImageView
+                    android:id="@+id/exercise_img2"
+                    android:layout_width="0dp"
+                    android:layout_weight="20"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/character_0"
+                    />
+
+
+
+
+
+
+
+                <TextView
+                    android:id="@+id/exercise_name2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="55"
+
+
+
+                    android:text="팔"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+
+                    android:gravity="center"
+
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:text=">"
+                    android:textColor="#000DE3"
+                    android:gravity="center"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+
+                    />
+
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:background="#2546FF"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="1"
+
+
+
+                >
+
+
+
+                <ImageView
+                    android:id="@+id/exercise_img3"
+                    android:layout_width="0dp"
+                    android:layout_weight="20"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/character_0"
+                    />
+
+
+
+
+
+
+
+                <TextView
+                    android:id="@+id/exercise_name3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="55"
+
+
+
+                    android:text="등"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+
+                    android:gravity="center"
+
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:text=">"
+                    android:textColor="#000DE3"
+                    android:gravity="center"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+
+                    />
+
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:background="#2546FF"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="1"
+
+
+
+                >
+
+
+
+                <ImageView
+                    android:id="@+id/exercise_img4"
+                    android:layout_width="0dp"
+                    android:layout_weight="20"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/character_0"
+                    />
+
+
+
+
+
+
+
+                <TextView
+                    android:id="@+id/exercise_name4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="55"
+
+
+
+                    android:text="복근"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+
+                    android:gravity="center"
+
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:text=">"
+                    android:textColor="#000DE3"
+                    android:gravity="center"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+
+                    />
+
+
+
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:background="#2546FF"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="1"
+
+
+
+                >
+
+
+
+                <ImageView
+                    android:id="@+id/exercise_img5"
+                    android:layout_width="0dp"
+                    android:layout_weight="20"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/character_0"
+                    />
+
+
+
+
+
+
+
+                <TextView
+                    android:id="@+id/exercise_name5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="55"
+
+
+
+                    android:text="하체"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+
+                    android:gravity="center"
+
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:text=">"
+                    android:textColor="#000DE3"
+                    android:gravity="center"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+
+                    />
+
+
+
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:background="#2546FF"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="30dp"
+                android:layout_weight="1"
+
+
+
+                >
+
+
+
+                <ImageView
+                    android:id="@+id/exercise_img6"
+                    android:layout_width="0dp"
+                    android:layout_weight="20"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/character_0"
+                    />
+
+
+
+                <TextView
+                    android:id="@+id/exercise_name6"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="55"
+
+
+
+                    android:text="어깨"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+
+                    android:gravity="center"
+
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:text=">"
+                    android:textColor="#000DE3"
+                    android:gravity="center"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+
+                    />
+
+
+
+
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

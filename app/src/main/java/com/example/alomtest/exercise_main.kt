@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.core.view.marginLeft
@@ -62,8 +63,14 @@ class exercise_main : Fragment() {
        routininfo=binding.routineInfoLayout
         val addbutton=binding.addbtn
         addbutton.setOnClickListener {
-            addnewbtn_new()
-            most_back_btn()
+
+            //일단 기능 해제
+            replaceFragment(add_routine_page())
+
+
+
+            //addnewbtn_new()
+            //most_back_btn()
 
 
 
@@ -98,6 +105,13 @@ class exercise_main : Fragment() {
     println("${cnt}relativelayout id=${relativeLayout.id}")
 
 //커스텀
+    //val frameLayout = FrameLayout(context)
+
+
+//    frameLayout.id=View.generateViewId()
+
+
+
     val btn1 = Button(context)
 
 
@@ -109,11 +123,17 @@ class exercise_main : Fragment() {
     )
     btn1.setBackgroundResource(R.drawable.exercise_routine_background_design)
 
+
+
+
+
+
+
     // 두 번째 버튼들을 담을 LinearLayout 생성
     val linearLayout = LinearLayout(context)
-    linearLayout.layoutParams = RelativeLayout.LayoutParams(
-        RelativeLayout.LayoutParams.MATCH_PARENT,
-        RelativeLayout.LayoutParams.MATCH_PARENT
+    linearLayout.layoutParams = LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams.MATCH_PARENT,
+        LinearLayout.LayoutParams.MATCH_PARENT
     )
 
     linearLayout.orientation = LinearLayout.VERTICAL
