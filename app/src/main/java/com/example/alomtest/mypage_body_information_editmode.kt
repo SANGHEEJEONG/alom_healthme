@@ -17,7 +17,44 @@ class mypage_body_information_editmode : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
+
+
+
         binding=FragmentMypageBodyInformationEditmodeBinding.inflate(layoutInflater)
+
+        //성별 체크박스 코드
+
+        val current_gender=(SharedPreferenceUtils.loadData(requireContext(),"gender","")).toString()
+
+
+
+        val man=binding.manCheckbox
+        val woman=binding.womanCheckbox
+        if(current_gender=="남성"){
+            man.isChecked=true
+        }
+        else if(current_gender=="여성"){
+            woman.isChecked=true
+        }
+
+
+
+        man.setOnCheckedChangeListener { _, isChecked -> if(isChecked){
+            woman.isChecked = false
+        }
+        }
+        woman.setOnCheckedChangeListener { _, isChecked -> if(isChecked){
+            man.isChecked = false
+        }
+        }
+
+//
+
+
+        val current_w=(SharedPreferenceUtils.loadData(requireContext(),"weight","")).toDouble()
+        val current_h=(SharedPreferenceUtils.loadData(requireContext(),"height","")).toDouble()
 
         binding.backiconBtn.setOnClickListener {
             replaceFragment(mypage_body_information())
@@ -34,6 +71,12 @@ class mypage_body_information_editmode : Fragment() {
                     .show()
 
             }
+
+            else if(!(binding.manCheckbox.isChecked) && !(binding.womanCheckbox.isChecked)){
+                Toast.makeText(requireContext(), "성별을 선택해 주세요.", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
             //신장 혹은 몸무게가 0으로 입력된 경우
             else if (binding.heightOutput.text.toString()
                     .toDouble() == 0.0 || binding.weightOutput.text.toString().toDouble() == 0.0
@@ -46,13 +89,29 @@ class mypage_body_information_editmode : Fragment() {
                 if(binding.heightOutput.text.isNotEmpty()){
                     SharedPreferenceUtils.saveData(requireContext(), "height", binding.heightOutput.text.toString())
                 }
+                else{
+                    SharedPreferenceUtils.saveData(requireContext(), "height", current_h.toString())
+
+                }
                 if(binding.weightOutput.text.isNotEmpty()){
                     SharedPreferenceUtils.saveData(requireContext(), "weight", binding.weightOutput.text.toString())
                 }
+                else{
+                    SharedPreferenceUtils.saveData(requireContext(), "weight", binding.weightOutput.text.toString())
 
-                if(binding.genderOutput.text.isNotEmpty()){
-                    SharedPreferenceUtils.saveData(requireContext(), "gender", binding.genderOutput.text.toString())
                 }
+
+//                if(binding.genderOutput.text.isNotEmpty()){
+//                    SharedPreferenceUtils.saveData(requireContext(), "gender", binding.genderOutput.text.toString())
+//                }
+                if(binding.manCheckbox.isChecked){
+                    SharedPreferenceUtils.saveData(requireContext(), "gender", "남성")
+                }
+                else{
+                    SharedPreferenceUtils.saveData(requireContext(), "gender", "여성")
+                }
+
+
                 if(binding.birthdayInput.text.isNotEmpty()){
                     SharedPreferenceUtils.saveData(requireContext(), "birthday", binding.birthdayInput.text.toString())
                 }
@@ -70,6 +129,7 @@ class mypage_body_information_editmode : Fragment() {
 
 
                 var calculate_bmi: Double = (weight) / ((height / 100.0) * (height / 100.0)) * 10
+
 
 
                     if(calculate_bmi>300){
@@ -164,7 +224,7 @@ class mypage_body_information_editmode : Fragment() {
 
 
         binding.birthdayInput.hint=birthday
-        binding.genderOutput.hint=gender
+        //binding.genderOutput.hint=gender
         binding.heightOutput.hint=h
         binding.weightOutput.hint=w
 

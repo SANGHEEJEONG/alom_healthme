@@ -7,7 +7,6 @@
     android:background="#000778">
 <!--
 상단 바와 아래 비율 1:22+warp_content
-
 -->
 
 
@@ -24,7 +23,7 @@
             android:layout_weight="1"
             >
             <TextView
-                android:id="@+id/backicon"
+                android:id="@+id/cancelicon"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="취소"

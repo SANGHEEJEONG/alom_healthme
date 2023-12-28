@@ -1,6 +1,7 @@
 package com.example.alomtest
 
 import android.content.res.Resources
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -11,6 +12,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentHomeBinding
@@ -19,8 +23,6 @@ import kotlin.math.roundToInt
 import kotlin.system.exitProcess
 
 class Home : Fragment() {
-
-
 
     private var _binding: FragmentHomeBinding? = null
     private lateinit var binding2 : ActivityMainBinding
@@ -250,6 +252,35 @@ class Home : Fragment() {
         println("bmi"+ bmi)
 
         mseekbar.progress=bmi.toInt()
+//bmi에 따른 캐릭터 출력
+        val img=binding.imageView2
+
+        if(bmi<185){
+            img.setImageResource(R.drawable.thin_character)
+//
+            mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.thin_thumb_img, null)
+
+
+
+            println("1번 캐릭터")
+        }
+        else if(bmi<225){
+            img.setImageResource(R.drawable.nomal_chracter)
+            mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.normal_thumb_img, null)
+
+            println("2번 캐릭터")
+
+        }
+        else{
+            img.setImageResource(R.drawable.fat_chracter)
+            mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.fat_thumb_img, null)
+
+            println("3번 캐릭터")
+
+        }
+
+
+
 //
 //
 //

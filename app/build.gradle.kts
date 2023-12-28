@@ -39,6 +39,12 @@ android {
 }
 
 dependencies {
+    /*레트로핏2, GSON, 리사이클러뷰*/
+    implementation ("com.squareup.retrofit2:retrofit:2.3.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.3.0")
+
+
+
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

@@ -179,22 +179,20 @@
                     android:background="@drawable/body_measurements_total_design"
                     android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/gender_output"
+                    <CheckBox
+                        android:id="@+id/man_checkbox"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="4"
-                        android:background="@drawable/body_measurements_design"
-                        android:cursorVisible="false"
+                        android:layout_weight="1"
+                        android:text="남성"
 
-                        android:hint="남성"
-                        android:inputType="number"
-                        android:text=""
-
-                        android:textColor="#fff"
-                        android:textSize="20sp"
-
-
+                        />
+                    <CheckBox
+                        android:id="@+id/woman_checkbox"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="여성"
                         />
 
 

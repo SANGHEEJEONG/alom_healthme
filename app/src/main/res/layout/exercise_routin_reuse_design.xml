@@ -89,6 +89,7 @@
         </LinearLayout>
 
 
+        <!--        text용 코드-->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -97,8 +98,6 @@
 
         </ScrollView>
 
-
-<!--        text용 코드-->
         <Button
             android:id="@+id/test_btn"
             android:layout_width="match_parent"

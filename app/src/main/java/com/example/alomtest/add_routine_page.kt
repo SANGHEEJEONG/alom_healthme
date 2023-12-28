@@ -22,6 +22,7 @@ class add_routine_page : Fragment() {
         binding= FragmentAddRoutinePageBinding.inflate(layoutInflater)
 
         val addbtn = binding.exerciseAddBtn
+        val backicon=binding.cancelicon
 
         addbtn.setOnClickListener {
             println("test1")
@@ -29,6 +30,11 @@ class add_routine_page : Fragment() {
             println("test2")
 
         }
+        backicon.setOnClickListener {
+            replaceFragment(exercise_main())
+        }
+
+
         //backicon은 나중에 구현
 
 
@@ -45,11 +51,10 @@ class add_routine_page : Fragment() {
 
 
 
-
         val customList = arrayListOf(
             exerciseData("대흉근 발달, 3대 운동","01 바벨 벤치 프레스")
 
-        )
+            )
 
         println("routine page 진입1")
         exercise_recycler_view = view.findViewById(R.id.exercise_view)

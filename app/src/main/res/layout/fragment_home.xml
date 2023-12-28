@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:rotation="270"
-            android:thumb="@drawable/seekbar_character1_3"
+            android:thumb="@drawable/thin_character_thumb"
             android:progressDrawable="@drawable/seekbar"
 
 
