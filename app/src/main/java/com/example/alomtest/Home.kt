@@ -29,6 +29,7 @@ class Home : Fragment() {
     private lateinit var binding3 :FragmentMypageMainBinding
 
 
+
     //data//
 
     var mMin = 0
@@ -37,22 +38,8 @@ class Home : Fragment() {
 
 
 
-
     //weight=80.0
     //height=1.74
-
-
-
-
-
-
-
-
-
-
-
-
-
     //data//
     private val binding get() = _binding!!
     //private val binding2 get() = _binding2!!
@@ -249,34 +236,66 @@ class Home : Fragment() {
         }
 
         val bmi: Double = SharedPreferenceUtils.loadData(requireContext(), "bmi", "").toDouble()
+        val gender: String = SharedPreferenceUtils.loadData(requireContext(), "gender", "")
         println("bmi"+ bmi)
 
         mseekbar.progress=bmi.toInt()
 //bmi에 따른 캐릭터 출력
         val img=binding.imageView2
 
+
         if(bmi<185){
-            img.setImageResource(R.drawable.thin_character)
+            if(gender=="남성"){
+                img.setImageResource(R.drawable.thin_character)
 //
-            mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.thin_thumb_img, null)
+                mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.thin_thumb_img, null)
+            }
+            else{
+                img.setImageResource(R.drawable.thin_male_character)
+
+                mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.thin_male_thumb, null)
+            }
+
+
+
 
 
 
             println("1번 캐릭터")
         }
         else if(bmi<225){
-            img.setImageResource(R.drawable.nomal_chracter)
-            mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.normal_thumb_img, null)
 
+
+
+            if(gender=="남성"){
+                img.setImageResource(R.drawable.nomal_chracter)
+                mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.normal_thumb_img, null)
+            }
+            else{
+                img.setImageResource(R.drawable.normal_male_chracter)
+//
+                mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.normal_male_thumb, null)
+            }
             println("2번 캐릭터")
+
+
 
         }
         else{
-            img.setImageResource(R.drawable.fat_chracter)
-            mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.fat_thumb_img, null)
 
+
+            if(gender=="남성"){
+                img.setImageResource(R.drawable.fat_chracter)
+                mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.fat_thumb_img, null)
+
+
+            }
+            else{
+                img.setImageResource(R.drawable.fat_male_chracter)
+//
+                mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.fat_male_thumb, null)
+            }
             println("3번 캐릭터")
-
         }
 
 

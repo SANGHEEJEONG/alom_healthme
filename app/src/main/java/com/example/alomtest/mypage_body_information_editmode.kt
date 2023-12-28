@@ -28,6 +28,10 @@ class mypage_body_information_editmode : Fragment() {
 
         val current_gender=(SharedPreferenceUtils.loadData(requireContext(),"gender","")).toString()
 
+        val current_weight=(SharedPreferenceUtils.loadData(requireContext(),"weight",""))
+        val current_height=(SharedPreferenceUtils.loadData(requireContext(),"height",""))
+
+
 
 
         val man=binding.manCheckbox
@@ -52,9 +56,9 @@ class mypage_body_information_editmode : Fragment() {
 
 //
 
-
-        val current_w=(SharedPreferenceUtils.loadData(requireContext(),"weight","")).toDouble()
-        val current_h=(SharedPreferenceUtils.loadData(requireContext(),"height","")).toDouble()
+//
+//        val current_w=(SharedPreferenceUtils.loadData(requireContext(),"weight","")).toDouble()
+//        val current_h=(SharedPreferenceUtils.loadData(requireContext(),"height","")).toDouble()
 
         binding.backiconBtn.setOnClickListener {
             replaceFragment(mypage_body_information())
@@ -64,15 +68,16 @@ class mypage_body_information_editmode : Fragment() {
 
             //if문으로 예외처리
             //공백이 입력된 경우
-            if (binding.heightOutput.text.toString()
-                    .isEmpty() || binding.weightOutput.text.toString().isEmpty()
-            ) {
-                Toast.makeText(requireContext(), "신장 또는 몸무게를 입력 후 저장버튼을 누르세요.", Toast.LENGTH_SHORT)
-                    .show()
+//            if (binding.heightOutput.text.toString()
+//                    .isEmpty() || binding.weightOutput.text.toString().isEmpty()
+//            ) {
+//                Toast.makeText(requireContext(), "신장 또는 몸무게를 입력 후 저장버튼을 누르세요.", Toast.LENGTH_SHORT)
+//                    .show()
+//
+//            }
 
-            }
-
-            else if(!(binding.manCheckbox.isChecked) && !(binding.womanCheckbox.isChecked)){
+//            else
+                if(!(binding.manCheckbox.isChecked) && !(binding.womanCheckbox.isChecked)){
                 Toast.makeText(requireContext(), "성별을 선택해 주세요.", Toast.LENGTH_SHORT)
                     .show()
             }
@@ -89,15 +94,15 @@ class mypage_body_information_editmode : Fragment() {
                 if(binding.heightOutput.text.isNotEmpty()){
                     SharedPreferenceUtils.saveData(requireContext(), "height", binding.heightOutput.text.toString())
                 }
-                else{
-                    SharedPreferenceUtils.saveData(requireContext(), "height", current_h.toString())
+                else if(binding.heightOutput.text.isEmpty()){
+                    SharedPreferenceUtils.saveData(requireContext(), "height", current_height)
 
                 }
                 if(binding.weightOutput.text.isNotEmpty()){
                     SharedPreferenceUtils.saveData(requireContext(), "weight", binding.weightOutput.text.toString())
                 }
                 else{
-                    SharedPreferenceUtils.saveData(requireContext(), "weight", binding.weightOutput.text.toString())
+                    SharedPreferenceUtils.saveData(requireContext(), "weight", current_weight)
 
                 }
 
