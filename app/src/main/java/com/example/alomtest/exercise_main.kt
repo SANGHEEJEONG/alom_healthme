@@ -1,22 +1,15 @@
 package com.example.alomtest
 
-import SharedPreferenceUtils
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.Button
-import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import androidx.core.view.marginLeft
-import androidx.core.view.marginRight
-import com.example.alomtest.databinding.FragmentExerciseBinding
 import com.example.alomtest.databinding.FragmentExerciseMainBinding
-import com.example.alomtest.databinding.FragmentMypageBodyInformationBinding
+import com.example.alomtest.home.Home
 
 
 class exercise_main : Fragment() {

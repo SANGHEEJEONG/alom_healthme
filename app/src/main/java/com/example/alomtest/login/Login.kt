@@ -1,14 +1,18 @@
-package com.example.alomtest
+package com.example.alomtest.login
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import retrofit2.Call
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.example.alomtest.retrofit.Api
+import com.example.alomtest.retrofit.LoginBackendResponse
+import com.example.alomtest.MainActivity
+import com.example.alomtest.retrofit.UserModel
 import com.example.alomtest.databinding.LoginLayoutBinding
-import com.google.gson.JsonObject
+import com.example.alomtest.mypage.mypage_main
 import com.google.gson.JsonParser
 import org.json.JSONObject
 import retrofit2.Callback
@@ -58,7 +62,7 @@ class login : AppCompatActivity() {
                             saveData(id, pw)
                             Toast.makeText(this@login, "로그인 성공", Toast.LENGTH_LONG).show()
                             //인텐트를 이용하여 화면 전환
-                            val intent = Intent(this@login,MainActivity::class.java)
+                            val intent = Intent(this@login, MainActivity::class.java)
                             startActivity(intent)
                             finish()
 
@@ -79,6 +83,29 @@ class login : AppCompatActivity() {
                 }
             })
         }
+        //뒤로가기 처리
+        val callback = object : OnBackPressedCallback(true /* enabled by default */) {
+            override fun handleOnBackPressed() {
+                // 뒤로가기 이벤트가 발생했을 때 수행할 작업
+                // 예를 들어 특정 상황에서만 뒤로가기를 처리하고 싶은 경우 여기에 작성
+
+                val intent = Intent(this@login, first::class.java)
+                startActivity(intent)
+                finish()
+
+            }
+        }
+
+
+
+        this@login.onBackPressedDispatcher.addCallback(this, callback)
+
+
+
+
+
+
+
     }fun saveData( id : String, pw : String){
         val prefID = this.getSharedPreferences("userID", MODE_PRIVATE)
         val prefPW = this.getSharedPreferences("userPW", MODE_PRIVATE)

@@ -1,4 +1,4 @@
-package com.example.alomtest
+package com.example.alomtest.mypage
 
 import SharedPreferenceUtils
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentMypageBodyInformationEditmodeBinding
 
 

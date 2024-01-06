@@ -8,6 +8,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentMypageMainBinding
+import com.example.alomtest.home.Home
+import com.example.alomtest.mypage.mypage_main
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding

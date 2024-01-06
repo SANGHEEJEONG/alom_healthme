@@ -1,4 +1,4 @@
-package com.example.alomtest
+package com.example.alomtest.retrofit
 
 data class UserModel(
     var id : String ?= null,

@@ -1,4 +1,4 @@
-package com.example.alomtest
+package com.example.alomtest.mypage
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentMypageSettingBinding
 
 

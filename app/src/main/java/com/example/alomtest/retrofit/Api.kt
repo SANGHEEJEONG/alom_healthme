@@ -1,16 +1,13 @@
-package com.example.alomtest
+package com.example.alomtest.retrofit
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonElement
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
-import retrofit2.http.Query
 
 interface Api{
 
@@ -41,7 +38,7 @@ interface Api{
         private const val BASE_URL = "http://3.34.218.4:8080"
         val gson : Gson =   GsonBuilder().setLenient().create();
 
-        fun create() : Api{
+        fun create() : Api {
 
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)

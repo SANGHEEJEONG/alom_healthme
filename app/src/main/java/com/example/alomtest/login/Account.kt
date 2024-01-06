@@ -1,11 +1,15 @@
-package com.example.alomtest
+package com.example.alomtest.login
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import com.example.alomtest.databinding.AccountLayoutBinding
-import com.example.alomtest.databinding.FirstLayoutBinding
+import com.example.alomtest.retrofit.Api
+import com.example.alomtest.retrofit.LoginBackendResponse2
+import com.example.alomtest.retrofit.LoginBackendResponse3
 import com.google.gson.JsonParser
 import org.json.JSONObject
 import retrofit2.Call
@@ -107,6 +111,23 @@ class account : AppCompatActivity() {
 
 
         }
+
+        //뒤로가기 처리
+        val callback = object : OnBackPressedCallback(true /* enabled by default */) {
+            override fun handleOnBackPressed() {
+                // 뒤로가기 이벤트가 발생했을 때 수행할 작업
+                // 예를 들어 특정 상황에서만 뒤로가기를 처리하고 싶은 경우 여기에 작성
+
+                val intent = Intent(this@account, first::class.java)
+                startActivity(intent)
+                finish()
+
+            }
+        }
+
+
+
+        this@account.onBackPressedDispatcher.addCallback(this, callback)
 
 
     }

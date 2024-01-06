@@ -30,7 +30,7 @@
 <!--            android:exported="true">-->
 
         <activity
-            android:name=".Api"
+            android:name=".retrofit.Api"
             android:exported="false" />
 
         <uses-library
@@ -38,10 +38,10 @@
             android:required="false" />
 
         <activity
-            android:name=".login"
+            android:name=".login.login"
             android:exported="false" />
         <activity
-            android:name=".account"
+            android:name=".login.account"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -50,7 +50,7 @@
             android:name=".Settings"
             android:exported="false" />
         <activity
-            android:name=".first"
+            android:name=".login.first"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

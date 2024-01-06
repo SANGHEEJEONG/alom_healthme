@@ -1,8 +1,6 @@
-package com.example.alomtest
+package com.example.alomtest.home
 
 import android.content.res.Resources
-import android.graphics.drawable.Drawable
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -12,10 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.content.res.AppCompatResources.getDrawable
-import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import com.example.alomtest.R
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentHomeBinding
 import com.example.alomtest.databinding.FragmentMypageMainBinding
@@ -63,7 +60,7 @@ class Home : Fragment() {
         binding2= ActivityMainBinding.inflate(layoutInflater)
         binding3= FragmentMypageMainBinding.inflate(layoutInflater)
         binding3.backiconBtn.setOnClickListener {
-            binding2.bottomNavigationView.selectedItemId=R.id.home
+            binding2.bottomNavigationView.selectedItemId= R.id.home
 
         }
         true
@@ -248,12 +245,14 @@ class Home : Fragment() {
             if(gender=="남성"){
                 img.setImageResource(R.drawable.thin_character)
 //
-                mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.thin_thumb_img, null)
+                mseekbar.thumb= ResourcesCompat.getDrawable(resources,
+                    R.drawable.thin_thumb_img, null)
             }
             else{
                 img.setImageResource(R.drawable.thin_male_character)
 
-                mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.thin_male_thumb, null)
+                mseekbar.thumb= ResourcesCompat.getDrawable(resources,
+                    R.drawable.thin_male_thumb, null)
             }
 
 
@@ -269,12 +268,14 @@ class Home : Fragment() {
 
             if(gender=="남성"){
                 img.setImageResource(R.drawable.nomal_chracter)
-                mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.normal_thumb_img, null)
+                mseekbar.thumb= ResourcesCompat.getDrawable(resources,
+                    R.drawable.normal_thumb_img, null)
             }
             else{
                 img.setImageResource(R.drawable.normal_male_chracter)
 //
-                mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.normal_male_thumb, null)
+                mseekbar.thumb= ResourcesCompat.getDrawable(resources,
+                    R.drawable.normal_male_thumb, null)
             }
             println("2번 캐릭터")
 
@@ -286,14 +287,16 @@ class Home : Fragment() {
 
             if(gender=="남성"){
                 img.setImageResource(R.drawable.fat_chracter)
-                mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.fat_thumb_img, null)
+                mseekbar.thumb= ResourcesCompat.getDrawable(resources,
+                    R.drawable.fat_thumb_img, null)
 
 
             }
             else{
                 img.setImageResource(R.drawable.fat_male_chracter)
 //
-                mseekbar.thumb= ResourcesCompat.getDrawable(resources, R.drawable.fat_male_thumb, null)
+                mseekbar.thumb= ResourcesCompat.getDrawable(resources,
+                    R.drawable.fat_male_thumb, null)
             }
             println("3번 캐릭터")
         }

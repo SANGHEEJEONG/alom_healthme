@@ -1,18 +1,14 @@
-package com.example.alomtest
+package com.example.alomtest.mypage
 
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import com.example.alomtest.R
 
-import kotlin.text.toDoubleOrNull
-
-import com.example.alomtest.databinding.FragmentMypageBodyMeasurementBinding
 import com.example.alomtest.databinding.FragmentMypageBodyMeasurementEditmodeBinding
 
 
