@@ -1,14 +1,31 @@
+<!--
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    &lt;!&ndash; Base application theme. &ndash;&gt;
     <style name="Base.Theme.Alomtest" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        &lt;!&ndash; Customize your dark theme here. &ndash;&gt;
+        &lt;!&ndash; <item name="colorPrimary">@color/my_dark_primary</item> &ndash;&gt;
 
-<!--        <item name="colorPrimary">#00FFFFFF</item>-->
-<!--        <item name ="colorPrimaryVariant">#00FFFFFF</item>-->
+&lt;!&ndash;        <item name="colorPrimary">#00FFFFFF</item>&ndash;&gt;
+&lt;!&ndash;        <item name ="colorPrimaryVariant">#00FFFFFF</item>&ndash;&gt;
         <item name="colorPrimary">#6A73FF</item>
         <item name ="colorPrimaryVariant">#B6B6FF</item>
         <item name="android:fontFamily">@font/gmarketsansttfmedium</item>
     </style>
 
+</resources>-->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Alomtest" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">#00FFFFFF</item>
+        <item name ="colorPrimaryVariant">#00FFFFFF</item>
+        <!--
+        <item name="colorPrimary">#4E57E4</item>
+        <item name ="colorPrimaryVariant">#B6B6FF</item>
+         -->
+        <item name="android:fontFamily">@font/gmarketsansttfmedium</item>
+    </style>
+
+
+    <style name="Theme.Alomtest" parent="Base.Theme.Alomtest" />
 </resources>
