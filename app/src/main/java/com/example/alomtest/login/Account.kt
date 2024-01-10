@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import com.example.alomtest.R
 import com.example.alomtest.databinding.AccountLayoutBinding
 import com.example.alomtest.retrofit.Api
 import com.example.alomtest.retrofit.LoginBackendResponse2
@@ -49,7 +50,7 @@ class account : AppCompatActivity() {
 
                     when (response.code()) {
                         200-> Toast.makeText(this@account,"인증코드를 이메일로 발송했습니다.", Toast.LENGTH_SHORT).show()
-                        401-> Toast.makeText(this@account,"인증코드가 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
+                        401-> Toast.makeText(this@account,"서버가 동작하지 않습니다. ", Toast.LENGTH_SHORT).show()
                         403-> Toast.makeText(this@account,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
                         404 -> Toast.makeText(this@account, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
                         500 -> Toast.makeText(this@account, "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
@@ -90,7 +91,26 @@ class account : AppCompatActivity() {
                         Log.d("response코드",response.code().toString())
 
                         when (response.code()) {
-                            200-> Toast.makeText(this@account,"인증코드가 확인되었습니다.", Toast.LENGTH_SHORT).show()
+                            200-> {
+                                Toast.makeText(this@account,"인증코드가 확인되었습니다.", Toast.LENGTH_SHORT).show()
+
+//                                val info: userInfo? =null
+//                                info?.Email=email
+
+
+                                binding.nextBtn.setBackgroundResource(R.drawable.button_sample3)
+                                binding.nextBtn.setOnClickListener {
+                                    val intent = Intent(this@account, account2::class.java)
+                                    intent.putExtra("useremail",email)
+                                    startActivity(intent)
+                                    finish()
+
+                                }
+
+//misterjerry@sju.ac.kr
+
+
+                            }
                             401-> Toast.makeText(this@account,"인증코드가 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
                             403-> Toast.makeText(this@account,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
                             404 -> Toast.makeText(this@account, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()

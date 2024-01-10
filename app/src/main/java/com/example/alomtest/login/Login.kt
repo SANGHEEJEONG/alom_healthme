@@ -1,5 +1,6 @@
 package com.example.alomtest.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import retrofit2.Call
@@ -7,12 +8,14 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.alomtest.retrofit.Api
 import com.example.alomtest.retrofit.LoginBackendResponse
 import com.example.alomtest.MainActivity
 import com.example.alomtest.retrofit.UserModel
 import com.example.alomtest.databinding.LoginLayoutBinding
 import com.example.alomtest.mypage.mypage_main
+import com.example.alomtest.retrofit.email
 import com.google.gson.JsonParser
 import org.json.JSONObject
 import retrofit2.Callback
@@ -24,6 +27,13 @@ class login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = LoginLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        binding.forgetBtn.setOnClickListener {
+            val intent = Intent(this@login, forget_password::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         binding.loginbutton.setOnClickListener {
             val id = binding.loginemail.text.toString().trim()//trim : 문자열 공백제거
@@ -61,8 +71,16 @@ class login : AppCompatActivity() {
                         200 -> {
                             saveData(id, pw)
                             Toast.makeText(this@login, "로그인 성공", Toast.LENGTH_LONG).show()
+
+                            val tok:LoginBackendResponse?=response.body()
+                            val accesstoken:String? = tok?.accessToken
+                            SharedPreferenceUtils.saveData(this@login, "accessToken", (accesstoken.toString()))
+                            SharedPreferenceUtils.saveData(this@login, "email", data.id.toString())
+
+
                             //인텐트를 이용하여 화면 전환
                             val intent = Intent(this@login, MainActivity::class.java)
+                            intent.putExtra("useremail",data.id.toString())
                             startActivity(intent)
                             finish()
 

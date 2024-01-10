@@ -7,6 +7,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface Api{
@@ -32,6 +33,61 @@ interface Api{
     fun check_email(
         @Body jsonParams : JsonElement
     ): Call<LoginBackendResponse3>
+
+    @POST("api/user/body-information")
+    fun search_bodyinfo(
+        @Body jsonParams : JsonElement
+    ): Call<LoginBackendResponse4>
+
+
+//    @POST("api/user/save-body-information")
+//    fun newuserinput(
+//        @Body jsonParams: JsonElement
+//    ):Call<LoginBackendResponse5>
+
+    @POST("api/user/signup")
+    fun signup(
+        @Body jsonParams: JsonElement
+    ):Call<LoginBackendResponse6>
+//fun fetchPosts(@Header("Authorization") token: String): Call<PostsResponse>
+    @POST("api/user/body-information")
+    fun loadData(
+        @Header("Authorization") accessToken:String,
+        @Body jsonParams: JsonElement
+    ):Call<LoginBackendResponse7>
+
+
+    @POST("api/user/change-password")
+    fun change_password(
+        @Header("Authorization") accessToken:String,
+        @Body jsonParams: JsonElement
+    ):Call<LoginBackendResponse8>
+    @POST("api/email/password-change-verification-request")
+    fun send_email_forget_password(
+        @Body jsonParams: JsonElement
+    ):Call<LoginBackendResponse9>
+
+    @POST("api/email/password-change-verification")
+    fun check_email_forget_password(
+        @Body jsonParams: JsonElement
+    ):Call<LoginBackendResponse10>
+
+    @POST("api/user/change-forget-password")
+    fun change_forget_password(
+        @Body jsonParams: JsonElement
+    ):Call<LoginBackendResponse11>
+
+    @POST("api/user/save-body-information")
+    fun change_bodyinfo(
+        @Header("Authorization") accessToken:String,
+        @Body jsonParams: JsonElement
+    ):Call<LoginBackendResponse12>
+
+//    @POST("api/user/change-forget-password")
+//    fun reset_password(
+//        @Body jsonParams: JsonElement
+//    ):Call<LoginBackendResponse9>
+
 
 
     companion object {

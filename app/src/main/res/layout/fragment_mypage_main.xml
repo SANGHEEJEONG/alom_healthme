@@ -586,6 +586,7 @@ android:background="#636CFF"
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/body_measurement_btn10"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="30dp"
@@ -612,7 +613,7 @@ android:background="#636CFF"
                         >
 
                         <ImageView
-
+                            android:id="@+id/body_measurement_btn11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="20dp"
@@ -640,7 +641,7 @@ android:background="#636CFF"
                             android:orientation="horizontal">
 
                             <TextView
-
+                                android:id="@+id/body_measurement_btn12"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"

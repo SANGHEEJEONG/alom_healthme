@@ -1,42 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#6A73FF">
 
     <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        android:text="10자리의 영문, 특수문자(!#$%*@^~?)만 사용 가능합니다."
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58" />
+
+    <TextView
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:background="@drawable/button_sample1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376"/>
-
-    <EditText
-        android:id="@+id/loginemail"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:background="@null"
-        android:hint="Health1234@gmail.com"
-        android:inputType="text"
-        android:textColorHint="#BBBBBB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376"/>
+        app:layout_constraintVertical_bias="0.38"/>
+
+    <EditText
+        android:id="@+id/settingPassword"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:background="@null"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.38"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="새 비밀번호 입력"
         android:textSize="15dp"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,13 +56,13 @@
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.307" />
+        app:layout_constraintVertical_bias="0.32" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="새 비밀번호 확인"
         android:textSize="15dp"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,7 +70,7 @@
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.476" />
+        app:layout_constraintVertical_bias="0.46" />
 
     <TextView
         android:layout_width="330dp"
@@ -66,16 +78,16 @@
         android:background="@drawable/button_sample1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.566" />
+        app:layout_constraintVertical_bias="0.53" />
 
     <EditText
+        android:id="@+id/password2"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:ems="10"
-        android:id="@+id/loginpassword"
         android:textSize="20dp"
         android:background="@null"
         android:inputType="textPassword"
@@ -84,22 +96,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.566" />
+        app:layout_constraintVertical_bias="0.53" />
 
-    <Button
-        android:id="@+id/forget_btn"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:background="@null"
-        android:textSize="10dp"
-        android:textColor="#FFFFFF"
-        android:text="Forget Password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -117,24 +115,24 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log In"
-        android:textStyle="bold"
+        android:text="Setting \na password"
         android:textColor="#FFFFFF"
-        android:textSize="50dp"
+        android:textSize="40dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <Button
+        android:id="@+id/next_btn"
         android:layout_width="180dp"
-        android:text="Log In"
-        android:id="@+id/loginbutton"
-        android:textColor="#6D7F00"
+        android:text="확인"
+        android:textColor="#8B8B8B"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_sample2"
+        android:background="@drawable/button_sample3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

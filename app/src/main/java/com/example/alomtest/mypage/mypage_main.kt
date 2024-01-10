@@ -49,6 +49,17 @@ class mypage_main : Fragment() {
         binding.bodyMeasurementBtn6.setOnClickListener {
             replaceFragment(mypage_setting())
         }
+
+        binding.bodyMeasurementBtn10.setOnClickListener {
+            Toast.makeText(requireContext(), "HealthMe 앱버전 1.0 beta", Toast.LENGTH_SHORT).show()
+        }
+        binding.bodyMeasurementBtn11.setOnClickListener {
+            Toast.makeText(requireContext(), "HealthMe 앱버전 1.0 beta", Toast.LENGTH_SHORT).show()
+        }
+        binding.bodyMeasurementBtn12.setOnClickListener {
+            Toast.makeText(requireContext(), "HealthMe 앱버전 1.0 beta", Toast.LENGTH_SHORT).show()
+        }
+
         binding.backiconBtn.setOnClickListener {
             binding2.bottomNavigationView.selectedItemId= R.id.home
             replaceFragment(Home())

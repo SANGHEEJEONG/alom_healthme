@@ -6,55 +6,34 @@
     android:layout_height="match_parent"
     android:background="#6A73FF">
 
-
     <Button
-        android:id="@+id/account1"
-        android:layout_width="330dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_sample1"
-        android:textSize="18sp"
-        android:text="회원가입"
+        android:background="@drawable/button_sample3"
+        android:text="Next"
+        android:textColor="#9DA56A"
         android:textStyle="bold"
-        android:textColor="#00ADA3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.682" />
-
-    <Button
-        android:id="@+id/login1"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:text="로그인"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:background="@drawable/button_sample2"
-
-        android:textColor="#409100"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.574" />
+        app:layout_constraintVertical_bias="0.65"  />
 
     <TextView
-        android:id="@+id/textViewfirst"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Let's \n exercise \n together"
-        android:textAlignment="center"
-        android:textColor="#41FFDD"
-        android:textSize="50dp"
-        android:textStyle="bold"
+        android:textSize="10dp"
+        android:text="회원가입 마지막 단계예요! \n헬스미 이용을 위해 이용약관을 확인해 주세요!"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.231" />
+        app:layout_constraintVertical_bias="0.33" />
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -66,5 +45,35 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"  />
+        app:layout_constraintVertical_bias="0.95" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Terms of \nService"
+        android:textColor="#FFFFFF"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
+
+    <Button
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_sample2"
+        android:text="Terms of Service"
+        android:textColor="#9DA56A"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

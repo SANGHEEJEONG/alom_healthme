@@ -1,15 +1,30 @@
 package com.example.alomtest
 
+import android.app.DownloadManager.Request
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentMypageMainBinding
 import com.example.alomtest.home.Home
+import com.example.alomtest.mypage.mypage_body_information
 import com.example.alomtest.mypage.mypage_main
+import com.example.alomtest.retrofit.Api
+import com.example.alomtest.retrofit.LoginBackendResponse
+import com.example.alomtest.retrofit.LoginBackendResponse12
+import com.example.alomtest.retrofit.LoginBackendResponse2
+import com.example.alomtest.retrofit.LoginBackendResponse7
+import com.google.gson.JsonParser
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Response
+import retrofit2.http.Header
+import javax.security.auth.callback.Callback
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding
@@ -20,6 +35,73 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //loadData
+
+        //레트로핏으로 서버에 저장
+        val email=intent.getStringExtra("useremail").toString()
+
+
+
+        val jsonObject= JSONObject()
+
+        jsonObject.put("email",email)
+
+
+        val usertoken = SharedPreferenceUtils.loadData(this@MainActivity, "accessToken", "")
+        Log.d("user토큰",usertoken)
+        Log.d("JSON출력",jsonObject.toString())
+        val api = Api.create()
+
+        //api.loadData(JsonParser.parseString(jsonObject.toString()))
+        api.loadData(accessToken = "Bearer $usertoken",JsonParser.parseString(jsonObject.toString()))
+            .enqueue(object : retrofit2.Callback<LoginBackendResponse7> {
+                override fun onResponse(
+                    call: Call<LoginBackendResponse7>,
+                    response: Response<LoginBackendResponse7>
+                ) {
+                    Log.d("로그인 통신 성공",response.toString())
+                    Log.d("로그인 통신 성공", response.body().toString())
+                    Log.d("response코드",response.code().toString())
+
+                    when (response.code()) {
+                        200-> {Toast.makeText(this@MainActivity,"로드성공", Toast.LENGTH_SHORT).show()
+                            val tok: LoginBackendResponse7?=response.body()
+                            Log.d("response바디 출력",tok.toString())
+
+                            SharedPreferenceUtils.saveData(this@MainActivity, "height", tok?.height.toString())
+                            SharedPreferenceUtils.saveData(this@MainActivity, "weight", tok?.weight.toString())
+                            SharedPreferenceUtils.saveData(this@MainActivity, "name", tok?.name.toString())
+                            SharedPreferenceUtils.saveData(this@MainActivity, "email", email)
+                            SharedPreferenceUtils.saveData(this@MainActivity, "birthday", tok?.birthday.toString().substring(0,10))
+                            SharedPreferenceUtils.saveData(this@MainActivity, "gender", tok?.gender.toString())
+
+                            Log.d("sharedpre에 저장 완료","")
+
+
+
+
+
+
+                        }
+                        401-> Toast.makeText(this@MainActivity,"서버가 동작하지 않습니다. ", Toast.LENGTH_SHORT).show()
+                        403-> Toast.makeText(this@MainActivity,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
+                        404 -> Toast.makeText(this@MainActivity, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
+                        500 -> Toast.makeText(this@MainActivity, "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<LoginBackendResponse7>, t: Throwable) {
+                    Log.d("로그인 통신 실패",t.message.toString())
+                    Log.d("로그인 통신 실패","fail")
+                }
+            })
+
+
+
+
+
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding2 = FragmentMypageMainBinding.inflate(layoutInflater)
         setContentView(binding2.root)
@@ -43,9 +125,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
-
-
 
     }
 

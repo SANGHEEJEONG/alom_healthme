@@ -28,7 +28,6 @@ class first : AppCompatActivity() {
             val intent = Intent(this, account::class.java)
             startActivity(intent)
             finish()
-
         }
 
 

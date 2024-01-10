@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mypage.mypage_body_information_editmode">
+    tools:context=".mypage.mypage_body_information">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +30,6 @@
                 android:paddingTop="9dp"
                 android:paddingBottom="9dp"
                 android:gravity="center|center_vertical"
-                android:text="저장"
                 android:textColor="#fff"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -50,23 +49,20 @@
                 android:textStyle="bold"
 
                 />
-            <TextView
+            <ImageView
+                android:id="@+id/edit_mode_icon"
 
-                android:id="@+id/savemode"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="저장"
+                android:text=""
                 android:layout_weight="2"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:gravity="center|center_vertical"
                 android:textColor="#fff"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-
-                android:clickable="true"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
+                android:src="@drawable/editmode_icon"
 
                 />
 
@@ -86,9 +82,8 @@
             android:background="@android:color/transparent"
             />
 
-
         <TextView
-            android:id="@+id/name_output2"
+            android:id="@+id/name_output"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -121,178 +116,211 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="15dp"
                     android:layout_weight="1"
-                    android:gravity="bottom"
                     android:text="생년월일"
+                    android:layout_marginTop="15dp"
+                    android:textSize="18sp"
+                    android:gravity="bottom"
                     android:textColor="#B0B4FF"
-                    android:textSize="18sp" />
-
+                    android:layout_marginLeft="30dp"
+                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal"
                     android:layout_weight="2"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
                     android:background="@drawable/body_measurements_total_design"
-                    android:orientation="horizontal">
+                    >
 
-                    <EditText
-                        android:id="@+id/birthday_input"
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:orientation="horizontal">-->
+<!--                    </LinearLayout>-->
+
+                        <EditText
+                            android:id="@+id/birthday_output"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:text=""
+                            android:cursorVisible="false"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            android:inputType="date"
+
+                            android:background="@drawable/body_measurements_design"
+
+                            android:textFontWeight="10"
+
+                            android:layout_weight="12"
+                            />
+                    <ImageView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="4"
-                        android:background="@drawable/body_measurements_design"
-                        android:cursorVisible="false"
-                        android:hint="000209"
-                        android:inputType="text"
-                        android:maxLength="12"
-                        android:letterSpacing="2"
-                        android:text=""
-                        android:textColor="#fff"
-
-                        android:textSize="20sp"
-
+                        android:src="@drawable/edit"
+                        android:layout_weight="1"
                         />
 
 
-                </LinearLayout>
 
+
+
+
+                </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="15dp"
                     android:layout_weight="1"
-                    android:gravity="bottom"
                     android:text="성별"
+                    android:layout_marginTop="15dp"
+                    android:textSize="18sp"
+                    android:gravity="bottom"
                     android:textColor="#B0B4FF"
-                    android:textSize="18sp" />
-
+                    android:layout_marginLeft="30dp"
+                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal"
                     android:layout_weight="2"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
                     android:background="@drawable/body_measurements_total_design"
-                    android:orientation="horizontal">
-
-                    <CheckBox
-                        android:id="@+id/man_checkbox"
+                    >
+                    <EditText
+                        android:id="@+id/gender_output"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="남성"
 
+                        android:text=""
+                        android:cursorVisible="false"
+
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        android:inputType="number"
+
+                        android:background="@drawable/body_measurements_design"
+                        android:layout_weight="12"
                         />
-                    <CheckBox
-                        android:id="@+id/woman_checkbox"
+                    <ImageView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:src="@drawable/edit"
                         android:layout_weight="1"
-                        android:text="여성"
                         />
 
 
                 </LinearLayout>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="15dp"
                     android:layout_weight="1"
-                    android:gravity="bottom"
+                    android:layout_marginTop="15dp"
                     android:text="신장"
+                    android:textSize="20sp"
+                    android:gravity="bottom"
                     android:textColor="#B0B4FF"
-                    android:textSize="20sp" />
-
+                    android:layout_marginLeft="30dp"
+                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal"
                     android:layout_weight="2"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
                     android:background="@drawable/body_measurements_total_design"
-                    android:orientation="horizontal">
-
+                    >
                     <EditText
                         android:id="@+id/height_output"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="4"
-                        android:background="@drawable/body_measurements_design"
-                        android:inputType="number"
-                        android:maxLength="3"
-                        android:text=""
+                        android:text="occur_error"
                         android:textColor="#fff"
-
                         android:textSize="20sp"
+                        android:inputType="number"
+
+                        android:background="@drawable/body_measurements_design"
 
                         />
+
 
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.5"
-                        android:gravity="center|center_vertical"
                         android:text="cm"
+                        android:gravity="center|center_vertical"
                         android:textColor="#B0B4FF"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        />
 
                 </LinearLayout>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="15dp"
                     android:layout_weight="1"
-                    android:gravity="bottom"
                     android:text="몸무게"
+                    android:layout_marginTop="15dp"
+                    android:textSize="18sp"
+                    android:gravity="bottom"
                     android:textColor="#B0B4FF"
-                    android:textSize="18sp" />
-
+                    android:layout_marginLeft="30dp"
+                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal"
                     android:layout_weight="2"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
                     android:background="@drawable/body_measurements_total_design"
-                    android:orientation="horizontal">
-
+                    >
                     <EditText
                         android:id="@+id/weight_output"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="4"
-                        android:background="@drawable/body_measurements_design"
-                        android:inputType="number"
-                        android:maxLength="4"
-                        android:text=""
+                        android:text="occur_error"
                         android:textColor="#fff"
                         android:textSize="20sp"
+                        android:inputType="number"
+
+                        android:background="@drawable/body_measurements_design"
 
                         />
+
 
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.5"
-                        android:gravity="center|center_vertical"
                         android:text="kg"
+                        android:gravity="center|center_vertical"
                         android:textColor="#B0B4FF"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        />
 
                 </LinearLayout>
 
 
+
+
+
+
+
+
+
+
+
             </LinearLayout>
+
 
 
         </FrameLayout>
@@ -307,5 +335,6 @@
 
 
     </LinearLayout>
+
 
 </RelativeLayout>

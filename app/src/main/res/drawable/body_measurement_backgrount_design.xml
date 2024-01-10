@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <gradient
-        android:startColor="#ff969CFF"
-        android:endColor="#ff3642FF"
+        android:startColor="#A1A7FF"
+        android:endColor="#5B65FF"
         android:angle="90"/> <!-- 90은 vertical 방향을 나타냅니다. -->
 </shape>

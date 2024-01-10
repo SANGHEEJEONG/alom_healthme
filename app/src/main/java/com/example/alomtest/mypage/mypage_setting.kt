@@ -22,6 +22,9 @@ class mypage_setting : Fragment() {
         binding.editModeIcon.setOnClickListener {
             replaceFragment(mypage_setting_editmode())
         }
+        binding.passwordChange.setOnClickListener {
+            replaceFragment(password_change())
+        }
         val callback = object : OnBackPressedCallback(true /* enabled by default */) {
             override fun handleOnBackPressed() {
                 // 뒤로가기 이벤트가 발생했을 때 수행할 작업

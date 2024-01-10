@@ -33,25 +33,55 @@
             android:name=".retrofit.Api"
             android:exported="false" />
 
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
+        <activity
+            android:name=".login.resetpassword"
+            android:exported="false" />
 
         <activity
             android:name=".login.login"
             android:exported="false" />
+
+<!--        <activity-->
+<!--            android:name=".login.first"-->
+<!--            android:exported="false" />-->
+        <activity
+            android:name=".login.account2"
+            android:exported="false" />
+
         <activity
             android:name=".login.account"
             android:exported="false" />
         <activity
+            android:name=".login.information"
+            android:exported="false" />
+        <activity
+            android:name=".login.terms"
+            android:exported="false" />
+        <activity
+            android:name=".login.forget_password"
+            android:exported="false" />
+
+        <activity
+            android:name=".mypage.password_change"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
+
         <activity
             android:name=".Settings"
             android:exported="false" />
-        <activity
-            android:name=".login.first"
-            android:exported="true">
+<!--        <activity-->
+<!--            android:name=".login.account2"-->
+<!--            android:exported="true">-->
+                <activity
+                    android:name=".login.first"
+                    android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
