@@ -144,11 +144,10 @@ class mypage_body_information_editmode : Fragment() {
                 var weight:Double = (SharedPreferenceUtils.loadData(requireContext(),"weight","")).toDouble()
                 var height:Double = (SharedPreferenceUtils.loadData(requireContext(),"height","")).toDouble()
 
-
-                var calculate_bmi: Double = (weight) / ((height / 100.0) * (height / 100.0)) * 10
-
+                    var calculate_bmi: Double = (weight) / ((height / 100.0) * (height / 100.0)) * 10
 
 
+                    //
                     if(calculate_bmi>300){
                         calculate_bmi=300.0
                     }
