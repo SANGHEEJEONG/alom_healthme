@@ -16,7 +16,9 @@ import com.example.alomtest.mypage.mypage_body_information
 import com.example.alomtest.mypage.mypage_main
 import com.example.alomtest.retrofit.Api
 import com.example.alomtest.retrofit.LoginBackendResponse
+import com.example.alomtest.retrofit.LoginBackendResponse11
 import com.example.alomtest.retrofit.LoginBackendResponse12
+import com.example.alomtest.retrofit.LoginBackendResponse13
 import com.example.alomtest.retrofit.LoginBackendResponse2
 import com.example.alomtest.retrofit.LoginBackendResponse7
 import com.google.gson.JsonParser
@@ -48,7 +50,9 @@ class MainActivity : AppCompatActivity() {
         jsonObject.put("email",email)
 
 
-        val usertoken = SharedPreferenceUtils.loadData(this@MainActivity, "accessToken", "")
+        var usertoken = SharedPreferenceUtils.loadData(this@MainActivity, "accessToken", "")
+        val refreshtoken = SharedPreferenceUtils.loadData(this@MainActivity, "refreshToken", "")
+
         Log.d("user토큰",usertoken)
         Log.d("JSON출력",jsonObject.toString())
         val api = Api.create()
@@ -87,6 +91,142 @@ class MainActivity : AppCompatActivity() {
                         401-> Toast.makeText(this@MainActivity,"서버가 동작하지 않습니다. ", Toast.LENGTH_SHORT).show()
                         403-> Toast.makeText(this@MainActivity,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
                         404 -> Toast.makeText(this@MainActivity, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
+
+                        408->{//토큰만료
+
+
+                            val jsonObject2= JSONObject()
+                            jsonObject2.put("email",email)
+                            jsonObject2.put("refreshToken",refreshtoken)
+
+
+
+
+                            api.refreshToken(JsonParser.parseString(jsonObject2.toString())).enqueue(object :
+                                retrofit2.Callback<LoginBackendResponse13> {
+                                override fun onResponse(
+                                    call: Call<LoginBackendResponse13>,
+                                    response: Response<LoginBackendResponse13>
+                                ) {
+                                    Log.d("로그인 통신 성공",response.toString())
+                                    Log.d("로그인 통신 성공", response.body().toString())
+                                    Log.d("response코드",response.code().toString())
+
+
+
+
+                                    //Log.d("반환 메시지",response.body())
+
+
+                                    when (response.code()) {
+                                        200 -> {
+
+                                            Toast.makeText(this@MainActivity, "access토큰 재발급 성공", Toast.LENGTH_LONG).show()
+
+                                            val tok:LoginBackendResponse13?=response.body()
+                                            val accesstoken:String? = tok?.accessToken
+
+                                            SharedPreferenceUtils.saveData(this@MainActivity, "accessToken", accesstoken.toString())
+
+
+
+//fragment구현
+
+                                        }
+                                        500 -> Toast.makeText(this@MainActivity, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
+                                        403-> Toast.makeText(this@MainActivity,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
+
+                                        else -> Toast.makeText(this@MainActivity, "LOGIN ERROR", Toast.LENGTH_LONG).show()
+
+
+                                    }
+                                }
+
+                                override fun onFailure(call: Call<LoginBackendResponse13>, t: Throwable) {
+                                    // 실패
+                                    Log.d("로그인 통신 실패",t.message.toString())
+                                    Log.d("로그인 통신 실패","fail")
+                                }
+                            })
+
+
+                           //통신 다시한번 실행
+                            val jsonObject3= JSONObject()
+
+                            jsonObject3.put("email",email)
+
+
+                            var usertoken = SharedPreferenceUtils.loadData(this@MainActivity, "accessToken", "")
+                            val refreshtoken = SharedPreferenceUtils.loadData(this@MainActivity, "refreshToken", "")
+
+                            Log.d("user토큰",usertoken)
+                            Log.d("JSON출력",jsonObject3.toString())
+
+
+
+
+                            api.loadData(accessToken = "Bearer $usertoken",JsonParser.parseString(jsonObject3.toString()))
+                                .enqueue(object : retrofit2.Callback<LoginBackendResponse7> {
+                                    override fun onResponse(
+                                        call: Call<LoginBackendResponse7>,
+                                        response: Response<LoginBackendResponse7>
+                                    ) {
+                                        Log.d("로그인 통신 성공",response.toString())
+                                        Log.d("로그인 통신 성공", response.body().toString())
+                                        Log.d("response코드",response.code().toString())
+
+                                        when (response.code()) {
+                                            200-> {Toast.makeText(this@MainActivity,"로드성공", Toast.LENGTH_SHORT).show()
+                                                val tok: LoginBackendResponse7?=response.body()
+                                                Log.d("response바디 출력",tok.toString())
+
+                                                SharedPreferenceUtils.saveData(this@MainActivity, "height", tok?.height.toString())
+                                                SharedPreferenceUtils.saveData(this@MainActivity, "weight", tok?.weight.toString())
+                                                SharedPreferenceUtils.saveData(this@MainActivity, "name", tok?.name.toString())
+                                                SharedPreferenceUtils.saveData(this@MainActivity, "email", email)
+                                                SharedPreferenceUtils.saveData(this@MainActivity, "birthday", tok?.birthday.toString().substring(0,10))
+                                                SharedPreferenceUtils.saveData(this@MainActivity, "gender", tok?.gender.toString())
+
+                                                Log.d("sharedpre에 저장 완료","")
+
+
+
+
+
+
+                                            }
+                                            401-> Toast.makeText(this@MainActivity,"서버가 동작하지 않습니다. ", Toast.LENGTH_SHORT).show()
+                                            403-> Toast.makeText(this@MainActivity,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
+                                            404 -> Toast.makeText(this@MainActivity, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
+                                            500 -> Toast.makeText(this@MainActivity, "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
+                                        }
+                                    }
+
+                                    override fun onFailure(call: Call<LoginBackendResponse7>, t: Throwable) {
+                                        Log.d("로그인 통신 실패",t.message.toString())
+                                        Log.d("로그인 통신 실패","fail")
+                                    }
+                                })
+
+
+
+
+
+
+
+
+
+
+
+
+                            //
+
+
+
+
+
+                        }//408 오류 끝
+
                         500 -> Toast.makeText(this@MainActivity, "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
                     }
                 }

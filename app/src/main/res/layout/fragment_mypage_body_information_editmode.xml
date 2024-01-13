@@ -141,14 +141,16 @@
                     <EditText
                         android:id="@+id/birthday_input"
                         android:layout_width="0dp"
+
+
                         android:layout_height="match_parent"
                         android:layout_weight="4"
                         android:background="@drawable/body_measurements_design"
                         android:cursorVisible="false"
-                        android:hint="000209"
+                        android:hint="YYYYMMDD"
                         android:inputType="text"
-                        android:maxLength="12"
-                        android:letterSpacing="2"
+                        android:maxLength="8"
+                        android:letterSpacing="1"
                         android:text=""
                         android:textColor="#fff"
 

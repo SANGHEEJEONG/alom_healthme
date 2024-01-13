@@ -34,10 +34,10 @@ interface Api{
         @Body jsonParams : JsonElement
     ): Call<LoginBackendResponse3>
 
-    @POST("api/user/body-information")
-    fun search_bodyinfo(
-        @Body jsonParams : JsonElement
-    ): Call<LoginBackendResponse4>
+//    @POST("api/user/body-information")
+//    fun search_bodyinfo(
+//        @Body jsonParams : JsonElement
+//    ): Call<LoginBackendResponse4>
 
 
 //    @POST("api/user/save-body-information")
@@ -82,6 +82,12 @@ interface Api{
         @Header("Authorization") accessToken:String,
         @Body jsonParams: JsonElement
     ):Call<LoginBackendResponse12>
+
+
+    @POST("api/refresh")
+    fun refreshToken(
+        @Body jsonParams: JsonElement
+    ):Call<LoginBackendResponse13>
 
 //    @POST("api/user/change-forget-password")
 //    fun reset_password(

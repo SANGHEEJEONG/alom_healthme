@@ -74,7 +74,10 @@ class login : AppCompatActivity() {
 
                             val tok:LoginBackendResponse?=response.body()
                             val accesstoken:String? = tok?.accessToken
+                            val refreshtoken:String? = tok?.refreshToken
                             SharedPreferenceUtils.saveData(this@login, "accessToken", (accesstoken.toString()))
+                            SharedPreferenceUtils.saveData(this@login, "refreshToken", (refreshtoken.toString()))
+
                             SharedPreferenceUtils.saveData(this@login, "email", data.id.toString())
 
 

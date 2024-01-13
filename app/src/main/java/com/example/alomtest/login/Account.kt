@@ -50,7 +50,7 @@ class account : AppCompatActivity() {
 
                     when (response.code()) {
                         200-> Toast.makeText(this@account,"인증코드를 이메일로 발송했습니다.", Toast.LENGTH_SHORT).show()
-                        401-> Toast.makeText(this@account,"서버가 동작하지 않습니다. ", Toast.LENGTH_SHORT).show()
+                        401-> Toast.makeText(this@account,"이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show()
                         403-> Toast.makeText(this@account,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
                         404 -> Toast.makeText(this@account, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
                         500 -> Toast.makeText(this@account, "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()

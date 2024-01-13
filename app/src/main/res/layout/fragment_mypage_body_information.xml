@@ -171,19 +171,20 @@
                     android:layout_marginLeft="30dp"
                     android:background="@drawable/body_measurements_total_design"
                     >
+
                     <EditText
                         android:id="@+id/gender_output"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="4"
-                        android:text=""
+                        android:background="@drawable/body_measurements_design"
                         android:cursorVisible="false"
 
-                        android:textColor="#fff"
-                        android:textSize="20sp"
                         android:inputType="number"
+                        android:text=""
+                        android:textColor="#fff"
 
-                        android:background="@drawable/body_measurements_design"
+                        android:textSize="20sp"
 
                         />
 

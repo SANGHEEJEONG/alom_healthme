@@ -39,7 +39,30 @@ class information : AppCompatActivity() {
 
 
 
+        binding.femaleBtn.setOnClickListener {
+            it.isSelected = true
+        }
+        binding.maleBtn.setOnClickListener {
+            it.isSelected = true
+        }
+
+        if(binding.maleBtn.isSelected==true){
+            binding.femaleBtn.isSelected = false
+        }
+        if(binding.femaleBtn.isSelected==true){
+            binding.maleBtn.isSelected =false
+        }
+
+
         binding.nextBtn.setOnClickListener {
+
+
+            if(binding.maleBtn.isSelected==false && binding.femaleBtn.isSelected==false){//예외처리부
+                Toast.makeText(this@information,"성별을 선택해주세요", Toast.LENGTH_SHORT).show()
+            }
+            else{
+
+
 
 
             val intent = Intent(this@information,terms::class.java)
@@ -118,9 +141,11 @@ class information : AppCompatActivity() {
                         Log.d("response코드",response.code().toString())
 
                         when (response.code()) {
-                            200-> {Toast.makeText(this@information,"인증코드를 이메일로 발송했습니다.", Toast.LENGTH_SHORT).show()
+                            200-> {Toast.makeText(this@information,"계정 생성 성공", Toast.LENGTH_SHORT).show()
 
-
+                                val intent = Intent(this@information,first::class.java)
+                                startActivity(intent)
+                                finish()
 
 
                             }
@@ -181,7 +206,7 @@ class information : AppCompatActivity() {
         }
 
 
-
+        }
 
 
 

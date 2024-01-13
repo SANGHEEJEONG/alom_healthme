@@ -13,8 +13,10 @@ import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentMypageBodyInformationEditmodeBinding
 import com.example.alomtest.retrofit.Api
 import com.example.alomtest.retrofit.LoginBackendResponse12
+import com.example.alomtest.retrofit.LoginBackendResponse13
 import com.example.alomtest.retrofit.LoginBackendResponse6
 import com.example.alomtest.retrofit.LoginBackendResponse7
+import com.example.alomtest.retrofit.LoginBackendResponse8
 import com.example.alomtest.retrofit.email
 import com.google.gson.JsonParser
 import org.json.JSONObject
@@ -29,22 +31,13 @@ class mypage_body_information_editmode : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
-
-
-
         binding=FragmentMypageBodyInformationEditmodeBinding.inflate(layoutInflater)
 
         //성별 체크박스 코드
 
-        val current_gender=(SharedPreferenceUtils.loadData(requireContext(),"gender","")).toString()
-
+        val current_gender=(SharedPreferenceUtils.loadData(requireContext(),"gender",""))
         val current_weight=(SharedPreferenceUtils.loadData(requireContext(),"weight",""))
         val current_height=(SharedPreferenceUtils.loadData(requireContext(),"height",""))
-
-
-
 
         val man=binding.manCheckbox
         val woman=binding.womanCheckbox
@@ -130,7 +123,23 @@ class mypage_body_information_editmode : Fragment() {
 
 
                 if(binding.birthdayInput.text.isNotEmpty()){
-                    SharedPreferenceUtils.saveData(requireContext(), "birthday", binding.birthdayInput.text.toString())
+
+                    if(binding.birthdayInput.text.length==10){
+                        SharedPreferenceUtils.saveData(requireContext(), "birthday", binding.birthdayInput.text.toString())
+                        Log.d("birthday출력",binding.birthdayInput.text.toString())
+
+
+                    }
+                    else{
+                        val y=binding.birthdayInput.text.substring(0,4)
+                        val m=binding.birthdayInput.text.substring(4,6)
+                        val d=binding.birthdayInput.text.substring(6,8)
+                        val new_birthday = "$y-$m-$d"
+                        Log.d("birthday출력",new_birthday)
+
+                        SharedPreferenceUtils.saveData(requireContext(), "birthday", new_birthday.toString())
+
+                    }
                 }
 //                if(binding.nameOutput.text.isNotEmpty()){
 //                    SharedPreferenceUtils.saveData(requireContext(), "name", binding.nameOutput.text.toString())
@@ -167,19 +176,17 @@ class mypage_body_information_editmode : Fragment() {
                     //레트로핏으로 서버에 저장
 
 
-                    val jsonObject= JSONObject()
+
 
                     val save_height = SharedPreferenceUtils.loadData(requireContext(), "height", "")
                     val save_weight = SharedPreferenceUtils.loadData(requireContext(), "weight", "")
                     val save_bmi = SharedPreferenceUtils.loadData(requireContext(), "bmi", "")
                     val save_gender = SharedPreferenceUtils.loadData(requireContext(), "gender", "")
                     val save_birthday = SharedPreferenceUtils.loadData(requireContext(), "birthday", "")
-                    val email=(SharedPreferenceUtils.loadData(requireContext(),"email",""))
+                    var email=(SharedPreferenceUtils.loadData(requireContext(),"email",""))
                     val name = SharedPreferenceUtils.loadData(requireContext(), "name", "")
 
-
-
-
+                    val jsonObject= JSONObject()
 
                     jsonObject.put("height",save_height.toString())
                     jsonObject.put("weight",save_weight.toString())
@@ -220,6 +227,162 @@ class mypage_body_information_editmode : Fragment() {
                                     401-> Toast.makeText(requireContext(),"서버가 동작하지 않습니다. ", Toast.LENGTH_SHORT).show()
                                     403-> Toast.makeText(requireContext(),"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
                                     404 -> Toast.makeText(requireContext(), "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
+
+                                    408->{//토큰만료
+
+                                        val refreshToken = SharedPreferenceUtils.loadData(requireContext(), "refreshToken", "")
+                                        //val accessToken = SharedPreferenceUtils.loadData(requireContext(), "acessToken", "")
+
+                                        email = SharedPreferenceUtils.loadData(requireContext(), "email", "")
+
+
+
+                                        val jsonObject2= JSONObject()
+                                        jsonObject2.put("email",email)
+                                        jsonObject2.put("refreshToken",refreshToken)
+                                        jsonObject2.put("accessToken",usertoken)
+
+                                        Log.d("refreshToken", refreshToken.toString())
+                                        Log.d("json출력", jsonObject2.toString())
+
+
+
+
+                                        api.refreshToken(JsonParser.parseString(jsonObject2.toString())).enqueue(object :
+                                            Callback<LoginBackendResponse13> {
+                                            override fun onResponse(
+                                                call: Call<LoginBackendResponse13>,
+                                                response: Response<LoginBackendResponse13>
+                                            ) {
+                                                Log.d("로그인 통신 성공",response.toString())
+                                                Log.d("로그인 통신 성공", response.body().toString())
+                                                Log.d("response코드",response.code().toString())
+
+
+
+
+                                                //Log.d("반환 메시지",response.body())
+   
+
+                                                when (response.code()) {
+                                                    200 -> {
+
+                                                        Toast.makeText(requireContext(), "access토큰 재발급 성공", Toast.LENGTH_LONG).show()
+
+                                                        val tok: LoginBackendResponse13?=response.body()
+                                                        val accesstoken:String? = tok?.accessToken
+
+                                                        SharedPreferenceUtils.saveData(requireContext(), "accessToken", accesstoken.toString())
+                                                        Log.d("408이후 accessToken 출력", accesstoken.toString())
+                                                        val jsonObject3= JSONObject()
+
+                                                        val save_height = SharedPreferenceUtils.loadData(requireContext(), "height", "")
+                                                        val save_weight = SharedPreferenceUtils.loadData(requireContext(), "weight", "")
+                                                        val save_bmi = SharedPreferenceUtils.loadData(requireContext(), "bmi", "")
+                                                        val save_gender = SharedPreferenceUtils.loadData(requireContext(), "gender", "")
+                                                        val save_birthday = SharedPreferenceUtils.loadData(requireContext(), "birthday", "")
+                                                        val email=(SharedPreferenceUtils.loadData(requireContext(),"email",""))
+                                                        val name = SharedPreferenceUtils.loadData(requireContext(), "name", "")
+
+
+
+
+
+                                                        jsonObject3.put("height",save_height.toString())
+                                                        jsonObject3.put("weight",save_weight.toString())
+                                                        jsonObject3.put("bmi",save_bmi.toString())
+                                                        jsonObject3.put("gender",save_gender.toString())
+                                                        jsonObject3.put("birthday",save_birthday.toString())
+                                                        jsonObject3.put("email",email)
+                                                        jsonObject3.put("name",name)
+                                                        //
+
+
+                                                        var usertoken = SharedPreferenceUtils.loadData(requireContext(), "accessToken", "")
+                                                        val refreshtoken = SharedPreferenceUtils.loadData(requireContext(), "refreshToken", "")
+
+                                                        Log.d("user토큰",usertoken)
+                                                        Log.d("JSON출력",jsonObject3.toString())
+
+
+
+
+                                                        api.change_bodyinfo(accessToken = "Bearer $usertoken",JsonParser.parseString(jsonObject3.toString()))
+                                                            .enqueue(object : Callback<LoginBackendResponse12> {
+                                                                override fun onResponse(
+                                                                    call: Call<LoginBackendResponse12>,
+                                                                    response: Response<LoginBackendResponse12>
+                                                                ) {
+                                                                    Log.d("로그인 통신 성공",response.toString())
+                                                                    Log.d("로그인 통신 성공", response.body().toString())
+                                                                    Log.d("response코드",response.code().toString())
+
+                                                                    when (response.code()) {
+                                                                        200-> {Toast.makeText(requireContext(),"로드성공", Toast.LENGTH_SHORT).show()
+                                                                            val tok: LoginBackendResponse12?=response.body()
+                                                                            Log.d("response바디 출력",tok.toString())
+                                                                            Log.d("sharedpre에 저장 완료","")
+                                                                            replaceFragment(mypage_body_information())
+
+                                                                        }
+                                                                        401-> Toast.makeText(requireContext(),"서버가 동작하지 않습니다. ", Toast.LENGTH_SHORT).show()
+                                                                        403-> Toast.makeText(requireContext(),"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
+                                                                        404 -> Toast.makeText(requireContext(), "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
+                                                                        500 -> Toast.makeText(requireContext(), "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
+                                                                    }
+                                                                }
+
+                                                                override fun onFailure(call: Call<LoginBackendResponse12>, t: Throwable) {
+                                                                    Log.d("로그인 통신 실패",t.message.toString())
+                                                                    Log.d("로그인 통신 실패","fail")
+                                                                }
+                                                            })
+
+
+//fragment구현
+
+                                                    }
+                                                    500 -> Toast.makeText(requireContext(), "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
+                                                    403-> Toast.makeText(requireContext(),"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
+                                                    408-> Toast.makeText(requireContext(),"토큰 재발급 실패", Toast.LENGTH_SHORT).show()
+
+                                                    else -> Toast.makeText(requireContext(), "LOGIN ERROR", Toast.LENGTH_LONG).show()
+
+
+                                                }
+                                            }
+
+                                            override fun onFailure(call: Call<LoginBackendResponse13>, t: Throwable) {
+                                                // 실패
+                                                Log.d("로그인 통신 실패",t.message.toString())
+                                                Log.d("로그인 통신 실패","fail")
+                                            }
+                                        })
+
+
+                                        //통신 다시한번 실행
+
+                                       //
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        //
+
+
+
+
+
+                                    }
                                     500 -> Toast.makeText(requireContext(), "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
                                 }
                             }
@@ -306,12 +469,15 @@ class mypage_body_information_editmode : Fragment() {
         val birthday:String= SharedPreferenceUtils.loadData(requireContext(), "birthday", "")
 
         val gender:String= SharedPreferenceUtils.loadData(requireContext(), "gender", "")
+//2000-02-09
+        val year = birthday.substring(0,4)
+        val month = birthday.substring(5,7)
+        val day = birthday.substring(8,10)
+        val new_birthday:String = "$year$month$day"
 
 
 
-
-
-        binding.birthdayInput.hint=birthday
+        binding.birthdayInput.hint=new_birthday
         //binding.genderOutput.hint=gender
         binding.heightOutput.hint=h
         binding.weightOutput.hint=w
