@@ -47,6 +47,7 @@ class terms : AppCompatActivity() {
         gender=intent.getStringExtra("usergender").toString()
         weight=intent.getStringExtra("userweight").toString()
         height=intent.getStringExtra("userheight").toString()
+        gender=intent.getStringExtra("usergender").toString()
 
 
 
@@ -58,7 +59,7 @@ class terms : AppCompatActivity() {
 
         Log.d("이름 인텐트 테스트",name)
         Log.d("생년월일 인텐트 테스트",birthday)
-        //Log.d("성별 인텐트 테스트",email)
+        Log.d("성별 인텐트 테스트",gender)
         Log.d("몸무게 인텐트 테스트",weight)
         Log.d("키 인텐트 테스트",height)
 

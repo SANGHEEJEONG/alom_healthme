@@ -45,8 +45,8 @@
         android:layout_height="30dp"
         android:text="인증코드 발송"
         android:textSize="10dp"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/round_button2"
+        android:textColor="#829800"
+        android:background="@drawable/round_button3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.83"
@@ -119,7 +119,7 @@
         android:layout_height="30dp"
         android:text="인증"
         android:textSize="10dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#829800"
         android:background="@drawable/round_button3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,11 +129,12 @@
         app:layout_constraintVertical_bias="0.53" />
 
     <Button
+        android:id="@+id/retransmission_btn"
         android:layout_width="50dp"
         android:layout_height="30dp"
         android:text="재전송"
         android:textSize="10dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#829800"
         android:background="@drawable/round_button3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

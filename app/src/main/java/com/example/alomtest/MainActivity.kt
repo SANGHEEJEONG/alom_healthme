@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
                             SharedPreferenceUtils.saveData(this@MainActivity, "height", tok?.height.toString())
                             SharedPreferenceUtils.saveData(this@MainActivity, "weight", tok?.weight.toString())
                             SharedPreferenceUtils.saveData(this@MainActivity, "name", tok?.name.toString())
+
                             SharedPreferenceUtils.saveData(this@MainActivity, "email", email)
                             SharedPreferenceUtils.saveData(this@MainActivity, "birthday", tok?.birthday.toString().substring(0,10))
                             SharedPreferenceUtils.saveData(this@MainActivity, "gender", tok?.gender.toString())

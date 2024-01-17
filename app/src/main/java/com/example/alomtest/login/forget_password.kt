@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import com.example.alomtest.R
@@ -32,41 +33,55 @@ class forget_password : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
+
+        binding.checkEmail.isEnabled=false
+        binding.retransmissionBtn.isEnabled=false
+
         binding.sendCode.setOnClickListener {
             email = binding.emailInput.text.toString().trim()//trim : 문자열 공백제거
-            val jsonObject= JSONObject()
-            jsonObject.put("email",email)
-            Log.d("json출력", jsonObject.toString())
+
+            if(email_validation_check(email)){//이메일 유효성 체크검사 통과한 경우
+                val jsonObject= JSONObject()
+                jsonObject.put("email",email)
+                Log.d("json출력", jsonObject.toString())
 
 
 
-            // == 백엔드 통신 부분 ==
-            val api = Api.create()
+                // == 백엔드 통신 부분 ==
+                val api = Api.create()
 
-            api.send_email_forget_password(JsonParser.parseString(jsonObject.toString()))
-                .enqueue(object : Callback<LoginBackendResponse9> {
-                    override fun onResponse(
-                        call: Call<LoginBackendResponse9>,
-                        response: Response<LoginBackendResponse9>
-                    ) {
-                        Log.d("로그인 통신 성공",response.toString())
-                        Log.d("로그인 통신 성공", response.body().toString())
-                        Log.d("response코드",response.code().toString())
+                api.send_email_forget_password(JsonParser.parseString(jsonObject.toString()))
+                    .enqueue(object : Callback<LoginBackendResponse9> {
+                        override fun onResponse(
+                            call: Call<LoginBackendResponse9>,
+                            response: Response<LoginBackendResponse9>
+                        ) {
+                            Log.d("로그인 통신 성공",response.toString())
+                            Log.d("로그인 통신 성공", response.body().toString())
+                            Log.d("response코드",response.code().toString())
 
-                        when (response.code()) {
-                            200-> Toast.makeText(this@forget_password,"인증코드를 이메일로 발송했습니다.", Toast.LENGTH_SHORT).show()
-                            401-> Toast.makeText(this@forget_password,"서버가 동작하지 않습니다. ", Toast.LENGTH_SHORT).show()
-                            403-> Toast.makeText(this@forget_password,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
-                            404 -> Toast.makeText(this@forget_password, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
-                            500 -> Toast.makeText(this@forget_password, "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
+                            when (response.code()) {
+                                200-> Toast.makeText(this@forget_password,"인증코드를 이메일로 발송했습니다.", Toast.LENGTH_SHORT).show()
+                                401-> Toast.makeText(this@forget_password,"서버가 동작하지 않습니다. ", Toast.LENGTH_SHORT).show()
+                                403-> Toast.makeText(this@forget_password,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
+                                404 -> Toast.makeText(this@forget_password, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
+                                500 -> Toast.makeText(this@forget_password, "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
+                            }
                         }
-                    }
 
-                    override fun onFailure(call: Call<LoginBackendResponse9>, t: Throwable) {
-                        Log.d("로그인 통신 실패",t.message.toString())
-                        Log.d("로그인 통신 실패","fail")
-                    }
-                })
+                        override fun onFailure(call: Call<LoginBackendResponse9>, t: Throwable) {
+                            Log.d("로그인 통신 실패",t.message.toString())
+                            Log.d("로그인 통신 실패","fail")
+                        }
+                    })
+            }
+
+            else{
+                Toast.makeText(this@forget_password,"이메일이 유효하지 않습니다.",Toast.LENGTH_SHORT).show()
+            }
+
+
         }
 
 
@@ -103,7 +118,7 @@ class forget_password : AppCompatActivity() {
 //                                info?.Email=email
 
 
-                                binding.nextBtn.setBackgroundResource(R.drawable.button_sample3)
+                                binding.nextBtn.setBackgroundResource(R.drawable.button_sample2)
                                     binding.nextBtn.setOnClickListener {
                                     Log.d("intent 진입 전 로그","")
                                     //val intent = Intent(this@forget_password, resetpassword::class.java)
@@ -158,5 +173,9 @@ class forget_password : AppCompatActivity() {
         this@forget_password.onBackPressedDispatcher.addCallback(this, callback)
 
 
+    }
+    fun email_validation_check(email:String):Boolean{
+        val patturn = Patterns.EMAIL_ADDRESS
+        return patturn.matcher(email).matches()
     }
 }

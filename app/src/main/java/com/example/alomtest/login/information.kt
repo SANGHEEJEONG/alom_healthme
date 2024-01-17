@@ -24,6 +24,7 @@ class information : AppCompatActivity() {
     lateinit var binding: InformationLayoutBinding
     lateinit var email: String
     lateinit var password:String
+    lateinit var gender:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,6 +32,7 @@ class information : AppCompatActivity() {
 
         binding = InformationLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        gender="non"
         email=intent.getStringExtra("useremail").toString()
         password=intent.getStringExtra("userpassword").toString()
         Log.d("이메일 인텐트 테스트",email)
@@ -40,24 +42,57 @@ class information : AppCompatActivity() {
 
 
         binding.femaleBtn.setOnClickListener {
-            it.isSelected = true
+
+
+            if(binding.femaleBtn.isSelected)//이미 버튼이 선택된 경우
+            {
+                binding.femaleBtn.setBackgroundResource(R.drawable.button_sample3)
+                gender="non"
+            }
+            else {
+
+
+                gender = "남성"
+                binding.femaleBtn.setBackgroundResource(R.drawable.button_sample2)
+                binding.maleBtn.setBackgroundResource(R.drawable.button_sample3)
+            }
+
         }
         binding.maleBtn.setOnClickListener {
-            it.isSelected = true
+            if(binding.maleBtn.isSelected){
+                binding.maleBtn.setBackgroundResource(R.drawable.button_sample3)
+                gender="non"
+            }
+            else{
+                gender="여성"
+
+                binding.femaleBtn.setBackgroundResource(R.drawable.button_sample3)
+                binding.maleBtn.setBackgroundResource(R.drawable.button_sample2)
+
+            }
+
         }
 
-        if(binding.maleBtn.isSelected==true){
-            binding.femaleBtn.isSelected = false
-        }
-        if(binding.femaleBtn.isSelected==true){
-            binding.maleBtn.isSelected =false
-        }
+//        if(binding.maleBtn.isSelected==true){
+//            //binding.femaleBtn.isSelected =false
+//
+//            binding.maleBtn.setBackgroundResource(R.drawable.button_sample2)
+//        }
+//        if(binding.femaleBtn.isSelected==true){
+//            //binding.maleBtn.isSelected =false
+//            binding.femaleBtn.setBackgroundResource(R.drawable.button_sample2)
+//
+//        }
+
+
+
 
 
         binding.nextBtn.setOnClickListener {
 
+            Log.d("성별 로그",gender)
 
-            if(binding.maleBtn.isSelected==false && binding.femaleBtn.isSelected==false){//예외처리부
+            if(gender!="여성" && gender!="남성"){//예외처리부 - 성별이 선택되지 않은경우
                 Toast.makeText(this@information,"성별을 선택해주세요", Toast.LENGTH_SHORT).show()
             }
             else{
@@ -70,7 +105,7 @@ class information : AppCompatActivity() {
             intent.putExtra("userpassword",password)
             intent.putExtra("username",binding.name.text.toString())
             intent.putExtra("userbirth",binding.birthday.text.toString())
-            //intent.putExtra("usergender",binding.gender.text.toString())
+            intent.putExtra("usergender",gender.toString())
             intent.putExtra("userheight",binding.height.text.toString())
             intent.putExtra("userweight",binding.weight.text.toString())
 
@@ -207,6 +242,7 @@ class information : AppCompatActivity() {
 
 
         }
+        
 
 
 

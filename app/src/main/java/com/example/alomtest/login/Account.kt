@@ -23,15 +23,13 @@ class account : AppCompatActivity() {
     lateinit var email: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
         binding = AccountLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
+            binding.checkEmail.isEnabled=false
 
 
             binding.sendCode.setOnClickListener {
-            email = binding.emailInput.text.toString().trim()//trim : 문자열 공백제거
+                email = binding.emailInput.text.toString().trim()//trim : 문자열 공백제거
 
 
                 if(email_validation_check(email)){
@@ -53,7 +51,9 @@ class account : AppCompatActivity() {
                                 Log.d("response코드",response.code().toString())
 
                                 when (response.code()) {
-                                    200-> Toast.makeText(this@account,"인증코드를 이메일로 발송했습니다.", Toast.LENGTH_SHORT).show()
+                                    200-> {Toast.makeText(this@account,"인증코드를 이메일로 발송했습니다.", Toast.LENGTH_SHORT).show()
+                                        binding.checkEmail.isEnabled=true
+                                    }
                                     401-> Toast.makeText(this@account,"이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show()
                                     403-> Toast.makeText(this@account,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
                                     404 -> Toast.makeText(this@account, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
@@ -104,12 +104,16 @@ class account : AppCompatActivity() {
                         when (response.code()) {
                             200-> {
                                 Toast.makeText(this@account,"인증코드가 확인되었습니다.", Toast.LENGTH_SHORT).show()
+                                binding.sendCode.isEnabled=false
+                                binding.checkEmail.isEnabled=false
+                                binding.retransmissionBtn.isEnabled=false
 
 //                                val info: userInfo? =null
 //                                info?.Email=email
 
 
-                                binding.nextBtn.setBackgroundResource(R.drawable.button_sample3)
+                                binding.nextBtn.setBackgroundResource(R.drawable.button_sample2)
+
                                 binding.nextBtn.setOnClickListener {
                                     val intent = Intent(this@account, account2::class.java)
                                     intent.putExtra("useremail",email)
