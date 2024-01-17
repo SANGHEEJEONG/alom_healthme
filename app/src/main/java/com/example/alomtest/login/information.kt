@@ -24,7 +24,7 @@ class information : AppCompatActivity() {
     lateinit var binding: InformationLayoutBinding
     lateinit var email: String
     lateinit var password:String
-    lateinit var gender:String
+    var gender:String = "non"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,7 +32,6 @@ class information : AppCompatActivity() {
 
         binding = InformationLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        gender="non"
         email=intent.getStringExtra("useremail").toString()
         password=intent.getStringExtra("userpassword").toString()
         Log.d("이메일 인텐트 테스트",email)
@@ -52,7 +51,7 @@ class information : AppCompatActivity() {
             else {
 
 
-                gender = "남성"
+                gender = "여성"
                 binding.femaleBtn.setBackgroundResource(R.drawable.button_sample2)
                 binding.maleBtn.setBackgroundResource(R.drawable.button_sample3)
             }
@@ -64,7 +63,7 @@ class information : AppCompatActivity() {
                 gender="non"
             }
             else{
-                gender="여성"
+                gender="남성"
 
                 binding.femaleBtn.setBackgroundResource(R.drawable.button_sample3)
                 binding.maleBtn.setBackgroundResource(R.drawable.button_sample2)
@@ -109,11 +108,6 @@ class information : AppCompatActivity() {
             intent.putExtra("userheight",binding.height.text.toString())
             intent.putExtra("userweight",binding.weight.text.toString())
 
-
-
-
-
-
             val jsonObject= JSONObject()
 
             //jsonObject.put("email",email)
@@ -124,6 +118,7 @@ class information : AppCompatActivity() {
 //            "birthday": "2024-01-07T12:32:05.907Z",
 //            "name": "string",
 //            "email": "string"
+
             jsonObject.put("height",binding.height.text.toString())
             jsonObject.put("weight",binding.weight.text.toString())
             //jsonObject.put("gender",binding.height.text.toString())
@@ -142,11 +137,11 @@ class information : AppCompatActivity() {
             jsonObject.put("name",binding.name.text.toString())
             jsonObject.put("email",email.toString())
             jsonObject.put("password",password)
+            jsonObject.put("gender",gender.toString())
 
             Log.d("json출력",jsonObject.toString())
 
-
-            //val jsonObject2=JSONObject()
+                //val jsonObject2=JSONObject()
 
 //
 //            "id": 0,
