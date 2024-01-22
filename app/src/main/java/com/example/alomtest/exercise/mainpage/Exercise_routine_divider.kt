@@ -1,3 +1,5 @@
+package com.example.alomtest.exercise.mainpage
+
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

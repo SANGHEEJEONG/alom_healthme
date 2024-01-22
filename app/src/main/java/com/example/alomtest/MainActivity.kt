@@ -1,6 +1,5 @@
 package com.example.alomtest
 
-import android.app.DownloadManager.Request
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,22 +10,16 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentMypageMainBinding
+import com.example.alomtest.exercise.mainpage.exercise_main_copy
 import com.example.alomtest.home.Home
-import com.example.alomtest.mypage.mypage_body_information
 import com.example.alomtest.mypage.mypage_main
 import com.example.alomtest.retrofit.Api
-import com.example.alomtest.retrofit.LoginBackendResponse
-import com.example.alomtest.retrofit.LoginBackendResponse11
-import com.example.alomtest.retrofit.LoginBackendResponse12
 import com.example.alomtest.retrofit.LoginBackendResponse13
-import com.example.alomtest.retrofit.LoginBackendResponse2
 import com.example.alomtest.retrofit.LoginBackendResponse7
 import com.google.gson.JsonParser
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.Header
-import javax.security.auth.callback.Callback
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding

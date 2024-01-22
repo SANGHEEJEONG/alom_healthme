@@ -1,17 +1,13 @@
-package com.example.alomtest
+package com.example.alomtest.exercise.mainpage
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.alomtest.databinding.FragmentExerciseMainBinding
+import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentExerciseMainCopyBinding
-import com.example.alomtest.home.Home
-import exercise_routine_divider
 
 
 class exercise_main_copy : Fragment() {

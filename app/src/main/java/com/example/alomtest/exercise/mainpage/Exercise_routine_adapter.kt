@@ -1,11 +1,7 @@
-package com.example.alomtest
-
-import android.content.Context
-import android.util.Log
+package com.example.alomtest.exercise.mainpage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alomtest.databinding.RoutineItemExampleBinding
 import com.example.alomtest.databinding.RoutineItemFooterBinding
@@ -83,7 +79,7 @@ class exercise_routine_adapter(private val routine:List<exercise_routine_profile
         // Footer에 필요한 뷰 바인딩 등을 처리
     }
     class exercise_routine_viewholder(private val binding: RoutineItemExampleBinding) : RecyclerView.ViewHolder(binding.root){ // xml 아이템과 연결
-        fun bind(routine:exercise_routine_profile){
+        fun bind(routine: exercise_routine_profile){
 
             binding.exerciseCnt.text="루틴 ${routine.cnt}개"
             binding.exerciseTitle.text=routine.nane

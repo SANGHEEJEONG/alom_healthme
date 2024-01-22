@@ -1,20 +1,19 @@
-package com.example.alomtest
+package com.example.alomtest.exercise.mainpage
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
+import com.example.alomtest.R
+import com.example.alomtest.exerciseData
 
 
 class exercise_list_adpater(val customList:ArrayList<exerciseData>): Adapter<exercise_list_adpater.CustomViewHolder>(){
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): exercise_list_adpater.CustomViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         val View = LayoutInflater.from(parent.context).inflate(R.layout.custom_exercise_list,parent,false)//context는 activity에서 담고 있는 모든 정보
         return CustomViewHolder(View).apply {
 
@@ -28,7 +27,7 @@ class exercise_list_adpater(val customList:ArrayList<exerciseData>): Adapter<exe
         }
     }
 
-    override fun onBindViewHolder(holder: exercise_list_adpater.CustomViewHolder, position: Int) {//실질적으로 생성된 뷰를 연결해주는 것
+    override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {//실질적으로 생성된 뷰를 연결해주는 것
         //holder.image.setImageResource(customList.get(position))
         holder.name.text = customList.get(position).exerciseName
         holder.detail.text=customList.get(position).exerciseDetail

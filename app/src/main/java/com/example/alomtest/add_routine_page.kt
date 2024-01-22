@@ -5,12 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alomtest.databinding.FragmentAddRoutinePageBinding
-import com.example.alomtest.databinding.FragmentExerciseAddCustomListBinding
-import com.example.alomtest.databinding.FragmentExerciseMainBinding
+import com.example.alomtest.exercise.mainpage.exercise_list_adpater
 
 
 class add_routine_page : Fragment() {
