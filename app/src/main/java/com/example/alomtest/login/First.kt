@@ -9,6 +9,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContentProviderCompat.requireContext
+import com.example.alomtest.MainActivity
+import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FirstLayoutBinding
 import kotlin.system.exitProcess
 
@@ -26,6 +28,13 @@ class first : AppCompatActivity() {
         }
         binding.account1.setOnClickListener{
             val intent = Intent(this, account::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        //출시 후 지워야 하는 코드!
+        binding.imageView.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }

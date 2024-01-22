@@ -83,10 +83,6 @@ class information : AppCompatActivity() {
 //
 //        }
 
-
-
-
-
         binding.nextBtn.setOnClickListener {
 
             Log.d("성별 로그",gender)
@@ -95,9 +91,6 @@ class information : AppCompatActivity() {
                 Toast.makeText(this@information,"성별을 선택해주세요", Toast.LENGTH_SHORT).show()
             }
             else{
-
-
-
 
             val intent = Intent(this@information,terms::class.java)
             intent.putExtra("useremail",email)

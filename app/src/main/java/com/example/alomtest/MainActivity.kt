@@ -81,6 +81,8 @@ class MainActivity : AppCompatActivity() {
                             SharedPreferenceUtils.saveData(this@MainActivity, "birthday", tok?.birthday.toString().substring(0,10))
                             SharedPreferenceUtils.saveData(this@MainActivity, "gender", tok?.gender.toString())
 
+                            SharedPreferenceUtils.saveData(this@MainActivity, "bmi", tok?.bmi.toString())
+
                             Log.d("sharedpre에 저장 완료","")
 
 
@@ -253,7 +255,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 //R.id.exercise -> {replaceFragment()
-               R.id.exercise -> {replaceFragment(exercise_main())
+               R.id.exercise -> {replaceFragment(exercise_main_copy())
                 //R.id.exercise -> {replaceFragment(exercise())
                 }
                 R.id.food -> replaceFragment(food())

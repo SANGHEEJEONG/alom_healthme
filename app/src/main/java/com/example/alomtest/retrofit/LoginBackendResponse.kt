@@ -54,6 +54,7 @@ data class LoginBackendResponse7(
     val accessToken: String,
     val height: Double,
     val weight: Double,
+    val bmi:Double,
     val gender: String,
     val birthday:String,
     val name :String,
