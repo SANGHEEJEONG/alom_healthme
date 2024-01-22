@@ -1,4 +1,4 @@
-package com.example.alomtest
+package com.example.alomtest.exercise.custompage01
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentAddRoutinePageBinding
 import com.example.alomtest.exercise.mainpage.exercise_list_adpater
+import com.example.alomtest.exerciseData
+import com.example.alomtest.exercise_add_custom_list
+import com.example.alomtest.exercise_main
 
 
 class add_routine_page : Fragment() {

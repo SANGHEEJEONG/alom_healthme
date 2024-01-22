@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".add_routine_page"
+    tools:context=".exercise.custompage01.add_routine_page"
     android:background="#000778">
 
   <LinearLayout

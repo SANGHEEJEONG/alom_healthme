@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.alomtest.databinding.FragmentExerciseAddCustomListBinding
-import com.example.alomtest.databinding.FragmentExerciseMainBinding
+import com.example.alomtest.exercise.custompage01.add_routine_page
 
 private lateinit var binding: FragmentExerciseAddCustomListBinding
 

@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.example.alomtest.databinding.FragmentExerciseMainBinding
+import com.example.alomtest.exercise.custompage01.add_routine_page
 import com.example.alomtest.home.Home
 
 
