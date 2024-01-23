@@ -86,6 +86,7 @@ interface Api{
 
     @POST("api/refresh")
     fun refreshToken(
+        @Header("Authorization") accessToken:String,
         @Body jsonParams: JsonElement
     ):Call<LoginBackendResponse13>
 

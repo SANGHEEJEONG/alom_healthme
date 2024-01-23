@@ -47,6 +47,19 @@ class password_change : Fragment() {
 
         binding.changeAccept.setOnClickListener {
 
+
+
+            Log.d("password2",binding.password2.text.toString())
+            Log.d("password3",binding.password3.text.toString())
+            if(!binding.password3.text.toString().equals(binding.password2.text.toString())){
+
+
+                Toast.makeText(requireContext(),"새로운 비밀번호가 일치하지 않습니다.",Toast.LENGTH_SHORT).show()
+            }
+
+
+            else{
+
             val usertoken = SharedPreferenceUtils.loadData(requireContext(), "accessToken", "")
 
             // == 백엔드 통신 부분 ==
@@ -58,6 +71,8 @@ class password_change : Fragment() {
             jsonObject.put("password",binding.password1.text.toString())
             jsonObject.put("email",current_email)
             jsonObject.put("changedPassword",binding.password3.text.toString())
+
+
 
 
 
@@ -96,8 +111,8 @@ class password_change : Fragment() {
                         403-> Toast.makeText(requireContext(),"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
                         408->{//토큰만료
 
-                            val refreshToken = SharedPreferenceUtils.loadData(requireContext(), "refreshToken", "")
-                            //val accessToken = SharedPreferenceUtils.loadData(requireContext(), "acessToken", "")
+                            var refreshToken = SharedPreferenceUtils.loadData(requireContext(), "refreshToken", "")
+                            var usertoken = SharedPreferenceUtils.loadData(requireContext(), "accessToken", "")
 
                             val email = SharedPreferenceUtils.loadData(requireContext(), "email", "")
 
@@ -109,12 +124,13 @@ class password_change : Fragment() {
                             jsonObject2.put("accessToken",usertoken)
 
                             Log.d("refreshToken", refreshToken.toString())
+                            Log.d("accessToken2",usertoken)
                             Log.d("json출력", jsonObject2.toString())
 
 
 
 
-                            api.refreshToken(JsonParser.parseString(jsonObject2.toString())).enqueue(object :
+                            api.refreshToken(accessToken = "Bearer $usertoken",JsonParser.parseString(jsonObject2.toString())).enqueue(object :
                                 Callback<LoginBackendResponse13> {
                                 override fun onResponse(
                                     call: Call<LoginBackendResponse13>,
@@ -136,9 +152,13 @@ class password_change : Fragment() {
                                             Toast.makeText(requireContext(), "access토큰 재발급 성공", Toast.LENGTH_LONG).show()
 
                                             val tok: LoginBackendResponse13?=response.body()
-                                            val accesstoken:String? = tok?.accessToken
+                                            val accesstoken:String? = tok?.accessToken.toString()
+                                            var refreshtoken:String? = tok?.refreshToken.toString()
+
 
                                             SharedPreferenceUtils.saveData(requireContext(), "accessToken", accesstoken.toString())
+                                            SharedPreferenceUtils.saveData(requireContext(), "refreshToken", refreshtoken.toString())
+
                                             Log.d("408이후 accessToken 출력", accesstoken.toString())
                                             //통신 다시한번 실행
                                             val jsonObject3= JSONObject()
@@ -150,7 +170,7 @@ class password_change : Fragment() {
 
 
                                             var usertoken = SharedPreferenceUtils.loadData(requireContext(), "accessToken", "")
-                                            val refreshtoken = SharedPreferenceUtils.loadData(requireContext(), "refreshToken", "")
+                                            refreshtoken = SharedPreferenceUtils.loadData(requireContext(), "refreshToken", "")
 
                                             Log.d("user토큰",usertoken)
                                             Log.d("JSON출력",jsonObject3.toString())
@@ -233,6 +253,7 @@ class password_change : Fragment() {
                 }
             })
 
+        }
         }
 
     }

@@ -231,7 +231,7 @@ class mypage_body_information_editmode : Fragment() {
                                     408->{//토큰만료
 
                                         val refreshToken = SharedPreferenceUtils.loadData(requireContext(), "refreshToken", "")
-                                        //val accessToken = SharedPreferenceUtils.loadData(requireContext(), "acessToken", "")
+                                        val accessToken = SharedPreferenceUtils.loadData(requireContext(), "accessToken", "")
 
                                         email = SharedPreferenceUtils.loadData(requireContext(), "email", "")
 
@@ -240,7 +240,7 @@ class mypage_body_information_editmode : Fragment() {
                                         val jsonObject2= JSONObject()
                                         jsonObject2.put("email",email)
                                         jsonObject2.put("refreshToken",refreshToken)
-                                        jsonObject2.put("accessToken",usertoken)
+                                        jsonObject2.put("accessToken",accessToken)
 
                                         Log.d("refreshToken", refreshToken.toString())
                                         Log.d("json출력", jsonObject2.toString())
@@ -248,7 +248,7 @@ class mypage_body_information_editmode : Fragment() {
 
 
 
-                                        api.refreshToken(JsonParser.parseString(jsonObject2.toString())).enqueue(object :
+                                        api.refreshToken(accessToken = "Bearer $usertoken",JsonParser.parseString(jsonObject2.toString())).enqueue(object :
                                             Callback<LoginBackendResponse13> {
                                             override fun onResponse(
                                                 call: Call<LoginBackendResponse13>,
@@ -271,8 +271,11 @@ class mypage_body_information_editmode : Fragment() {
 
                                                         val tok: LoginBackendResponse13?=response.body()
                                                         val accesstoken:String? = tok?.accessToken
+                                                        var refreshtoken:String?= tok?.refreshToken
 
                                                         SharedPreferenceUtils.saveData(requireContext(), "accessToken", accesstoken.toString())
+                                                        SharedPreferenceUtils.saveData(requireContext(), "refreshToken", refreshtoken.toString())
+
                                                         Log.d("408이후 accessToken 출력", accesstoken.toString())
                                                         val jsonObject3= JSONObject()
 
@@ -299,7 +302,7 @@ class mypage_body_information_editmode : Fragment() {
 
 
                                                         var usertoken = SharedPreferenceUtils.loadData(requireContext(), "accessToken", "")
-                                                        val refreshtoken = SharedPreferenceUtils.loadData(requireContext(), "refreshToken", "")
+                                                        refreshtoken = SharedPreferenceUtils.loadData(requireContext(), "refreshToken", "")
 
                                                         Log.d("user토큰",usertoken)
                                                         Log.d("JSON출력",jsonObject3.toString())
