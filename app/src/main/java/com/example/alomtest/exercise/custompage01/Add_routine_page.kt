@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentAddRoutinePageBinding
+import com.example.alomtest.exercise.mainpage.exercise_main_copy
 import com.example.alomtest.exerciseData
-import com.example.alomtest.exercise_add_custom_list
-import com.example.alomtest.exercise_main
+import com.example.alomtest.exercise.custompage02.exercise_add_custom_list
 
 
 class add_routine_page : Fragment() {
@@ -32,7 +32,7 @@ class add_routine_page : Fragment() {
 
         }
         backicon.setOnClickListener {
-            replaceFragment(exercise_main())
+            replaceFragment(exercise_main_copy())
         }
 
 

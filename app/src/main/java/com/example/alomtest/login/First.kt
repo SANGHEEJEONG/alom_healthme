@@ -41,6 +41,10 @@ class first : AppCompatActivity() {
 
 
 
+
+
+
+
 //240107 뒤로가기 매커니즘 추가
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {

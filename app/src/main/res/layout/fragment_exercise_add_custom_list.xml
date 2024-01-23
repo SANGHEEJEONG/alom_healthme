@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".exercise_add_custom_list"
+    tools:context=".exercise.custompage02.exercise_add_custom_list"
     android:background="#000778">
 <!--
 상단 바와 아래 비율 1:22+warp_content
@@ -79,6 +79,7 @@
 
 
             <LinearLayout
+                android:id="@+id/part_01"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
@@ -151,6 +152,8 @@
 
 
             <LinearLayout
+                android:id="@+id/part_02"
+
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
@@ -220,6 +223,8 @@
 
 
             <LinearLayout
+                android:id="@+id/part_03"
+
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
@@ -289,6 +294,8 @@
 
 
             <LinearLayout
+                android:id="@+id/part_04"
+
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
@@ -355,6 +362,8 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/part_05"
+
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
@@ -421,6 +430,8 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/part_06"
+
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"

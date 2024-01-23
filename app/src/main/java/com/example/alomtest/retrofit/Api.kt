@@ -7,6 +7,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 
@@ -90,6 +91,10 @@ interface Api{
         @Body jsonParams: JsonElement
     ):Call<LoginBackendResponse13>
 
+    @GET("api/exercise")
+    fun load_exercise(
+        @Header("Authorization") accessToken:String,
+    ):Call<LoginBackendResponse14>
 //    @POST("api/user/change-forget-password")
 //    fun reset_password(
 //        @Body jsonParams: JsonElement

@@ -94,3 +94,11 @@ data class LoginBackendResponse13(
     val refreshToken: String
 
 )
+
+data class LoginBackendResponse14(
+    val code: Int=0,
+    val bool:Boolean=false,
+    val accessToken: String,
+    val refreshToken: String
+
+)
