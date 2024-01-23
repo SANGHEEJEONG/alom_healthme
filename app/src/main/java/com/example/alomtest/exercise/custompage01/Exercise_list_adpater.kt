@@ -1,4 +1,4 @@
-package com.example.alomtest.exercise.mainpage
+package com.example.alomtest.exercise.custompage01
 
 import android.view.LayoutInflater
 import android.view.View

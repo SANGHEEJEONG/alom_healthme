@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentAddRoutinePageBinding
-import com.example.alomtest.exercise.mainpage.exercise_list_adpater
 import com.example.alomtest.exerciseData
 import com.example.alomtest.exercise_add_custom_list
 import com.example.alomtest.exercise_main

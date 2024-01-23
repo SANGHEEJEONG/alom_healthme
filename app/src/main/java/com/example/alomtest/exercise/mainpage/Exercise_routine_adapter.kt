@@ -1,12 +1,17 @@
 package com.example.alomtest.exercise.mainpage
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.alomtest.R
 import com.example.alomtest.databinding.RoutineItemExampleBinding
 import com.example.alomtest.databinding.RoutineItemFooterBinding
+import com.example.alomtest.exercise.custompage01.add_routine_page
 
-class exercise_routine_adapter(private val routine:List<exercise_routine_profile>):RecyclerView.Adapter<RecyclerView.ViewHolder>() { //어댑터는 데이터를 그려주는 역할
+class exercise_routine_adapter(private val context: Context, private val routine:List<exercise_routine_profile>):RecyclerView.Adapter<RecyclerView.ViewHolder>() { //어댑터는 데이터를 그려주는 역할
     private val ITEM_VIEW_TYPE_NORMAL = 0
     private val ITEM_VIEW_TYPE_FOOTER = 1
 
@@ -29,7 +34,7 @@ class exercise_routine_adapter(private val routine:List<exercise_routine_profile
                     parent,
                     false
                 )
-                exercise_routine_footer_viewholder(binding)
+                exercise_routine_footer_viewholder(context,binding)
             }
             else -> throw IllegalArgumentException("Invalid view type")
         }
@@ -65,12 +70,18 @@ class exercise_routine_adapter(private val routine:List<exercise_routine_profile
     }
 
     // Footer를 위한 ViewHolder 클래스 추가
-    class exercise_routine_footer_viewholder(private val binding: RoutineItemFooterBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
+    class exercise_routine_footer_viewholder(private val context: Context, private val binding: RoutineItemFooterBinding) : RecyclerView.ViewHolder(binding.root) {
+        private fun replaceFragment(fragment: Fragment) {
+            val activity = context as AppCompatActivity
+            val fragmentManager = activity.supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.frame_layout, fragment)
+            fragmentTransaction.commit()
+            println("success")
+        }
         init {
             binding.root.setOnClickListener {
-
+                replaceFragment(add_routine_page())
 
 
             }
@@ -85,6 +96,7 @@ class exercise_routine_adapter(private val routine:List<exercise_routine_profile
             binding.exerciseTitle.text=routine.nane
         }
     }
+
 
 
 }

@@ -62,7 +62,7 @@ class exercise_main_copy : Fragment() {
     }
     private fun init(){
         binding.routineList.layoutManager = LinearLayoutManager(requireContext())
-        binding.routineList.adapter = exercise_routine_adapter(test_data)
+        binding.routineList.adapter = exercise_routine_adapter(requireContext(), test_data)
 
 
     }
