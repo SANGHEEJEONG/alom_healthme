@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".exercise.custompage03.exercise_select_exercise"
+    android:background="#000778">
+<!--
+상단 바와 아래 비율 1:22+warp_content
+-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--상단메뉴-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/cancelicon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="취소"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Add routine"
+                android:textColor="#fff"
+                android:layout_weight="10"
+                android:textAlignment="center"
+                />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+
+                android:layout_weight="1"
+                />
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:id="@+id/part_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="부위별 목록"
+            android:textColor="#B9BDFE"
+            android:textSize="15sp"
+            android:layout_marginHorizontal="30dp"
+            android:gravity="center_vertical"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="18"/>
+
+        <Button
+            android:id="@+id/get"
+            android:text="get_exercise_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+</FrameLayout>

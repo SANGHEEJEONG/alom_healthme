@@ -94,7 +94,7 @@ interface Api{
     @GET("api/exercise")
     fun load_exercise(
         @Header("Authorization") accessToken:String,
-    ):Call<LoginBackendResponse14>
+    ):Call<ArrayList<exercise_list>>
 //    @POST("api/user/change-forget-password")
 //    fun reset_password(
 //        @Body jsonParams: JsonElement

@@ -99,6 +99,25 @@ data class LoginBackendResponse14(
     val code: Int=0,
     val bool:Boolean=false,
     val accessToken: String,
-    val refreshToken: String
+    val refreshToken: String,
 
+    val list:Array<exercise_list>
+
+
+
+)
+
+//data class exerciseList(
+//    .id(id)
+//.name(name)
+//.calorie(calorie)
+//.category(category)
+
+//)
+
+data class exercise_list(
+    val id:String,
+    val name:String,
+    val calorie:String,
+    val category:String
 )
