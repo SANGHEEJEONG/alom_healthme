@@ -22,23 +22,27 @@
             android:paddingHorizontal="10dp"
             android:layout_weight="1"
             >
-            <TextView
+            <ImageView
                 android:id="@+id/cancelicon"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="취소"
-                android:textColor="#fff"
+
                 android:layout_weight="1"
-                android:textAlignment="textEnd"
+                android:src="@drawable/back_icon"
                 />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="Add routine"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeStepGranularity="4sp"
+                android:gravity="center"
                 android:textColor="#fff"
                 android:layout_weight="10"
-                android:textAlignment="center"
+
                 />
 
             <Space
@@ -83,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                android:background="#2546FF"
+                android:background="@drawable/exercise_part_select_btn_design"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
@@ -95,9 +99,10 @@
                 <ImageView
                     android:id="@+id/exercise_img1"
                     android:layout_width="0dp"
-                    android:layout_weight="20"
+                    android:layout_margin="10dp"
+                    android:layout_weight="10"
                     android:layout_height="match_parent"
-                    android:src="@drawable/character_0"
+                    android:src="@drawable/chest_exercise_icon"
                     />
 
 
@@ -157,7 +162,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                android:background="#2546FF"
+                android:background="@drawable/exercise_part_select_btn_design"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
@@ -171,9 +176,10 @@
                 <ImageView
                     android:id="@+id/exercise_img2"
                     android:layout_width="0dp"
-                    android:layout_weight="20"
+                    android:layout_margin="10dp"
+                    android:layout_weight="10"
                     android:layout_height="match_parent"
-                    android:src="@drawable/character_0"
+                    android:src="@drawable/arm_exercise_icon"
                     />
 
 
@@ -228,7 +234,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                android:background="#2546FF"
+                android:background="@drawable/exercise_part_select_btn_design"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
@@ -242,9 +248,10 @@
                 <ImageView
                     android:id="@+id/exercise_img3"
                     android:layout_width="0dp"
-                    android:layout_weight="20"
+                    android:layout_margin="10dp"
+                    android:layout_weight="10"
                     android:layout_height="match_parent"
-                    android:src="@drawable/character_0"
+                    android:src="@drawable/back_exercise_icon"
                     />
 
 
@@ -299,7 +306,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                android:background="#2546FF"
+                android:background="@drawable/exercise_part_select_btn_design"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
@@ -313,9 +320,10 @@
                 <ImageView
                     android:id="@+id/exercise_img4"
                     android:layout_width="0dp"
-                    android:layout_weight="20"
+                    android:layout_margin="10dp"
+                    android:layout_weight="10"
                     android:layout_height="match_parent"
-                    android:src="@drawable/character_0"
+                    android:src="@drawable/ab_exercise_icon"
                     />
 
 
@@ -367,7 +375,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                android:background="#2546FF"
+                android:background="@drawable/exercise_part_select_btn_design"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
@@ -381,9 +389,10 @@
                 <ImageView
                     android:id="@+id/exercise_img5"
                     android:layout_width="0dp"
-                    android:layout_weight="20"
+                    android:layout_margin="10dp"
+                    android:layout_weight="10"
                     android:layout_height="match_parent"
-                    android:src="@drawable/character_0"
+                    android:src="@drawable/lowerbody_exercise_icon"
                     />
 
 
@@ -435,7 +444,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                android:background="#2546FF"
+                android:background="@drawable/exercise_part_select_btn_design"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginBottom="30dp"
                 android:layout_weight="1"
@@ -449,9 +458,10 @@
                 <ImageView
                     android:id="@+id/exercise_img6"
                     android:layout_width="0dp"
-                    android:layout_weight="20"
+                    android:layout_margin="10dp"
+                    android:layout_weight="10"
                     android:layout_height="match_parent"
-                    android:src="@drawable/character_0"
+                    android:src="@drawable/shoulder_exercise_icon"
                     />
 
 
