@@ -14,7 +14,7 @@ import java.util.Collections.list
 class exercise_main_copy : Fragment() {
     private lateinit var binding:FragmentExerciseMainCopyBinding
 
-    val numbers: Array<Int> = arrayOf(1, 6,11)
+    //val numbers: Array<Int> = arrayOf(1, 6,11)
     //private val binding get() = _binding!!
 
     lateinit var routininfo:LinearLayout

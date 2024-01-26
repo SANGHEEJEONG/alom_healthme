@@ -11,22 +11,36 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:orientation="vertical">
+<!--  <Space-->
+<!--      android:layout_width="match_parent"-->
+<!--      android:layout_height="0dp"-->
+<!--      android:layout_weight="63"-->
+<!--      />-->
 <!--상단메뉴-->
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="0dp"
           android:orientation="horizontal"
+
+          android:layout_weight="38"
+          android:background="@drawable/exercise_upper_stroke"
           android:paddingHorizontal="10dp"
-          android:layout_weight="1"
-          >
+      >
+
+
+
+
           <TextView
               android:id="@+id/cancelicon"
               android:layout_width="0dp"
               android:layout_height="match_parent"
               android:text="취소"
               android:textColor="#fff"
-              android:layout_weight="1"
-              android:textAlignment="textEnd"
+              android:gravity="center"
+              android:textSize="20sp"
+              android:layout_weight="2"
+
+              android:textAlignment="center"
               />
 
           <TextView
@@ -34,7 +48,9 @@
               android:layout_height="match_parent"
               android:text="Add routine"
               android:textColor="#fff"
-              android:layout_weight="10"
+              android:textSize="20sp"
+              android:gravity="center"
+              android:layout_weight="8"
               android:textAlignment="center"
               />
 
@@ -43,8 +59,11 @@
               android:layout_height="match_parent"
               android:text="저장"
               android:textColor="#00FF9D"
-              android:layout_weight="1"
-              android:textAlignment="textStart"
+              android:layout_weight="2"
+              android:textSize="20sp"
+              android:gravity="center"
+
+              android:textAlignment="center"
 
               />
       </LinearLayout>
@@ -52,15 +71,22 @@
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="0dp"
-          android:layout_weight="2"
+          android:layout_weight="45"
           android:orientation="horizontal"
           android:layout_marginHorizontal="30dp"
           >
           <EditText
-              android:layout_width="match_parent"
+              android:layout_width="wrap_content"
               android:layout_height="match_parent"
-              android:text="커스텀 4"
-              android:textSize="30sp"
+
+
+              android:background="@drawable/exercise_custom01_title_stroke"
+              android:text="개똥이의 아침운동"
+              android:hint="개똥이의 아침운동"
+              android:textColorHint="#696E74"
+              android:gravity="center_vertical"
+
+              android:textSize="25sp"
               android:textColor="#E7F1FF"
               android:inputType="text"
               android:textStyle="bold"
@@ -70,8 +96,10 @@
       <TextView
           android:layout_width="match_parent"
           android:layout_height="0dp"
-          android:layout_weight="1"
+          android:layout_weight="35"
+          android:textSize="10sp"
           android:text="총 0코스"
+          android:gravity="center_vertical"
           android:textColor="#B9BDFE"
           android:layout_marginHorizontal="30dp"
 
@@ -79,7 +107,7 @@
       <TextView
           android:layout_width="match_parent"
           android:layout_height="0dp"
-          android:layout_weight="1"
+          android:layout_weight="19"
           android:text="커스텀 리스트"
           android:textColor="#B9BDFE"
           android:textSize="10sp"
@@ -90,7 +118,7 @@
           android:id="@+id/exercise_view"
           android:layout_width="match_parent"
           android:layout_height="0dp"
-          android:layout_weight="18"
+          android:layout_weight="444"
           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
           android:orientation ="vertical"
           tools:listitem="@layout/custom_exercise_list"
@@ -98,12 +126,33 @@
 
 
           />
+
+
       <Button
+
           android:id="@+id/exercise_add_btn"
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="추가_exercise_add_btn"
+          android:layout_height="0dp"
+          android:layout_weight="40"
+          android:layout_marginTop="20dp"
+
+          android:text="운동 추가"
+          android:textColor="#fff"
+          android:textStyle="bold"
+          android:textSize="20sp"
+          android:background="@drawable/exercise_add_btn_design"
+
+          android:layout_marginHorizontal="130dp"
           />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="24"
+          android:textColor="#757BE1"
+          android:textAlignment="center"
+          android:textSize="10sp"
+          android:gravity="center"
+          android:text="+ 버튼을 눌러 나만의 운동루틴을 만들어보세요"/>
 
 
       <!--      총 0코스 / 0h 0m-->
