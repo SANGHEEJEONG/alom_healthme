@@ -8,17 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.alomtest.R
-import com.example.alomtest.databinding.FragmentExerciseAddCustomListBinding
 import com.example.alomtest.databinding.FragmentExerciseSelectExerciseBinding
-import com.example.alomtest.exercise.custompage01.add_routine_page
 import com.example.alomtest.exercise.custompage02.exercise_add_custom_list
-import com.example.alomtest.mypage.mypage_setting
 import com.example.alomtest.retrofit.Api
 import com.example.alomtest.retrofit.LoginBackendResponse13
-import com.example.alomtest.retrofit.LoginBackendResponse14
-import com.example.alomtest.retrofit.LoginBackendResponse2
-import com.example.alomtest.retrofit.LoginBackendResponse8
 import com.example.alomtest.retrofit.exercise_list
 
 import com.google.gson.JsonParser
@@ -238,12 +233,6 @@ class exercise_select_exercise : Fragment() {
 
                         }
 
-
-
-
-
-
-
                     }
 
                     override fun onFailure(call: Call<ArrayList<exercise_list>>, t: Throwable) {
@@ -251,6 +240,18 @@ class exercise_select_exercise : Fragment() {
                         Log.d("로그인 통신 실패","fail")
                     }
                 })
+
+
+//리사이클러뷰와 연결
+            val layoutManager = LinearLayoutManager(requireContext())
+            val recyclerview = binding.selectExerciseList
+            recyclerview.layoutManager=layoutManager
+            val adapter = exercise_selcet_list_adapter(validexercise)
+            recyclerview.adapter = adapter
+
+
+
+
         }
 
     }

@@ -240,7 +240,6 @@ class Home : Fragment() {
 //bmi에 따른 캐릭터 출력
         val img=binding.imageView2
 
-
         if(bmi<185){
             if(gender=="남성"){
                 img.setImageResource(R.drawable.thin_character)
