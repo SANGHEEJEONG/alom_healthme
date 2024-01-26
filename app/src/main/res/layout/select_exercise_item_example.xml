@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:background="@drawable/exercise_routine_btn_design"
     android:layout_margin="15dp"
@@ -12,13 +12,13 @@
 
 
 
-    <ImageView
-        android:id="@+id/exercise_img"
-        android:layout_width="0dp"
-        android:layout_weight="20"
-        android:layout_height="match_parent"
-        android:src="@drawable/character_0"
-        />
+<!--    <ImageView-->
+<!--        android:id="@+id/exercise_img"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_weight="20"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:src="@drawable/character_0"-->
+<!--        />-->
 
     <LinearLayout
 
@@ -39,11 +39,11 @@
             android:layout_height="0dp"
             android:layout_weight="55"
 
-            android:gravity="left|center_vertical"
+            android:gravity="center"
 
             android:text="운동명"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="30sp"
             />
 
 

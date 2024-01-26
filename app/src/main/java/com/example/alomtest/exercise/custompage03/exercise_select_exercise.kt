@@ -24,6 +24,13 @@ import retrofit2.Response
 
 class exercise_select_exercise : Fragment() {
     private lateinit var binding: FragmentExerciseSelectExerciseBinding
+    private lateinit var usertoken:String
+    private lateinit var receive_data:String
+    lateinit var validexercise:ArrayList<exercise_list>
+
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +39,7 @@ class exercise_select_exercise : Fragment() {
         val backicon = binding.cancelicon
         //val total_exercise_List:ArrayList<exercise_list>?
 
-        val validexercise = ArrayList<exercise_list>()
+        validexercise = ArrayList<exercise_list>()
 
         //val receive_data:String? = arguments?.getString("type")
 
@@ -42,15 +49,30 @@ class exercise_select_exercise : Fragment() {
 
 
         val bundle = arguments
-        val receive_data = bundle?.getString("type").toString()
+        receive_data = bundle?.getString("type").toString()
 
-        var usertoken = SharedPreferenceUtils.loadData(requireContext(), "accessToken", "")
+        usertoken = SharedPreferenceUtils.loadData(requireContext(), "accessToken", "")
 
         binding.partIndicator.text = "${receive_data} 운동"
         Log.d("번들 테스트",receive_data)
 
 
-        binding.get.setOnClickListener {
+
+
+    }
+    private var _binding: FragmentExerciseSelectExerciseBinding? = null
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        // Inflate the layout for this fragment
+
+        _binding = FragmentExerciseSelectExerciseBinding.inflate(inflater, container, false)
+        return binding.root
+        //return inflater.inflate(R.layout.fragment_mypage_body_measurement_editmode, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //binding.get.setOnClickListener {
             val api = Api.create()
 
             api.load_exercise(accessToken = "Bearer $usertoken")
@@ -141,7 +163,7 @@ class exercise_select_exercise : Fragment() {
 
 
 
-                                                var usertoken = SharedPreferenceUtils.loadData(requireContext(), "accessToken", "")
+                                                usertoken = SharedPreferenceUtils.loadData(requireContext(), "accessToken", "")
                                                 refreshtoken = SharedPreferenceUtils.loadData(requireContext(), "refreshToken", "")
 
                                                 Log.d("user토큰",usertoken)
@@ -170,6 +192,7 @@ class exercise_select_exercise : Fragment() {
                                                                         }
 
                                                                         Log.d("succ",validexercise.toString())
+
                                                                     }
                                                                     else{
                                                                         Log.d("error","total_exercise_List가 null임")
@@ -184,7 +207,14 @@ class exercise_select_exercise : Fragment() {
 
 
 
-
+                                                            //temp코드
+                                                            Log.d("리사이클러뷰 매니저 코드 진입","")
+                                                            val layoutManager = LinearLayoutManager(requireContext())
+                                                            val recyclerview = binding.selectExerciseList
+                                                            recyclerview.layoutManager=layoutManager
+                                                            Log.d("validexercise출력",validexercise.toString())
+                                                            val adapter = exercise_selcet_list_adapter(validexercise)
+                                                            recyclerview.adapter = adapter
 
 
 
@@ -194,7 +224,9 @@ class exercise_select_exercise : Fragment() {
                                                             Log.d("로그인 통신 실패",t.message.toString())
                                                             Log.d("로그인 통신 실패","fail")
                                                         }
-                                                    })
+                                                    }
+
+                                                    )
 
 
 
@@ -232,7 +264,14 @@ class exercise_select_exercise : Fragment() {
                             }
 
                         }
-
+                        //temp코드
+                        Log.d("리사이클러뷰 매니저 코드 진입","")
+                        val layoutManager = LinearLayoutManager(requireContext())
+                        val recyclerview = binding.selectExerciseList
+                        recyclerview.layoutManager=layoutManager
+                        Log.d("validexercise출력",validexercise.toString())
+                        val adapter = exercise_selcet_list_adapter(validexercise)
+                        recyclerview.adapter = adapter
                     }
 
                     override fun onFailure(call: Call<ArrayList<exercise_list>>, t: Throwable) {
@@ -243,26 +282,12 @@ class exercise_select_exercise : Fragment() {
 
 
 //리사이클러뷰와 연결
-            val layoutManager = LinearLayoutManager(requireContext())
-            val recyclerview = binding.selectExerciseList
-            recyclerview.layoutManager=layoutManager
-            val adapter = exercise_selcet_list_adapter(validexercise)
-            recyclerview.adapter = adapter
 
 
 
 
-        }
 
-    }
-    private var _binding: FragmentExerciseSelectExerciseBinding? = null
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-
-        _binding = FragmentExerciseSelectExerciseBinding.inflate(inflater, container, false)
-        return binding.root
-        //return inflater.inflate(R.layout.fragment_mypage_body_measurement_editmode, container, false)
+        //}
     }
     private fun replaceFragment(fragment: Fragment){
         val fragmentManager = parentFragmentManager

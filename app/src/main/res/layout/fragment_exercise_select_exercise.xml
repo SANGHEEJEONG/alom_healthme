@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".exercise.custompage03.exercise_select_exercise"
-    android:background="#000778">
+    android:background="@drawable/exercise_new_background">
+
 <!--
 상단 바와 아래 비율 1:22+warp_content
 -->
@@ -76,12 +77,12 @@
             android:layout_height="0dp"
             android:layout_weight="18"/>
 
-        <Button
-            android:id="@+id/get"
-            android:text="get_exercise_list"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+<!--        <Button-->
+<!--            android:id="@+id/get"-->
+<!--            android:text="get_exercise_list"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="1"/>-->
 
         </LinearLayout>
 
