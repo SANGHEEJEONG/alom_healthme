@@ -52,10 +52,16 @@ class add_routine_page : Fragment() {
 
 
 
-        val customList = arrayListOf(
-            exerciseData("대흉근 발달, 3대 운동","01 바벨 벤치 프레스")
+//        val customList = arrayListOf(
+//            exerciseData("대흉근 발달, 3대 운동","01 바벨 벤치 프레스")
+//
+//            )
+        //data class ExerciseData(val title: String, val description: String)
 
-            )
+        var customList = ArrayList<exerciseData>()
+        //customList.add(exerciseData("대흉근 발달, 3대 운동","01 바벨 벤치 프레스"))
+
+
 
         println("routine page 진입1")
         exercise_recycler_view = view.findViewById(R.id.exercise_view)

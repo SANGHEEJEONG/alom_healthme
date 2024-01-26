@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentExerciseMainCopyBinding
+import java.util.Collections.list
 
 
 class exercise_main_copy : Fragment() {
@@ -21,15 +22,19 @@ class exercise_main_copy : Fragment() {
 
 
 
-    private val test_data = listOf(
-        exercise_routine_profile("길똥이의 아침운동", 2),
-        exercise_routine_profile("길똥이의 점심운동", 3),
-        exercise_routine_profile("길똥이의 저녁운동", 4),
-        exercise_routine_profile("길똥이의 야간운동", 6),
-        exercise_routine_profile("길똥이의 새벽운동", 4),
+//    private val test_data = listOf(
+//        exercise_routine_profile("길똥이의 아침운동", 2),
+//        exercise_routine_profile("길똥이의 점심운동", 3),
+//        exercise_routine_profile("길똥이의 저녁운동", 4),
+//        exercise_routine_profile("길똥이의 야간운동", 6),
+//        exercise_routine_profile("길똥이의 새벽운동", 4),
+//
+//
+//    )
+
+    var test_data = mutableListOf<exercise_routine_profile>()
 
 
-    )
 
 
 
@@ -40,6 +45,10 @@ class exercise_main_copy : Fragment() {
         //요소간 여백 넣어주는 코드
         val spacingInPixels = resources.getDimensionPixelSize(R.dimen.spacing) // 여백 크기
         val recyclerView = binding.routineList
+
+        //est_data.add(exercise_routine_profile("길똥이의 새벽운동", 4))
+
+
 
 
         // RecyclerView에 LayoutManager 설정 및 ItemDecoration 추가
