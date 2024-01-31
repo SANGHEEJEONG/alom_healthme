@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.alomtest"
-    compileSdk = 33
+    compileSdk = 34
     buildFeatures{
         viewBinding = true
     }
@@ -77,4 +77,12 @@ dependencies {
 
     //길이 자동 조절
     implementation ("me.grantland:autofittextview:0.2.1")
+
+
+    //food 합칠 때 코드
+    implementation("it.xabaras.android:recyclerview-swipedecorator:1.4")
+    //cardView
+    implementation ("androidx.cardview:cardview:1.0.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
 }

@@ -20,7 +20,7 @@
             android:id="@+id/titleTv"
             android:layout_width="match_parent"
             android:layout_height="13dp"
-            android:fontFamily="@font/medium"
+            android:fontFamily="@font/gmarketsansttfmedium"
             android:text="food"
             android:textColor="#3A46FF"
             android:textSize="12dp"

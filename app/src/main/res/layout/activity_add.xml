@@ -19,7 +19,7 @@
             android:layout_weight="1"
             android:layout_marginTop="5dp"
             android:gravity="left"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/gmarketsansttfmedium"
             android:onClick="insert_data"
             android:text="취소"
             android:textColor="#636CFF" />
@@ -36,7 +36,7 @@
             android:layout_weight="1"
             android:layout_marginTop="5dp"
             android:gravity="right"
-            android:fontFamily="@font/bold"
+            android:fontFamily="@font/gmarketsansttfmedium"
             android:text="추가"
             android:textColor="#636CFF" />
     </LinearLayout>
@@ -44,7 +44,7 @@
     <TextView
         android:layout_width="64dp"
         android:layout_height="21dp"
-        android:fontFamily="@font/medium"
+        android:fontFamily="@font/gmarketsansttfmedium"
         android:text="음식 선택"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
@@ -69,7 +69,7 @@
         android:layout_marginTop="-33dp"
         android:layout_marginBottom="-20dp"
         android:background="@android:color/transparent"
-        android:fontFamily="@font/medium"
+        android:fontFamily="@font/gmarketsansttfmedium"
         android:gravity="start|center_vertical"
         android:text="선택하기"
         android:paddingLeft="15dp"
@@ -149,7 +149,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/light"
+                    android:fontFamily="@font/gmarketsansttfmedium"
                     android:text="추가한 음식"
                     android:textSize="7dp"
                     android:textColor="@color/white"
@@ -183,7 +183,7 @@
     <TextView
         android:layout_width="81dp"
         android:layout_height="20dp"
-        android:fontFamily="@font/medium"
+        android:fontFamily="@font/gmarketsansttfmedium"
         android:text="섭취 그램 수"
         android:layout_marginTop="60dp"
         android:layout_marginLeft="30dp"
@@ -200,7 +200,7 @@
         android:background="@drawable/rectangle_133"
         android:ems="10"
         android:paddingLeft="15dp"
-        android:fontFamily="@font/medium"
+        android:fontFamily="@font/gmarketsansttfmedium"
         android:hint="0g"
         android:inputType="text"
         android:textColor="#747CFF"
@@ -209,7 +209,7 @@
     <TextView
         android:layout_width="65dp"
         android:layout_height="19dp"
-        android:fontFamily="@font/medium"
+        android:fontFamily="@font/gmarketsansttfmedium"
         android:text="시간"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
