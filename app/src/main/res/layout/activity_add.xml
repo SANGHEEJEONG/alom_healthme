@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".food.AddActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/canclebutton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:gravity="left"
+            android:fontFamily="@font/bold"
+            android:onClick="insert_data"
+            android:text="취소"
+            android:textColor="#636CFF" />
+
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:layout_weight="2" />
+
+        <Button
+            android:id="@+id/add_next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:gravity="right"
+            android:fontFamily="@font/bold"
+            android:text="추가"
+            android:textColor="#636CFF" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="64dp"
+        android:layout_height="21dp"
+        android:fontFamily="@font/medium"
+        android:text="음식 선택"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#1A28FF" />
+
+
+    <ImageView
+        android:id="@+id/foodimageView"
+        android:layout_width="341dp"
+        android:layout_height="31dp"
+        android:src="@drawable/group_126"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="0dp"/>
+
+
+    <Button
+        android:id="@+id/expandBtn"
+        android:layout_width="341dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-33dp"
+        android:layout_marginBottom="-20dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/medium"
+        android:gravity="start|center_vertical"
+        android:text="선택하기"
+        android:paddingLeft="15dp"
+        android:textColor="#747CFF"
+        android:textSize="14dp"
+        android:clickable="true"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="341dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        app:cardCornerRadius="10dp"
+        app:strokeColor="@android:color/transparent"
+        app:cardBackgroundColor="@android:color/transparent"
+        android:visibility="visible"
+        app:cardElevation="0dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/expandableLayout"
+            android:layout_width="341dp"
+            android:layout_height="200dp"
+            android:background="@drawable/substract"
+            android:orientation="vertical"
+            android:visibility="visible"
+            >
+
+            <LinearLayout
+                android:layout_width="341dp"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                >
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/materialCardView3"
+                    android:layout_width="244dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#B9BDFF">
+
+                    <android.widget.SearchView
+                        android:id="@+id/searchViewfood"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:background="#EDEEFF"
+                        android:iconifiedByDefault="false"
+                        app:queryBackground="@android:color/transparent"
+                        tools:layout_editor_absoluteX="116dp"
+                        tools:layout_editor_absoluteY="73dp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/expandBtn2"
+                    android:layout_width="57dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginLeft="-10dp"
+                    android:foreground="@drawable/foodadd">
+
+                </Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/expandableLayout2"
+                android:layout_width="341dp"
+                android:layout_height="50dp"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/light"
+                    android:text="추가한 음식"
+                    android:textSize="7dp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginLeft="15dp">
+
+                </TextView>
+
+                <EditText
+                    android:layout_width="318dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="12dp">
+                </EditText>
+
+
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewfood2"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#B9BDFF"
+                android:paddingLeft="15dp"
+                />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:layout_width="81dp"
+        android:layout_height="20dp"
+        android:fontFamily="@font/medium"
+        android:text="섭취 그램 수"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#1A28FF" />
+
+
+    <EditText
+        android:id="@+id/add_edit"
+        android:layout_width="341dp"
+        android:layout_height="31dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/rectangle_133"
+        android:ems="10"
+        android:paddingLeft="15dp"
+        android:fontFamily="@font/medium"
+        android:hint="0g"
+        android:inputType="text"
+        android:textColor="#747CFF"
+        android:textSize="12sp" />
+
+    <TextView
+        android:layout_width="65dp"
+        android:layout_height="19dp"
+        android:fontFamily="@font/medium"
+        android:text="시간"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#1A28FF" />
+
+    <Button
+        android:id="@+id/expandBtn3"
+        android:layout_width="341dp"
+        android:layout_height="31dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="-15.5dp"/>
+
+
+    <!--<com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView2"
+        android:layout_width="341dp"
+        android:layout_height="187dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        app:cardCornerRadius="10dp"
+        app:strokeColor="@android:color/transparent"
+        app:cardBackgroundColor="@android:color/transparent"
+        android:visibility="gone"
+        >
+
+
+        <LinearLayout
+            android:id="@+id/expandableLayout3"
+            android:layout_width="341dp"
+            android:layout_height="187dp"
+            android:background="@drawable/substract"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>-->
+
+
+
+</LinearLayout>
