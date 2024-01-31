@@ -69,9 +69,11 @@
             android:name=".mypage.password_change"
             android:exported="false" />
         <activity
+            android:name=".food.foodcustom01.AddActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
-
         <activity
             android:name=".Settings"
             android:exported="false" />

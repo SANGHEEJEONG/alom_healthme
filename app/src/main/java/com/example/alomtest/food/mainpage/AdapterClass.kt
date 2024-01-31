@@ -1,4 +1,4 @@
-package com.example.alomtest.food
+package com.example.alomtest.food.mainpage
 
 import android.content.Context
 import android.content.Intent
@@ -10,7 +10,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alomtest.R
+import com.example.alomtest.food.foodcustom01.AddActivity
 
+//food 화면 나왔을 때 좌우로 리사이클러뷰
 
 class AdapterClass (private val dataList:ArrayList<DataClass>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     val ITEM =0

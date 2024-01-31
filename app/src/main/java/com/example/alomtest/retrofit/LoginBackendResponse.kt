@@ -121,3 +121,12 @@ data class exercise_list(
     val calorie:String,
     val category:String
 )
+
+data class food_list(//서버로 부터 받은 음식 정보들을 받는 data class
+    val name:String,
+    val carbohydrate:Double,
+    val protein:Double,
+    val fat:Double,
+    val calorie:Double,
+    val mass :Double,
+)

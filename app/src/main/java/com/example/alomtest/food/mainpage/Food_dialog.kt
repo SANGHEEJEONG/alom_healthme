@@ -1,4 +1,4 @@
-package com.example.alomtest.food
+package com.example.alomtest.food.mainpage
 
 import android.app.Dialog
 import android.content.Context

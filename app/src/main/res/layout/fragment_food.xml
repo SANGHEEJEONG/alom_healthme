@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#6A73FF"
-    tools:context=".food.food">
+    tools:context=".food.mainpage.food">
 
 
     <ImageView

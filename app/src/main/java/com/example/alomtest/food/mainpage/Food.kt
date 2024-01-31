@@ -1,4 +1,4 @@
-package com.example.alomtest.food
+package com.example.alomtest.food.mainpage
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentFoodBinding
+import com.example.alomtest.food.foodcustom01.AddActivity
 
 
 class food : Fragment() {

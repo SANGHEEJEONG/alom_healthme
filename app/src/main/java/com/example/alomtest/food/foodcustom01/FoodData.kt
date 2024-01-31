@@ -1,4 +1,4 @@
-package com.example.alomtest.food
+package com.example.alomtest.food.foodcustom01
 
 data class FoodData(val title : String){
 //    companion object {

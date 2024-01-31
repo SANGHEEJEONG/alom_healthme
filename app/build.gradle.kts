@@ -85,4 +85,9 @@ dependencies {
     implementation ("androidx.cardview:cardview:1.0.0")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
+
+        //paging을 위한 의존성
+    implementation ("androidx.paging:paging-runtime-ktx:3.0.0")
+
+
 }

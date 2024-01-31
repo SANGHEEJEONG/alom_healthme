@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="240dp"
     android:layout_height="280dp"
-    tools:context=".food.Food_dialog"
+    tools:context=".food.mainpage.Food_dialog"
     android:background="@drawable/food_item"
     android:layout_gravity="center"
     android:radius="30dp"

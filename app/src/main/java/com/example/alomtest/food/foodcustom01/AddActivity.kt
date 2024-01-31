@@ -1,5 +1,6 @@
-package com.example.alomtest.food
+package com.example.alomtest.food.foodcustom01
 
+import SharedPreferenceUtils
 import android.widget.SearchView
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -18,9 +19,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alomtest.R
 import com.example.alomtest.databinding.ActivityAddBinding
-import com.example.sharedpreference.SwipeGesture
+import com.example.alomtest.food.mainpage.food
+import com.example.alomtest.retrofit.Api
 
 import com.google.android.material.card.MaterialCardView
+import org.json.JSONObject
 import java.util.Locale
 
 class AddActivity : AppCompatActivity() {
@@ -62,6 +65,38 @@ class AddActivity : AppCompatActivity() {
         findViewById<RecyclerView>(R.id.recyclerViewfood2).layoutManager = linearLayoutManager
         adapter = FoodAdapter(mList)
         recyclerView.adapter = adapter
+
+        var usertoken = SharedPreferenceUtils.loadData(this@AddActivity, "accessToken", "")
+
+
+
+
+
+//        var current_idx:Int = 0
+//
+//        //retrofit 넣을 곳
+//
+//        val jsonObject= JSONObject()
+//        jsonObject.put("idx",current_idx)
+//
+//
+//
+//
+//        val api = Api.create()
+//        api.load_food(accessToken = "Bearer $usertoken"),
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
