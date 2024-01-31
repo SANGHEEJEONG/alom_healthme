@@ -1,15 +1,21 @@
 package com.example.alomtest.login
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import com.example.alomtest.MainActivity
+import com.example.alomtest.R
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FirstLayoutBinding
 import kotlin.system.exitProcess
@@ -21,6 +27,14 @@ class first : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = FirstLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+       binding.textViewfirst.setTextColorAsLinearGradient(arrayOf(
+           Color.parseColor("#F3FFFB"),
+           Color.parseColor("#B8FFEA")
+       ))
+
+
+
         binding.login1.setOnClickListener{
             val intent = Intent(this, login::class.java)
             startActivity(intent)
@@ -72,5 +86,21 @@ class first : AppCompatActivity() {
 
 
 
+    }
+    fun TextView.setTextColorAsLinearGradient(colors: Array<Int>) {
+        if (colors.isEmpty()) {
+            return
+        }
+
+        setTextColor(colors[0])
+        this.paint.shader = LinearGradient(
+            0f,
+            0f,
+            paint.measureText(this.text.toString()),
+            this.textSize,
+            colors.toIntArray(),
+            arrayOf(0f, 1f).toFloatArray(),
+            Shader.TileMode.CLAMP
+        )
     }
 }

@@ -5,5 +5,12 @@
 
     <color name="red">#f00</color>
 
+    <color name="title_start_color">#B8FFEA</color>
+        <color name="title_end_color">#F3FFFB</color>
+
+
+
+
+
     <color name="bottomnav_remove_effect">#cccfff</color>
 </resources>
