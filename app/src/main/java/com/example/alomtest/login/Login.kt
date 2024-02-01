@@ -64,7 +64,7 @@ class login : AppCompatActivity() {
                     Log.d("로그인 통신 성공",response.toString())
                     Log.d("로그인 통신 성공", response.body().toString())
                     Log.d("response코드",response.code().toString())
-                    //Log.d("반환 메시지",response.body())
+                    Log.d("반환 메시지",response.body().toString())
 
 
                     when (response.code()) {
@@ -120,9 +120,6 @@ class login : AppCompatActivity() {
 
 
         this@login.onBackPressedDispatcher.addCallback(this, callback)
-
-
-
 
 
 

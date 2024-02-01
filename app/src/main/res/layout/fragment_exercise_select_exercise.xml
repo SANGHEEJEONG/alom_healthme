@@ -75,7 +75,10 @@
             android:id="@+id/select_exercise_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="18"/>
+            android:layout_weight="18"
+
+
+        />
 
 <!--        <Button-->
 <!--            android:id="@+id/get"-->
