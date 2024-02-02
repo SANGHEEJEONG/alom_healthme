@@ -121,7 +121,7 @@
           android:layout_weight="444"
           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
           android:orientation ="vertical"
-          tools:listitem="@layout/custom_exercise_list"
+          tools:listitem="@layout/custom_exercise_list_copy"
 
 
 

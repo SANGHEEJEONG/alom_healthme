@@ -13,12 +13,17 @@ import com.example.alomtest.databinding.FragmentAddRoutinePageBinding
 import com.example.alomtest.exercise.mainpage.exercise_main_copy
 import com.example.alomtest.exerciseData
 import com.example.alomtest.exercise.custompage02.exercise_add_custom_list
+import com.example.alomtest.exercise.custompage03.exercise_selcet_list_adapter
+import com.example.alomtest.retrofit.exercise_list
 
 
 class add_routine_page : Fragment() {
 
     private lateinit var binding: FragmentAddRoutinePageBinding
     lateinit var exercise_recycler_view : RecyclerView
+    var receive_data: String? = " " //공백으로 하면 되고 왜 null로 하면 안되는거지?
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= FragmentAddRoutinePageBinding.inflate(layoutInflater)
@@ -27,9 +32,15 @@ class add_routine_page : Fragment() {
         val backicon=binding.cancelicon
 
         val bundle = arguments
-        val receive_data = bundle?.getString("exercise_name").toString()
 
-        Log.d("번들 테스트", receive_data)
+        if(bundle?.getString("exercise_name")==null){
+            receive_data=" "
+        }
+        else{
+            receive_data = bundle.getString("exercise_name").toString()
+        }
+
+        Log.d("번들 테스트", receive_data.toString())
 
 
 
@@ -52,6 +63,10 @@ class add_routine_page : Fragment() {
 
 
     //View.findViewById(R.id.exercise_view)
+
+
+
+
 
 
     }
@@ -83,6 +98,22 @@ class add_routine_page : Fragment() {
 
         exercise_recycler_view.adapter = exercise_list_adpater(customList)
         println("routine page 진입5")
+
+        Log.d("if문 진입 전 receive data 확인", receive_data.toString())
+        Log.d("true or false", (receive_data!!.isNotBlank()).toString())
+        if(receive_data!!.isNotBlank()){
+
+            Log.d("exerciseData 추가하는 곧 진입",receive_data.toString())
+            customList.add(exerciseData("부제목테스트",receive_data.toString()))
+
+            Log.d("커스텀 리스트 출력", customList.toString())
+            receive_data=""
+
+//            val ad=exercise_recycler_view.adapter
+//            ad?.notifyDataSetChanged()
+
+
+        }
     }
     private var _binding: FragmentAddRoutinePageBinding? = null
 
