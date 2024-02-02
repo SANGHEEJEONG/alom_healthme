@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentExerciseSelectExerciseBinding
+import com.example.alomtest.exercise.custompage01.add_routine_page
 import com.example.alomtest.exercise.custompage02.exercise_add_custom_list
 import com.example.alomtest.retrofit.Api
 import com.example.alomtest.retrofit.LoginBackendResponse13
@@ -74,6 +75,7 @@ class exercise_select_exercise : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //binding.get.setOnClickListener {
             val api = Api.create()
+            val bundle = Bundle()
 
             api.load_exercise(accessToken = "Bearer $usertoken")
                 .enqueue(object : Callback<ArrayList<exercise_list>> {
@@ -213,7 +215,17 @@ class exercise_select_exercise : Fragment() {
                                                             val recyclerview = binding.selectExerciseList
                                                             recyclerview.layoutManager=layoutManager
                                                             Log.d("validexercise출력",validexercise.toString())
-                                                            val adapter = exercise_selcet_list_adapter(validexercise)
+                                                            val adapter = exercise_selcet_list_adapter(requireContext(),validexercise){
+                                                                    clickedItem->
+                                                                val bundle=Bundle()
+                                                                bundle.putString("exercise_name", clickedItem.name) // 데이터 추가 (key-value 쌍)
+                                                                val fragment = add_routine_page()
+                                                                fragment.arguments=bundle
+                                                                parentFragmentManager.beginTransaction() //fragment 바꾸는 코드
+                                                                    .replace(R.id.frame_layout, fragment)
+                                                                    .addToBackStack(null)
+                                                                    .commit()
+                                                            }
                                                             recyclerview.adapter = adapter
 
 
@@ -270,8 +282,26 @@ class exercise_select_exercise : Fragment() {
                         val recyclerview = binding.selectExerciseList
                         recyclerview.layoutManager=layoutManager
                         Log.d("validexercise출력",validexercise.toString())
-                        val adapter = exercise_selcet_list_adapter(validexercise)
+                        val adapter = exercise_selcet_list_adapter(requireContext(),validexercise){
+                            clickedItem->
+                            val bundle=Bundle()
+                            bundle.putString("exercise_name", clickedItem.name) // 데이터 추가 (key-value 쌍)
+                            val fragment = add_routine_page()
+                            fragment.arguments=bundle
+                            parentFragmentManager.beginTransaction() //fragment 바꾸는 코드
+                                .replace(R.id.frame_layout, fragment)
+                                .addToBackStack(null)
+                                .commit()
+                        }
                         recyclerview.adapter = adapter
+
+
+                        //번들을 위한 코드
+
+
+
+
+
                     }
 
                     override fun onFailure(call: Call<ArrayList<exercise_list>>, t: Throwable) {
@@ -297,6 +327,8 @@ class exercise_select_exercise : Fragment() {
         println("success")
 
     }
+
+
     companion object {
 
     }

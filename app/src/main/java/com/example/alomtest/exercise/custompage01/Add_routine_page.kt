@@ -1,6 +1,7 @@
 package com.example.alomtest.exercise.custompage01
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,15 @@ class add_routine_page : Fragment() {
 
         val addbtn = binding.exerciseAddBtn
         val backicon=binding.cancelicon
+
+        val bundle = arguments
+        val receive_data = bundle?.getString("exercise_name").toString()
+
+        Log.d("번들 테스트", receive_data)
+
+
+
+
 
         addbtn.setOnClickListener {
             println("test1")
