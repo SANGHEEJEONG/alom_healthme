@@ -14,7 +14,7 @@ class exercise_list_adpater(val customList:ArrayList<exerciseData>): Adapter<exe
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        val View = LayoutInflater.from(parent.context).inflate(R.layout.custom_exercise_list,parent,false)//context는 activity에서 담고 있는 모든 정보
+        val View = LayoutInflater.from(parent.context).inflate(R.layout.custom_exercise_list_copy,parent,false)//context는 activity에서 담고 있는 모든 정보
         return CustomViewHolder(View).apply {
 
             itemView.setOnClickListener {
