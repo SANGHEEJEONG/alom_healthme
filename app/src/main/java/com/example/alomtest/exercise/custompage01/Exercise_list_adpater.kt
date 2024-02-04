@@ -33,6 +33,11 @@ class exercise_list_adpater(val customList:ArrayList<exerciseData>): Adapter<exe
         holder.name.text = customList.get(position).exerciseName
         holder.detail.text=customList.get(position).exerciseDetail
 
+
+
+
+
+
         holder.bind(position)
 
 
@@ -51,7 +56,7 @@ class exercise_list_adpater(val customList:ArrayList<exerciseData>): Adapter<exe
 
         fun bind(pos:Int){
             binding.setRecyclerview.apply {
-                adapter = set_list_adapter(context,ArrayList<set_list_item>())
+                adapter = set_list_adapter(context,/*ArrayList<set_list_item>()*/customList[pos].set_list )
 
 
                 layoutManager = LinearLayoutManager(binding.setRecyclerview.context,
@@ -62,6 +67,8 @@ class exercise_list_adpater(val customList:ArrayList<exerciseData>): Adapter<exe
         }
         val name = itemView.findViewById<TextView>(R.id.exercise_name)
         val detail=itemView.findViewById<TextView>(R.id.exercise_detail)
+        //val set=itemView.findViewById<ArrayList>(R.id.)
+
         //val image=itemView.findViewById<ImageView>(R.id.exercise_img)
     }
 //    private fun replaceFragment(fragment: Fragment){

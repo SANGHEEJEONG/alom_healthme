@@ -24,7 +24,9 @@ class add_routine_page : Fragment() {
     private lateinit var binding: FragmentAddRoutinePageBinding
     private lateinit var viewmodel : MyViewModel
     lateinit var exercise_recycler_view : RecyclerView
+    var custom_cnt:Int =0
     var receive_data: String? = " " //공백으로 하면 되고 왜 null로 하면 안되는거지?
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,8 +111,8 @@ class add_routine_page : Fragment() {
         if(receive_data!!.isNotBlank()){
 
             Log.d("exerciseData 추가하는 곧 진입",receive_data.toString())
-            customList.add(exerciseData("부제목테스트",receive_data.toString()))
-            viewmodel.addItem(exerciseData("부제목테스트",receive_data.toString()))
+            customList.add(exerciseData("부제목테스트",receive_data.toString(),ArrayList<set_list_item>()))
+            viewmodel.addItem(exerciseData("부제목테스트",receive_data.toString(),ArrayList<set_list_item>()))
 
 
             //Log.d("커스텀 리스트 출력", customList.toString())
@@ -120,7 +122,7 @@ class add_routine_page : Fragment() {
 //            val ad=exercise_recycler_view.adapter
 //            ad?.notifyDataSetChanged()
 
-
+            binding.courseNo.text="총 ${viewmodel._myList.value?.size}코스"
         }
     }
     private var _binding: FragmentAddRoutinePageBinding? = null
