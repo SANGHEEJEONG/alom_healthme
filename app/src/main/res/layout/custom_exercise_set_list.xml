@@ -16,9 +16,12 @@
     <TextView
         android:layout_width="0dp"
         android:layout_weight="1"
+        android:textColor="#fff"
 
         android:layout_height="match_parent"
         android:text="* 1세트 | "
+
+        android:gravity="center"
         />
 
 
@@ -26,24 +29,37 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
-        android:text="무게:"/>
+        android:text="무게:"
+        android:gravity="center"
+        android:textColor="#fff"
+
+        />
 
     <EditText
+
+        android:id="@+id/weight"
         android:layout_width="0dp"
         android:layout_weight="1"
+        android:textColor="#fff"
+
 
         android:layout_height="match_parent"
         android:inputType="numberDecimal"/>
+
     <TextView
         android:layout_width="0dp"
         android:layout_weight="1"
+        android:textColor="#fff"
 
         android:layout_height="match_parent"
+        android:gravity="center"
         android:text="횟수:"/>
 
     <EditText
+        android:id="@+id/cnt"
         android:layout_width="0dp"
         android:layout_weight="1"
+        android:textColor="#fff"
 
         android:layout_height="match_parent"
         android:inputType="numberDecimal"/>
@@ -51,7 +67,7 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_weight="1"
-
+        android:layout_margin="18dp"
         android:layout_height="match_parent"
         android:src="@drawable/minus"/>
 
