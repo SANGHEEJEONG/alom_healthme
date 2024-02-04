@@ -54,7 +54,6 @@ class set_list_adapter(val context: Context,val setlist:ArrayList<set_list_item>
         }
     }
 
-
     override fun getItemCount(): Int {
         return setlist.size+1
     }
