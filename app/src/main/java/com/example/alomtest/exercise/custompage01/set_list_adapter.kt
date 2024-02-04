@@ -35,7 +35,7 @@ class set_list_adapter(val context: Context,val setlist:ArrayList<set_list_item>
                     parent,
                     false
                 )
-                set_list_adapter.set_list_viewholder(binding)
+                set_list_adapter.set_list_viewholder(setlist,binding)
             }
             ITEM_VIEW_TYPE_FOOTER -> {
                 val binding = SetItemFooterBinding.inflate(
@@ -67,15 +67,15 @@ class set_list_adapter(val context: Context,val setlist:ArrayList<set_list_item>
                 val setlistHolder = holder as set_list_adapter.set_list_viewholder
                 setlistHolder.bind(setlist[position],position)
 
-                setlistHolder.itemView.setOnClickListener {
-                    onMinusClickListener?.invoke()
-                    Log.d("삭제직전", setlist.toString())
-                    Log.d("삭제할 인덱스",position.toString())
-                    setlist.removeAt(position)
-                    Log.d("삭제이후", setlist.toString())
-
-                    notifyDataSetChanged()
-                }
+//                setlistHolder.itemView.setOnClickListener {
+//                    onMinusClickListener?.invoke()
+//                    Log.d("삭제직전", setlist.toString())
+//                    Log.d("삭제할 인덱스",position.toString())
+//                    setlist.removeAt(position)
+//                    Log.d("삭제이후", setlist.toString())
+//
+//                    notifyDataSetChanged()
+//                }
 
 
 
@@ -97,9 +97,14 @@ class set_list_adapter(val context: Context,val setlist:ArrayList<set_list_item>
             }
         }
     }
-    class set_list_viewholder(private val binding: CustomExerciseSetListBinding) : RecyclerView.ViewHolder(binding.root){ // xml 아이템과 연결
+    class set_list_viewholder(val setlist:ArrayList<set_list_item>, private val binding: CustomExerciseSetListBinding) : RecyclerView.ViewHolder(binding.root){ // xml 아이템과 연결
         fun bind(setList: set_list_item, idx:Int){
             binding.setNo.text="* ${idx+1}세트 | "
+
+            binding.minusBtn.setOnClickListener {
+                setlist.removeAt(idx)
+
+            }
 
 
             binding.weight.addTextChangedListener(object : TextWatcher{
