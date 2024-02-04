@@ -28,7 +28,7 @@ class exercise_list_adpater(val customList:ArrayList<exerciseData>): Adapter<exe
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {//실질적으로 생성된 뷰를 연결해주는 것
-        //holder.image.setImageResource(customList.get(position))
+        //holder.image.setImageResource(customLisgt.get(position))
         holder.name.text = customList.get(position).exerciseName
         holder.detail.text=customList.get(position).exerciseDetail
     }
