@@ -145,6 +145,11 @@ class add_routine_page : Fragment() {
         //return inflater.inflate(R.layout.fragment_mypage_body_measurement_editmode, container, false)
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.courseNo.text="총 ${viewmodel._myList.value?.size}코스"
+    }
+
     private fun replaceFragment(fragment: Fragment){
         val fragmentManager = parentFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
