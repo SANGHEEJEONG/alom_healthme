@@ -12,9 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alomtest.R
 import com.example.alomtest.databinding.CustomExerciseSetListBinding
-import com.example.alomtest.databinding.RoutineItemExampleBinding
-import com.example.alomtest.databinding.RoutineItemFooterBinding
 import com.example.alomtest.databinding.SetItemFooterBinding
+
 import com.example.alomtest.exercise.mainpage.exercise_routine_adapter
 import com.example.alomtest.exercise.mainpage.exercise_routine_profile
 
@@ -76,6 +75,18 @@ class set_list_adapter(val context: Context,val setlist:ArrayList<set_list_item>
 //
 //                    notifyDataSetChanged()
 //                }
+                setlistHolder.binding.minusBtn.setOnClickListener {
+                    onMinusClickListener?.invoke()
+                    Log.d("삭제직전", setlist.toString())
+                    Log.d("삭제할 인덱스",position.toString())
+                    setlist.removeAt(position)
+                    Log.d("삭제이후", setlist.toString())
+
+                    notifyDataSetChanged()
+
+                }
+
+
 
 
 
@@ -88,23 +99,26 @@ class set_list_adapter(val context: Context,val setlist:ArrayList<set_list_item>
             ITEM_VIEW_TYPE_FOOTER -> {
                 val footerHolder = holder as set_list_adapter.set_list_footer_viewholder
 
-                footerHolder.itemView.setOnClickListener {
+//                footerHolder.itemView.setOnClickListener {
+//                    onFooterClickListener?.invoke()
+//                    setlist.add(set_list_item(1,1))
+//                    notifyDataSetChanged()
+//                }
+                footerHolder.binding.footerIcon.setOnClickListener {
                     onFooterClickListener?.invoke()
                     setlist.add(set_list_item(1,1))
-
                     notifyDataSetChanged()
                 }
+
+
             }
         }
     }
-    class set_list_viewholder(val setlist:ArrayList<set_list_item>, private val binding: CustomExerciseSetListBinding) : RecyclerView.ViewHolder(binding.root){ // xml 아이템과 연결
+    class set_list_viewholder(val setlist:ArrayList<set_list_item>, val binding: CustomExerciseSetListBinding) : RecyclerView.ViewHolder(binding.root){ // xml 아이템과 연결
         fun bind(setList: set_list_item, idx:Int){
             binding.setNo.text="* ${idx+1}세트 | "
 
-            binding.minusBtn.setOnClickListener {
-                setlist.removeAt(idx)
 
-            }
 
 
             binding.weight.addTextChangedListener(object : TextWatcher{
@@ -152,15 +166,10 @@ class set_list_adapter(val context: Context,val setlist:ArrayList<set_list_item>
 
             })
 
-
-
-
         }
     }
 
-
-
-    class set_list_footer_viewholder(private val binding: SetItemFooterBinding) : RecyclerView.ViewHolder(binding.root) {
+    class set_list_footer_viewholder(val binding: SetItemFooterBinding) : RecyclerView.ViewHolder(binding.root) {
 
         init {
             binding.root.setOnClickListener {
