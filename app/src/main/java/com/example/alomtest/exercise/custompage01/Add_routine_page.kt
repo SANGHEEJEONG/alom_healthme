@@ -113,6 +113,16 @@ class add_routine_page : Fragment() {
             Log.d("exerciseData 추가하는 곧 진입",receive_data.toString())
             customList.add(exerciseData("부제목테스트",receive_data.toString(),ArrayList<set_list_item>()))
             viewmodel.addItem(exerciseData("부제목테스트",receive_data.toString(),ArrayList<set_list_item>()))
+            viewmodel._myList.value!!.get(viewmodel._myList.value!!.size-1).set_list.add(0,set_list_item(0,1))
+
+//            if(viewmodel._myList.value?.size==0){
+//                viewmodel.addItem(exerciseData("부제목테스트",receive_data.toString(),ArrayList<set_list_item>()))
+//                viewmodel._myList.value[0].set_list.add()
+//            }
+//            else{
+//                viewmodel.addItem(exerciseData("부제목테스트",receive_data.toString(),ArrayList<set_list_item>()))
+//
+//            }
 
 
             //Log.d("커스텀 리스트 출력", customList.toString())
