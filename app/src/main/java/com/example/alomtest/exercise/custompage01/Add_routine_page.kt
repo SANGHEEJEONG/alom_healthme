@@ -134,6 +134,17 @@ class add_routine_page : Fragment() {
 
             binding.courseNo.text="총 ${viewmodel._myList.value?.size}코스"
         }
+
+        for(i:Int in 0 until viewmodel._myList.value!!.size){
+            Log.d("세트리스트 크기 출력", (viewmodel._myList.value!![i].set_list.size).toString())
+            if(viewmodel._myList.value!![i].set_list.size==0){
+                viewmodel._myList.value!!.removeAt(i)
+                viewmodel.deleteItem(i)
+
+            }
+
+        }
+
     }
     private var _binding: FragmentAddRoutinePageBinding? = null
 

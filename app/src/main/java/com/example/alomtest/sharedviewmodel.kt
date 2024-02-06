@@ -17,6 +17,14 @@ class MyViewModel : ViewModel() {
         _myList.value = updatedList
     }
 
+    fun deleteItem(idx:Int){
+        val updatedList = _myList.value
+        updatedList?.removeAt(idx)
+        _myList.value=updatedList
+
+
+    }
+
 
 
 }

@@ -14,7 +14,6 @@ import com.example.alomtest.exerciseData
 
 class exercise_list_adpater(val customList:ArrayList<exerciseData>): Adapter<exercise_list_adpater.CustomViewHolder>(){
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         //val View = LayoutInflater.from(parent.context).inflate(R.layout.custom_exercise_list_copy,parent,false)//context는 activity에서 담고 있는 모든 정보
         val view = CustomExerciseListCopyBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -32,6 +31,8 @@ class exercise_list_adpater(val customList:ArrayList<exerciseData>): Adapter<exe
         //holder.image.setImageResource(customLisgt.get(position))
         holder.name.text = customList.get(position).exerciseName
         holder.detail.text=customList.get(position).exerciseDetail
+
+
 
 
 
