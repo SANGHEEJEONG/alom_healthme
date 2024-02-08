@@ -136,5 +136,42 @@ data class exerise_preset_list(
     val presetName:String,
 
 
+)
+
+
+data class exercise_routine_list(
+
+    val email : String,
+    val presetNumber : Int,
+    val presetName : String,
+    val splitPresetDto: ArrayList<splitPresetDto>
+
 
 )
+data class splitPresetDto(
+    val exerciseNumber : Int,
+    val exerciseName : String,
+    val category: String,
+    val splitExerciseDetailDto: ArrayList<splitExerciseDetailDto>
+
+
+
+)
+data class splitExerciseDetailDto(
+
+
+    val weight:Double,
+    val setCount:Int,
+    val repetitionCount : Int,
+    val order : Int
+)
+
+
+
+
+
+
+
+
+
+

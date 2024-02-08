@@ -109,7 +109,7 @@ interface Api{
         @Body jsonParams: JsonElement //idx를 json형태로 넘김
 
     //):Call<ArrayList<exerise_preset_list>>
-    ):Call<String>
+    ):Call<ArrayList<exercise_routine_list>>
 
 
 
