@@ -60,6 +60,9 @@ class add_routine_page : Fragment() {
         backicon.setOnClickListener {
             replaceFragment(exercise_main_copy())
         }
+        binding.saveBtn.setOnClickListener {
+            Log.d("루틴 운동 리스트 출력", viewmodel._myList.value.toString())
+        }
 
 
         //backicon은 나중에 구현
@@ -103,7 +106,8 @@ class add_routine_page : Fragment() {
         exercise_recycler_view.setHasFixedSize(true)
         println("routine page 진입4")
 
-        exercise_recycler_view.adapter = viewmodel._myList.value?.let { exercise_list_adpater(it) }
+        //exercise_recycler_view.adapter = viewmodel._myList.value?.let { exercise_list_adpater(it) }
+        exercise_recycler_view.adapter = exercise_list_adpater(viewmodel._myList.value!!)
         println("routine page 진입5")
 
         Log.d("if문 진입 전 receive data 확인", receive_data.toString())

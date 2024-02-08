@@ -19,8 +19,7 @@ import com.example.alomtest.R
 import com.example.alomtest.databinding.CustomExerciseSetListBinding
 import com.example.alomtest.databinding.SetItemFooterBinding
 
-import com.example.alomtest.exercise.mainpage.exercise_routine_adapter
-import com.example.alomtest.exercise.mainpage.exercise_routine_profile
+
 
 class set_list_adapter( val context: Context, val setlist:ArrayList<set_list_item>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -87,18 +86,18 @@ class set_list_adapter( val context: Context, val setlist:ArrayList<set_list_ite
                     Log.d("삭제직전", setlist.toString())
                     Log.d("삭제할 인덱스",position.toString())
 
-                    //setlist.removeAt(position)
+                    setlist.removeAt(position)
+//
+//                    for (i:Int in position until setlist.size-1){
+//                        setlist[i]=setlist[i+1]
+//
+//
+//
+//                    }
 
-                    for (i:Int in position until setlist.size-1){
-                        setlist[i]=setlist[i+1]
+                    //setlist.removeAt(setlist.size-1)
 
-
-
-                    }
-
-                    setlist.removeAt(setlist.size-1)
-
-                    notifyItemRemoved(1)
+                    notifyItemRemoved(position)
 
 
 
@@ -113,15 +112,15 @@ class set_list_adapter( val context: Context, val setlist:ArrayList<set_list_ite
 
 
                     Log.d("세트리스트 사이즈", setlist.size.toString())
-                    for(i:Int in 0 until setlist.size){
+                    //for(i:Int in 0 until setlist.size){
                         //setlistHolder.binding.setNo.text="* ${i+1}세트 | "
-                        setlistHolder.binding.setNo.setText("* ${i+1}세트 | ")
-                        setlistHolder.binding.weight.setText("${setlist[i].weight}")
-                        setlistHolder.binding.cnt.setText("${setlist[i].cnt}")
+                        //setlistHolder.binding.setNo.setText("* ${i+1}세트 | ")
+                        //setlistHolder.binding.weight.setText("${setlist[i].weight}")
+                        //setlistHolder.binding.cnt.setText("${setlist[i].cnt}")
 
 
 
-                    }
+                    //}
 
 
 
@@ -151,8 +150,10 @@ class set_list_adapter( val context: Context, val setlist:ArrayList<set_list_ite
                 footerHolder.binding.footerIcon.setOnClickListener {
                     onFooterClickListener?.invoke()
                     setlist.add(set_list_item(0,0))
-
+                    Log.d("add후 세트 리스트 출력", setlist.toString())
                     //notifyItemInserted(setlist.size)
+
+
                     notifyDataSetChanged()
                 }
 
@@ -187,7 +188,10 @@ class set_list_adapter( val context: Context, val setlist:ArrayList<set_list_ite
 
                 override fun afterTextChanged(s: Editable?) {
                     //binding.weight.setText(s.toString())
-                    setList.weight=s.toString().toInt()
+                    //setList.weight=s.toString().toInt()
+//                    if (binding.weight.selectionStart == -1) {
+//                        setList.weight = s.toString().toInt()
+//                    }
 
                 }
 
@@ -209,7 +213,11 @@ class set_list_adapter( val context: Context, val setlist:ArrayList<set_list_ite
                 }
 
                 override fun afterTextChanged(s: Editable?) {
-                    //binding.weight.setText(s.toString())
+
+
+//                    if (binding.cnt.selectionStart == -1) {
+//                        setList.cnt = s.toString().toInt()
+//                    }
                     setList.cnt=s.toString().toInt()
 
                 }

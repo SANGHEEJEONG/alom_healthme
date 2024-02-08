@@ -130,3 +130,11 @@ data class food_list(//서버로 부터 받은 음식 정보들을 받는 data c
     val calorie:Double,
     val mass :Double,
 )
+
+data class exerise_preset_list(
+    val presetNumber:Int,
+    val presetName:String,
+
+
+
+)

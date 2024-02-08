@@ -1,5 +1,6 @@
 package com.example.alomtest.exercise.custompage01
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,7 +59,7 @@ class exercise_list_adpater(val customList:ArrayList<exerciseData>): Adapter<exe
         fun bind(pos:Int){
             binding.setRecyclerview.apply {
                 adapter = set_list_adapter(context,/*ArrayList<set_list_item>()*/customList[pos].set_list )
-
+                Log.d("커스텀리스트출력", customList.toString())
 
                 layoutManager = LinearLayoutManager(binding.setRecyclerview.context,
                     LinearLayoutManager.VERTICAL,false)
