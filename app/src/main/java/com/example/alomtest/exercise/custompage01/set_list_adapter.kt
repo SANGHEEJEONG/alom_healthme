@@ -91,11 +91,14 @@ class set_list_adapter( val context: Context, val setlist:ArrayList<set_list_ite
 
                     for (i:Int in position until setlist.size-1){
                         setlist[i]=setlist[i+1]
+
+
+
                     }
 
                     setlist.removeAt(setlist.size-1)
 
-
+                    notifyItemRemoved(1)
 
 
 
@@ -147,11 +150,14 @@ class set_list_adapter( val context: Context, val setlist:ArrayList<set_list_ite
 //                }
                 footerHolder.binding.footerIcon.setOnClickListener {
                     onFooterClickListener?.invoke()
-                    setlist.add(set_list_item(1,1))
+                    setlist.add(set_list_item(0,0))
 
                     //notifyItemInserted(setlist.size)
                     notifyDataSetChanged()
                 }
+
+
+
 
 
             }
