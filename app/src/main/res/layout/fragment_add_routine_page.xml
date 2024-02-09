@@ -77,6 +77,7 @@
           android:layout_marginHorizontal="30dp"
           >
           <EditText
+              android:id="@+id/presetName"
               android:layout_width="wrap_content"
               android:layout_height="match_parent"
 

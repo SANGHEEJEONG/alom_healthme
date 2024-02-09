@@ -92,6 +92,7 @@ class exercise_main_copy : Fragment() {
     }
     private fun init(routineListdata:ArrayList<routineIndicator>){
         Log.d("routineListdata", routineListdata.toString())
+        SharedPreferenceUtils.saveData(requireContext(),"routine_cnt", routineListdata.size.toString())
         binding.routineList.layoutManager = LinearLayoutManager(requireContext())
         binding.routineList.adapter = exercise_routine_adapter(requireContext(), routineListdata)
 

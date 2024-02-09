@@ -97,7 +97,8 @@ class set_list_adapter( val context: Context, val setlist:ArrayList<set_list_ite
 
                     //setlist.removeAt(setlist.size-1)
 
-                    notifyItemRemoved(position)
+                    //notifyItemRemoved(position)
+                    notifyDataSetChanged()
 
 
 
@@ -188,7 +189,7 @@ class set_list_adapter( val context: Context, val setlist:ArrayList<set_list_ite
 
                 override fun afterTextChanged(s: Editable?) {
                     //binding.weight.setText(s.toString())
-                    //setList.weight=s.toString().toInt()
+                    setList.weight=s.toString().toInt()
 //                    if (binding.weight.selectionStart == -1) {
 //                        setList.weight = s.toString().toInt()
 //                    }

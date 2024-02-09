@@ -1,5 +1,6 @@
 package com.example.alomtest.retrofit
 
+import com.example.alomtest.presetDtoelement
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonElement
@@ -110,6 +111,14 @@ interface Api{
 
     //):Call<ArrayList<exerise_preset_list>>
     ):Call<ArrayList<exercise_routine_list>>
+
+
+    @POST("api/preset/save")
+    fun save_preset_exercise_list(
+        @Header("Authorization") accessToken:String,
+        @Body jsonParams: JsonElement //idx를 json형태로 넘김
+
+        ):Call<ArrayList<presetDtoelement>>
 
 
 
