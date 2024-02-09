@@ -63,7 +63,7 @@ class add_routine_page : Fragment() {
 
 
 
-
+//TODO 버튼을 눌러도 넘어가지 않는 경우도 고려(예외처리, 가령 운동을 추가하지 않았는데 저장 버튼을 누른 경우)
 
         addbtn.setOnClickListener {
             println("test1")
@@ -78,6 +78,13 @@ class add_routine_page : Fragment() {
             Log.d("루틴 운동 리스트 출력", viewmodel._myList.value.toString())
 
             saveExerciseCustomPreset()
+            viewmodel.clearData()
+            exercise_recycler_view.adapter?.notifyDataSetChanged()
+
+
+
+
+            replaceFragment(exercise_main_copy())
 
             //jsonObject.put("presetDto")
 
@@ -336,14 +343,19 @@ private fun saveExerciseCustomPreset() {
     }
 
     val userToken = SharedPreferenceUtils.loadData(requireContext(), "accessToken")
-
+//TODO 추후 토큰 만료시 고려한 코드 작성
+    //TODO 200말고 다른것도 추가
     api.save_preset_exercise_list("Bearer $userToken", jsonObject)
         .enqueue(object : Callback<ArrayList<presetDtoelement>> {
             override fun onResponse(
                 call: Call<ArrayList<presetDtoelement>>,
                 response: Response<ArrayList<presetDtoelement>>
             ) {
-                // onResponse 처리
+                when (response.code()){
+                    200->{
+                        SharedPreferenceUtils.loadData(requireContext(),"routine_cnt",(currentRoutineCnt+1).toString())
+                    }
+                }
             }
 
             override fun onFailure(call: Call<ArrayList<presetDtoelement>>, t: Throwable) {

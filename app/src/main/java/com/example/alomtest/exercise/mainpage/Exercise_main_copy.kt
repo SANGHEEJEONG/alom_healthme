@@ -78,8 +78,13 @@ class exercise_main_copy : Fragment() {
         //loadedUserRoutineFromServer=load_exercise()//기존에 저장한 운동루틴 불러오는 것
         //Log.d("loadedUserRoutineFromServer",loadedUserRoutineFromServer.toString())
         load_exercise()
+
 }
 
+    override fun onResume() {
+        super.onResume()
+
+    }
 
 
     private fun replaceFragment(fragment: Fragment){

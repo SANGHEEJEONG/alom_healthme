@@ -24,6 +24,9 @@ class MyViewModel : ViewModel() {
 
 
     }
+    fun clearData() {
+        _myList.value?.clear()
+    }
 
 
 

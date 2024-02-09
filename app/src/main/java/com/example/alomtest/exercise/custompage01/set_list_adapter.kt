@@ -167,7 +167,7 @@ class set_list_adapter( val context: Context, val setlist:ArrayList<set_list_ite
     }
     class set_list_viewholder(val setlist:ArrayList<set_list_item>, val binding: CustomExerciseSetListBinding) : RecyclerView.ViewHolder(binding.root){ // xml 아이템과 연결
         fun bind(setList: set_list_item, idx:Int){
-            binding.setNo.text="* ${idx+1}세트 | "
+            binding.setNo.text="ㆍ ${idx+1}세트 | "
             //setlist[idx].set=idx+1
 
 
