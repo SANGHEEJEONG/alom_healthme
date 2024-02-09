@@ -4,97 +4,73 @@
     android:layout_height="wrap_content"
     >
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="#00ffffff"
-    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#00ffffff"
+        >
 
-    <TextView
-        android:id="@+id/set_no"
-        android:layout_width="0dp"
-        android:layout_weight="2"
-        android:textColor="#fff"
+        <TextView
+            android:id="@+id/set_no"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#fff"
 
-        android:layout_height="match_parent"
-        android:text="ㆍ 1세트 |"
+            android:layout_height="match_parent"
+            android:text="ㆍ1세트 | "
 
-        android:gravity="center"
-        />
-
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="match_parent"
-        android:text="무게:"
-        android:gravity="center"
-        android:textColor="#fff"
-
-        />
-
-    <EditText
-
-        android:id="@+id/weight"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:textColor="#000"
-        android:background="@drawable/exercise_routine_list_edittext_design"
-        android:layout_marginVertical="10dp"
-
-        android:layout_height="match_parent"
-        android:inputType="numberDecimal"/>
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight=".7"
-
-        android:text=" kg"
-        android:padding="1dp"
-        android:gravity="bottom"
-        android:textColor="#fff"
-        
-        />
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_weight="1.5"
-        android:textColor="#fff"
-
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="횟수:"/>
-
-    <EditText
-        android:id="@+id/cnt"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:textColor="#000"
-        android:background="@drawable/exercise_routine_list_edittext_design"
-        android:layout_marginVertical="10dp"
-
-        android:layout_height="match_parent"
-        android:inputType="numberDecimal"/>
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight=".5"
-        android:text=" 회"
-        android:gravity="bottom"
-        android:textColor="#fff"
-        />
+            android:gravity="center"
+            />
 
 
-    <ImageView
-        android:id="@+id/minus_btn"
-        android:layout_width="0dp"
-        android:layout_weight=".9"
-        android:padding="10dp"
-        android:layout_height="match_parent"
-        android:src="@drawable/minus"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="무게:"
+            android:gravity="center"
+            android:textColor="#fff"
 
-</LinearLayout>
+            />
+
+        <EditText
+
+            android:id="@+id/weight"
+            android:layout_width="0dp"
+            android:layout_weight=".7"
+            android:textColor="#fff"
+            android:backgroundTint="#fff"
+
+            android:layout_height="match_parent"
+            android:inputType="numberDecimal"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#fff"
+
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="횟수:"/>
+
+        <EditText
+            android:id="@+id/cnt"
+            android:layout_width="0dp"
+            android:layout_weight=".7"
+            android:textColor="#fff"
+            android:backgroundTint="#fff"
+            android:layout_height="match_parent"
+            android:inputType="numberDecimal"/>
+
+        <ImageView
+            android:id="@+id/minus_btn"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:padding="10dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/minus"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
