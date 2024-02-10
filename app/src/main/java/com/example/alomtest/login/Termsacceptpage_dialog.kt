@@ -55,6 +55,7 @@ class Termsacceptpage_dialog(context: Context) : Dialog(context) {
 
 
 
+
                     dismiss()
                 }
             } else {

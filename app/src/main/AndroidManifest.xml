@@ -64,6 +64,13 @@
         <activity
             android:name=".login.forget_password"
             android:exported="false" />
+        <activity
+            android:name=".login.create_account_success"
+            android:exported="false" />
+
+
+
+
 
         <activity
             android:name=".mypage.password_change"

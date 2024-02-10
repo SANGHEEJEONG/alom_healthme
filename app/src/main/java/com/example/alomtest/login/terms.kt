@@ -115,7 +115,7 @@ class terms : AppCompatActivity() {
             //binding.termsAgreeBtn.setBackgroundResource(R.drawable.button_sample2)
             binding.nextBtn.setBackgroundResource(R.drawable.button_sample2)
             binding.nextBtn.setOnClickListener{
-                val intent = Intent(this, first::class.java)
+                val intent = Intent(this, create_account_success::class.java)
                 startActivity(intent)
                 finish()
             }
@@ -129,13 +129,15 @@ class terms : AppCompatActivity() {
             customDialog.show()
         }
         customDialog.setOnDismissListener {
-            val fromTermsAcceptPage = intent.getBooleanExtra("fromTermsAcceptPage", false)
+            finish()
 
-            if(fromTermsAcceptPage){
-                Log.d("로그테스트2","진입")
+        //val fromTermsAcceptPage = intent.getBooleanExtra("fromTermsAcceptPage", false)
 
-                binding.nextBtn.setBackgroundResource(R.drawable.button_sample2)
-            }
+//            if(fromTermsAcceptPage){
+//                Log.d("로그테스트2","진입")
+//
+//                binding.nextBtn.setBackgroundResource(R.drawable.button_sample2)
+//            }
             // 다이얼로그가 닫혔을 때 실행될 코드
         }
 
