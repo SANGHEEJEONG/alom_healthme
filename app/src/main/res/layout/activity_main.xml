@@ -13,21 +13,28 @@ bottomnav 글자 항상 나오게 설정
         android:id="@+id/bottomNavigationView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#cccfff"
-        app:labelVisibilityMode="labeled"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav"
-        app:itemBackground="@color/bottomnav_remove_effect"
+        android:background="#cccfff"
+        app:labelVisibilityMode="labeled"
         style="@style/bottom_nav_no_effect"
+        app:itemBackground="@color/bottomnav_remove_effect"
+
+        app:itemIconTint="@drawable/menu_selector_color"
+        app:itemTextColor="@drawable/menu_selector_text_color"
+
+        app:itemTextAppearanceActive="@style/BottomNavigationTextStyle"
+        app:itemTextAppearanceInactive="@style/BottomNavigationTextStyle"
 
 
 
 
          />
 
-    />
+
 
     <FrameLayout
         android:id="@+id/frame_layout"

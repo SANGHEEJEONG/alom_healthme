@@ -236,7 +236,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
+//bottomnav부
 
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -246,22 +246,39 @@ class MainActivity : AppCompatActivity() {
         replaceFragment(Home())
         binding.bottomNavigationView.selectedItemId=R.id.home //11/09 추가 - 첫 화면을 홈화면으로 설정
 
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            when(it.itemId){
+        binding.bottomNavigationView.setOnItemSelectedListener { menuItem->
+            when(menuItem.itemId){
                 //R.id.exercise -> {replaceFragment()
-               R.id.exercise -> {replaceFragment(exercise_main_copy())
-                //R.id.exercise -> {replaceFragment(exercise())
+               R.id.exercise -> {
+
+                   replaceFragment(exercise_main_copy())
+                   menuItem.setIcon(R.drawable.exercise_selected)
+                   //R.id.exercise -> {replaceFragment(exercise())
                 }
-                R.id.food -> replaceFragment(food())
-                R.id.home -> replaceFragment(Home())
-                R.id.profile -> replaceFragment(Profile())
-                R.id.settings -> replaceFragment(mypage_main())
+                R.id.food -> {
+                    replaceFragment(food())
+                    menuItem.setIcon(R.drawable.food_selected) // 아이콘 변경
+                }
+                R.id.home -> {
+                    replaceFragment(Home())
+                    menuItem.setIcon(R.drawable.home_selected) // 아이콘 변경
+                }
+                R.id.profile -> {
+                    replaceFragment(Profile())
+                    menuItem.setIcon(R.drawable.schedule_selected) // 아이콘 변경
+                }
+                R.id.settings -> {
+                    replaceFragment(mypage_main())
+                    menuItem.setIcon(R.drawable.mypage_selected) // 아이콘 변경
+                }
                 else ->{
 
                 }
             }
             true
         }
+
+
 
     }
 

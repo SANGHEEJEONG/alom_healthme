@@ -14,6 +14,10 @@
         <item name="android:colorControlHighlight">@android:color/transparent</item>
     </style>
 
+
+    <style name="BottomNavigationTextStyle">
+        <item name="android:textSize">8sp</item> <!-- 텍스트 크기 조정 -->
+    </style>
 </resources>
 
 <!--app:shapeAppearanceOverlay="@style/RoundedBottomNavBar"-->

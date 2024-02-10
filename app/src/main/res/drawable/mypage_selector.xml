@@ -3,5 +3,8 @@
 
     <item android:drawable="@drawable/mypage_selected"
     android:state_pressed="true"/>
-    <item android:drawable="@drawable/mypage_unselected"/>
+    <item android:drawable="@drawable/mypage_unselected"
+        android:state_pressed="false"
+        />
 </selector>
+
