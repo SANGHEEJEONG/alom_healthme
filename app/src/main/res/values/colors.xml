@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="red">#f00</color>
+    <color name="transparent">#00FF0000</color>
 
     <color name="title_start_color">#B8FFEA</color>
         <color name="title_end_color">#F3FFFB</color>

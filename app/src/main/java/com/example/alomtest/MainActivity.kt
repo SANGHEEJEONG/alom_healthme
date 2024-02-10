@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentMypageMainBinding
 import com.example.alomtest.exercise.mainpage.exercise_main_copy
-import com.example.alomtest.food.mainpage.food
+import com.example.alomtest.food.mainpage.Food
 import com.example.alomtest.home.Home
 import com.example.alomtest.mypage.mypage_main
 import com.example.alomtest.retrofit.Api
@@ -256,7 +256,7 @@ class MainActivity : AppCompatActivity() {
                    //R.id.exercise -> {replaceFragment(exercise())
                 }
                 R.id.food -> {
-                    replaceFragment(food())
+                    replaceFragment(Food())
                     menuItem.setIcon(R.drawable.food_selected) // 아이콘 변경
                 }
                 R.id.home -> {

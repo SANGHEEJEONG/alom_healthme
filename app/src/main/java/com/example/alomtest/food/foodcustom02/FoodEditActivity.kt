@@ -1,4 +1,4 @@
-package com.example.alomtest.food.foodcustom01
+package com.example.alomtest.food.foodcustom02
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -17,19 +17,18 @@ import java.util.Locale
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.TimePicker
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.alomtest.R
-import com.example.alomtest.databinding.ActivityAddBinding
+import com.example.alomtest.databinding.ActivityFoodEditBinding
 import com.example.alomtest.food.foodcustom01.FoodAdapter
 import com.example.alomtest.food.foodcustom01.FoodData
 import com.example.alomtest.food.foodcustom01.SwipeGesture
 import com.example.alomtest.food.mainpage.Food
 import com.google.android.material.snackbar.Snackbar
 
-class AddActivity : AppCompatActivity() {
+class FoodEditActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var searchView: SearchView
@@ -41,7 +40,7 @@ class AddActivity : AppCompatActivity() {
     private lateinit var expandableLayout_time: View
     private var mList: MutableList<FoodData> = mutableListOf()
     private lateinit var adapter: FoodAdapter
-    private lateinit var binding: ActivityAddBinding
+    private lateinit var binding: ActivityFoodEditBinding
     private lateinit var expandBtn: Button
     private lateinit var expandBtn_time: Button
     private lateinit var foodaddBtn: Button
@@ -51,11 +50,9 @@ class AddActivity : AppCompatActivity() {
     private lateinit var foodAddEditText: EditText
     private lateinit var kcalAddEditText: EditText
     private lateinit var timePicker: TimePicker
-    private lateinit var foodaddback: Button
     companion object {
-        const val RESULT_ADD_TASK = 123 // Any unique value
-        const val RESULT_BACK_TASK = 321
-
+        const val RESULT_EDIT_TASK = 456 // Any unique value
+        const val RESULT_EDIT_BACK_TASK = 654
     }
 
 
@@ -64,7 +61,7 @@ class AddActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddBinding.inflate(layoutInflater)
+        binding = ActivityFoodEditBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
 
@@ -76,8 +73,8 @@ class AddActivity : AppCompatActivity() {
         searchView = binding.searchViewfood
         expandableLayout = binding.expandableLayout
         expandableLayout_time = binding.expandableLayoutTime
-        expandBtn = binding.expandBtn
-        expandBtn_time = binding.expandBtnTime
+        expandBtn = binding.expandBtnEdit
+        expandBtn_time = binding.expandBtnTimeEdit
         foodaddBtn = binding.expandBtn2
         foodimageView = binding.foodimageView
         timeimageView = binding.timeimageView
@@ -85,11 +82,10 @@ class AddActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = FoodAdapter(mList)
         recyclerView.adapter = adapter
-        gramEditText = findViewById(R.id.add_edit)
+        gramEditText = findViewById(R.id.food_edit_edit)
         foodAddEditText = findViewById(R.id.foodAddEditText)
         kcalAddEditText = findViewById(R.id.kcalAddEditText)
         timePicker = findViewById(R.id.timePicker)
-        foodaddback=findViewById(R.id.food_add_back)
 
 
         addDefaultFoodToList()
@@ -105,31 +101,29 @@ class AddActivity : AppCompatActivity() {
                 return true
             }
         })
-
-        binding.addNext.setOnClickListener() {
-            val newTask = findViewById<EditText>(R.id.add_edit).text.toString()
-            val calories = mList.find { it.title == expandBtn.text.toString() }?.calories ?: 0
-            if(expandBtn.text.toString()=="선택하기" || binding.expandBtnTime.text.toString()=="선택하기"){
-                Snackbar.make(it, "정보를 모두 입력해주세요!", Snackbar.LENGTH_SHORT).show()
-            }else{
-
-                val resultintent = Intent(this, Food::class.java)
-                resultintent.putExtra("newTask", newTask)
-                resultintent.putExtra("foodname",expandBtn.text.toString())
-                resultintent.putExtra("timeFormat",binding.expandBtnTime.text.toString())
-                resultintent.putExtra("calories",calories)
-
-                setResult(RESULT_ADD_TASK, resultintent)
-                finish()}
-            // saveData()
-        }
-        binding.foodAddBack.setOnClickListener{
-            val backintent = Intent(this,Food::class.java)
-            setResult(RESULT_BACK_TASK,backintent)
+        binding.foodEditBack.setOnClickListener(){
+            val backintent = Intent()
+            setResult(RESULT_EDIT_BACK_TASK,backintent)
             finish()
         }
 
-        binding.expandBtn.setOnClickListener {
+        binding.foodEditNext.setOnClickListener() {
+            val editedDataTitle = findViewById<EditText>(R.id.food_edit_edit).text.toString()
+            val calories = mList.find { it.title == expandBtn.text.toString() }?.calories ?: 0
+            if(expandBtn.text.toString()=="선택하기" || expandBtn_time.text.toString()=="선택하기"){
+                Snackbar.make(it, "정보를 모두 입력해주세요!", Snackbar.LENGTH_SHORT).show()
+            }else{
+            val resultIntent = Intent()
+            resultIntent.putExtra("editedDataTitle", editedDataTitle)
+            resultIntent.putExtra("editfoodname",expandBtn.text.toString())
+            resultIntent.putExtra("edittimeFormat",expandBtn_time.text.toString())
+            resultIntent.putExtra("editcalories",calories)
+            resultIntent.putExtra("position", intent.getIntExtra("position", -1))
+            setResult(RESULT_EDIT_TASK, resultIntent)
+            finish()}
+        }
+
+        binding.expandBtnEdit.setOnClickListener {
             toggleImage()
 
             if (expandableLayout.visibility == View.GONE) {
@@ -142,7 +136,7 @@ class AddActivity : AppCompatActivity() {
 
         }
 
-        binding.expandBtnTime.setOnClickListener {
+        binding.expandBtnTimeEdit.setOnClickListener {
             toggleImageTime()
 
             if (expandableLayout_time.visibility == View.GONE) {
@@ -176,7 +170,7 @@ class AddActivity : AppCompatActivity() {
                 "오전 $hour 시 $minute 분"
             }
 
-            binding.expandBtnTime.text = timeFormat
+            binding.expandBtnTimeEdit.text = timeFormat
             expandBtn_time.setTextColor(Color.parseColor("#000000"))
         }
 
@@ -210,7 +204,6 @@ class AddActivity : AppCompatActivity() {
         mList.add(FoodData("초코우유",800))
         mList.add(FoodData("딸기우유",900))
 
-
         adapter.notifyDataSetChanged()
 
         addFoodToList(mList.size - 1)
@@ -222,12 +215,12 @@ class AddActivity : AppCompatActivity() {
 
         if (userInput2.isNotEmpty()) {
             try {
-                val caloriesadd = userInput2.toInt()
+                val calories = userInput2.toInt()
                 if (userInput.isNotEmpty()) {
                     if (nextPosition != null) {
-                        mList.add(nextPosition, FoodData(userInput, caloriesadd))
+                        mList.add(nextPosition, FoodData(userInput, calories))
                     } else {
-                        mList.add(FoodData(userInput, caloriesadd))
+                        mList.add(FoodData(userInput, calories))
                     }
                     adapter.notifyDataSetChanged()
                 }

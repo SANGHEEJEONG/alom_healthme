@@ -17,23 +17,21 @@ class FoodAdapter(private var mList : MutableList<FoodData>) :
 
     inner class FoodViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val titleTv : TextView = itemView.findViewById(R.id.titleTv)
+        val titleTv2: TextView = itemView.findViewById(R.id.titleTv2)
         init {
             // 아이템 뷰가 클릭되었을 때의 동작을 정의
             itemView.setOnClickListener {
-                onItemClickListener?.invoke(mList[absoluteAdapterPosition].title)
-            }
-    }}
+                val calories = mList[absoluteAdapterPosition].calories
 
-//    fun setFilteredList(mList: List<FoodData>){
-//        this.mList = mList.toMutableList()
-//        notifyDataSetChanged()
-//    }
-fun setFilteredList(mList: List<FoodData>) {
-//    mList.clear()
-//    mList.addAll(filteredData)
-    this.mList = mList.toMutableList()
-    notifyDataSetChanged()
-}
+                onItemClickListener?.invoke(mList[absoluteAdapterPosition].title)
+
+            }
+        }}
+
+    fun setFilteredList(mList: List<FoodData>) {
+        this.mList = mList.toMutableList()
+        notifyDataSetChanged()
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
         val view =LayoutInflater.from(parent.context).inflate(R.layout.item,parent,false)
         return FoodViewHolder(view)
@@ -41,6 +39,7 @@ fun setFilteredList(mList: List<FoodData>) {
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         holder.titleTv.text = mList[position].title
+        holder.titleTv2.text = mList[position].calories.toString()
 
     }
 

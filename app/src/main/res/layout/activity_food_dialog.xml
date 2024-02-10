@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="240dp"
@@ -8,17 +8,82 @@
     android:background="@drawable/food_item"
     android:layout_gravity="center"
     android:radius="30dp"
+
     >
+
+
+    <TextView
+        android:id="@+id/dialog_FoodClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dialogFoodClock"
+        android:textColor="#5C66FF"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <TextView
+        android:id="@+id/dialog_Foodname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dialogFoodname"
+        android:textStyle="bold"
+        android:textColor="#3945FF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35" />
 
     <TextView
         android:id="@+id/dialogTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Dialog Title"
-        android:textSize="18dp"
+        android:textColor="#8E9CFF"
+        android:textSize="15dp"
         android:textStyle="bold"
-        android:layout_gravity="center"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dialog_FoodCal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dialogFoodCal"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#0012B9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <TextView
+        android:id="@+id/calories_warning"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:text="한 끼 권장 칼로리를 넘었어요!"
+        android:textColor="#007549"
+        android:textSize="12dp"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/calories_warning"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
 
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

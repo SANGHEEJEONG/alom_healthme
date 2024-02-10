@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#6A73FF"
-    tools:context=".food.mainpage.food">
+    tools:context=".food.mainpage.Food">
 
 
     <ImageView
@@ -46,23 +46,85 @@
         android:textColor="#AFB4FF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.27" />
 
     <TextView
+        android:id="@+id/beforefoodcal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="권장 칼로리까지"
         android:textSize="10dp"
         android:textColor="#AFB4FF"
-        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintHorizontal_bias="0.79"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"/>
+        app:layout_constraintVertical_bias="0.27"/>
+    <TextView
+        android:id="@+id/afterfoodcal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="!!권장 칼로리로 부터!!"
+        android:textSize="10dp"
+        android:textColor="#AFB4FF"
+        app:layout_constraintHorizontal_bias="0.79"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.27"/>
+
+    <TextView
+        android:id="@+id/todaycalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <TextView
+        android:id="@+id/leftcalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.77"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <TextView
+        android:id="@+id/extracalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.77"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -71,7 +133,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.23"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.4" />
@@ -83,7 +145,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintHorizontal_bias="0.77"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.4"
@@ -106,8 +168,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Food list"
-            android:layout_weight="1"/>
+            android:text="Food List"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_food"
@@ -121,7 +184,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="Food Report"
+            android:layout_marginLeft="10dp"/>
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

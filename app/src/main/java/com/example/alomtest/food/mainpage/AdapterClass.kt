@@ -2,6 +2,8 @@ package com.example.alomtest.food.mainpage
 
 import android.content.Context
 import android.content.Intent
+import android.icu.util.MeasureUnit.ITEM
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +13,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alomtest.R
 import com.example.alomtest.food.foodcustom01.AddActivity
+import com.example.alomtest.food.foodcustom02.FoodEditActivity
 
-//food 화면 나왔을 때 좌우로 리사이클러뷰
 
 class AdapterClass (private val dataList:ArrayList<DataClass>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     val ITEM =0
@@ -23,9 +25,34 @@ class AdapterClass (private val dataList:ArrayList<DataClass>): RecyclerView.Ada
     interface OnItemLongClickListener {
         fun onItemLongClick(position: Int)
     }
+    interface OnDeleteClickListener {
+        fun onDeleteClick(position: Int)
+    }
+    interface OnReviseClickListener{
+        fun ReviseClick(position: Int)
+    }
+    interface OnFooterClickListener{
+        fun FooterClick(position:Int)
+    }
     private var itemClickListener: OnItemClickListener?=null
-    private lateinit var adapter: AdapterClass
     private var itemLongClickListener: OnItemLongClickListener?=null
+    private var DeleteClickListener: OnDeleteClickListener?=null
+    private var FooterClickListener: OnFooterClickListener?=null
+    private var ReviseClickListener: OnReviseClickListener?=null
+
+
+    // private var adapter: AdapterClass?=null
+
+    fun removeItem(position: Int) {
+        if (position < dataList.size) {
+            dataList.removeAt(position)
+            notifyItemRemoved(position)
+            notifyItemRangeChanged(position, dataList.size)
+        }
+    }
+
+
+
 
 
 
@@ -41,30 +68,58 @@ class AdapterClass (private val dataList:ArrayList<DataClass>): RecyclerView.Ada
             }
             else -> throw IllegalArgumentException("Invalid view type")
 
-            }
         }
+    }
+    private fun calculateTotalCalories(): Int {
+        var totalCalories = 0
+
+        for (data in dataList) {
+            val calculatedCalories = if (data.dataTitle != "") {
+                (data.calories * 0.01 * data.dataTitle.toInt()).toInt()
+            } else {
+                data.calories
+            }
+            totalCalories += calculatedCalories
+        }
+        return totalCalories
+    }
+
+
     fun setOnItemClickListener(listener: OnItemClickListener){
         this.itemClickListener = listener
     }
     fun setOnItemLongClickListener(listener: OnItemLongClickListener) {
         this.itemLongClickListener = listener
     }
+    fun setOnDeleteClickListener(listener: OnDeleteClickListener) {
+        this.DeleteClickListener = listener
+    }
+    fun setOnReviseClickListener(listener: OnReviseClickListener){
+        this.ReviseClickListener = listener
+    }
+    fun setOnFooterClickListener(listener: OnFooterClickListener){
+        this.FooterClickListener = listener
+    }
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(getItemViewType(position)){
             ITEM->{
                 val itemViewHolder = holder as ViewHolderClass
 
-               itemViewHolder.bind(dataList[position])
-               itemViewHolder.itemView.setOnClickListener {
-                  itemClickListener?.onItemClick(position)
-                   val context = it.context
-                   val dataTitle = dataList[position].dataTitle
+                itemViewHolder.bind(dataList[position])
+                itemViewHolder.itemView.setOnClickListener {
+                    itemClickListener?.onItemClick(position)
+                    val context = it.context
+                    val dataTitle = dataList[position].dataTitle
+                    val foodSelect = dataList[position].foodSelect
+                    val foodTime = dataList[position].foodTime
+                    val calories = dataList[position].calories
+                    val totalCalories = calculateTotalCalories()
 
 
-                   // 커스텀 다이얼로그 표시
-                   val customDialog = Food_dialog(context, dataTitle)
-                   customDialog.show()
-               }
+                    // 커스텀 다이얼로그 표시
+                    val customDialog = Food_dialog(context, dataTitle,foodSelect,foodTime,calories, totalCalories)
+                    customDialog.show()
+                }
                 itemViewHolder.itemView.setOnLongClickListener{
                     itemLongClickListener?.onItemLongClick(position)
                     itemViewHolder.toggleButtonVisibility()
@@ -74,14 +129,14 @@ class AdapterClass (private val dataList:ArrayList<DataClass>): RecyclerView.Ada
 
             }
             FOOTER->{val footerViewHolder = holder as FooterViewHolderClass
-            footerViewHolder.bindFooterData()
+                footerViewHolder.bindFooterData()
                 footerViewHolder.itemView.setOnClickListener {
-                    itemClickListener?.onItemClick(dataList.size)
+                    FooterClickListener?.FooterClick(dataList.size)
                 }}
 
 
 
-    }
+        }
 
     }
 
@@ -111,32 +166,56 @@ class AdapterClass (private val dataList:ArrayList<DataClass>): RecyclerView.Ada
 
 
 
-    class ViewHolderClass(itemView: View):RecyclerView.ViewHolder(itemView) {
-        private val rvTitle: TextView = itemView.findViewById(R.id.food_text)
+    inner class ViewHolderClass(itemView: View):RecyclerView.ViewHolder(itemView) {
+        //private val rvTitle: TextView = itemView.findViewById(R.id.food_text)
+        private val foodSelectTextView: TextView = itemView.findViewById(R.id.food_select)
+        private val foodTimeTextView: TextView = itemView.findViewById(R.id.food_time)
+        private val foodcalories:TextView=itemView.findViewById(R.id.food_calories)
         private val buttonrevise: Button = itemView.findViewById(R.id.food_revisebutton) // 실제 버튼 ID로 대체하세요
         private val buttondelete: Button = itemView.findViewById(R.id.food_deletebutton)
+        private val fooditemshadow: ImageView = itemView.findViewById(R.id.fooditemshadow)
 
-        /*init {
-            // itemView에 긴 클릭 리스너 추가
-            itemView.setOnLongClickListener {
-                // 버튼의 가시성을 토글
-                buttonrevise.visibility = if (buttonrevise.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-                // 어댑터에게 아이템이 변경되었음을 알림
-                (itemView.context as? RecyclerView)?.adapter?.notifyItemChanged(bindingAdapterPosition)
-                Log.d("test","testlongclick")
-                // 긴 클릭 이벤트 소비
-                true
 
+        init {
             // 다른 초기화 또는 클릭 리스너를 추가하세요
-        }*/
+
+            // 버튼 클릭 리스너 설정
+            buttondelete.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    // AdapterClass의 removeItem 메서드를 호출하여 아이템 삭제
+                    DeleteClickListener?.onDeleteClick(position)
+
+                }
+            }
+            buttonrevise.setOnClickListener{
+                val position = bindingAdapterPosition
+                if(position != RecyclerView.NO_POSITION){
+                    ReviseClickListener?.ReviseClick(position)
+                }
+            }
+        }
         fun bind(data: DataClass){
-            rvTitle.text = data.dataTitle
+            //rvTitle.text = data.dataTitle
+            val calculatedCalories = if (data.dataTitle != "") {
+                (data.calories * 0.01 * data.dataTitle.toInt()).toInt()
+            } else {
+                data.calories
+            }
+            foodcalories.text=calculatedCalories.toString()
+            //foodcalories.text = if (data.calories > 0) data.calories.toString() else "N/A"
+            //foodcalories.text = if (data.calories != null ) data.calories.toString() else "0"
+
+            foodSelectTextView.text = data.foodSelect // 여기서 food_select 설정
+            foodTimeTextView.text = data.foodTime
+            fooditemshadow.visibility=View.GONE
             buttonrevise.visibility = View.GONE
             buttondelete.visibility = View.GONE
         }
         fun toggleButtonVisibility() {
             buttonrevise.visibility = if (buttonrevise.visibility == View.VISIBLE) View.GONE else View.VISIBLE
             buttondelete.visibility = if (buttondelete.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+            fooditemshadow.visibility = if(fooditemshadow.visibility==View.VISIBLE)View.GONE else View.VISIBLE
         }
 
 
