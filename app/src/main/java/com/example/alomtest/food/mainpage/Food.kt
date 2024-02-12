@@ -10,8 +10,10 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.graphics.toColor
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.lifecycle.ViewModel
 import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentFoodBinding
 import com.example.alomtest.food.foodcustom01.AddActivity
@@ -20,6 +22,7 @@ import com.example.alomtest.food.foodcustom02.FoodEditActivity
 
 
 class Food : Fragment() {
+    private val SharedViewModelFoodcal: SharedViewModelFoodcal by activityViewModels()
     private var _binding: FragmentFoodBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
@@ -185,6 +188,8 @@ class Food : Fragment() {
         return totalCalories
     }
     private fun updateTotalCalories() {
+        val totalCalories = calculateTotalCalories()
+        SharedViewModelFoodcal.totalCalories = totalCalories
         binding.todaycalories.text = calculateTotalCalories().toString()
         binding.leftcalories.text=(2500 - calculateTotalCalories()).toString()
         binding.extracalories.text=(-2500 + calculateTotalCalories()).toString()
@@ -214,5 +219,8 @@ class Food : Fragment() {
 //        }
 //        return -1
 //    }
+}
+class SharedViewModelFoodcal : ViewModel() {
+    var totalCalories: Int = 0
 }
 

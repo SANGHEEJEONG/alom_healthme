@@ -12,14 +12,17 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.alomtest.R
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentHomeBinding
 import com.example.alomtest.databinding.FragmentMypageMainBinding
+import com.example.alomtest.food.mainpage.SharedViewModelFoodcal
 import kotlin.math.roundToInt
 import kotlin.system.exitProcess
 
 class Home : Fragment() {
+    private val SharedViewModelFoodcal: SharedViewModelFoodcal by activityViewModels()
 
     private var _binding: FragmentHomeBinding? = null
     private lateinit var binding2 : ActivityMainBinding
@@ -47,6 +50,7 @@ class Home : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater,container,false)
 
         return binding.root
+
     }
     private var backPressedTime: Long = 0
 
@@ -64,6 +68,7 @@ class Home : Fragment() {
 
         }
         true
+
 
         //2번 뒤로가기 누르면 앱 완전 종료
         val callback = object : OnBackPressedCallback(true) {
@@ -103,6 +108,7 @@ class Home : Fragment() {
 //        if(home_bmi>300){
 //            home_bmi=300.0
 //        }
+        binding.HomeCal.text = SharedViewModelFoodcal.totalCalories.toString()
 
 
 
@@ -323,6 +329,8 @@ class Home : Fragment() {
         //edittext를 임의수정 못하게 막은 코드
         val saying=binding.editTextText
         saying.keyListener = null
+
+
     }
 
 
