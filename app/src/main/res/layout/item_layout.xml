@@ -15,12 +15,14 @@
         android:layout_height="130dp"
         android:background="@drawable/food_item">
 
+
         <Button
             android:id="@+id/food_deletebutton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="65dp"
+            android:layout_height="40dp"
             android:text="삭제"
             android:textSize="20dp"
+            android:drawableLeft="@drawable/delete_food"
             android:fontFamily="@font/bold"
             android:textColor="@color/red"
             android:background="@color/transparent"
@@ -28,22 +30,27 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.7" />
+            app:layout_constraintHorizontal_bias="0.45"
+            app:layout_constraintVertical_bias="0.8" />
+
 
         <Button
             android:id="@+id/food_revisebutton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="65dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="40dp"
             android:background="@color/transparent"
             android:text="수정"
             android:textSize="20dp"
+            android:drawableLeft="@drawable/edit_food"
             android:fontFamily="@font/bold"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintVertical_bias="0.3" />
+
 
         <ImageView
             android:id="@+id/fooditemshadow"

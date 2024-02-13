@@ -70,9 +70,10 @@
 
     <TextView
         android:id="@+id/calories_warning"
-        android:layout_width="180dp"
-        android:layout_height="30dp"
+        android:layout_width="195dp"
+        android:layout_height="25dp"
         android:text="한 끼 권장 칼로리를 넘었어요!"
+        android:drawableLeft="@drawable/warning_food"
         android:textColor="#007549"
         android:textSize="12dp"
         android:paddingTop="5dp"
