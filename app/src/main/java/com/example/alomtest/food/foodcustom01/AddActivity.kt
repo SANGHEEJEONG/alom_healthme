@@ -318,7 +318,6 @@ class AddActivity : AppCompatActivity() {
                     }
                     ItemTouchHelper.RIGHT -> {
                         // 오른쪽으로 스와이프한 경우
-                        // 이 곳에 오른쪽 스와이프 시 수행할 동작을 추가하세요
                     }
                 }
             }
