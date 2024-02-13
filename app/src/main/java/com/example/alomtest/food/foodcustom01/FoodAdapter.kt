@@ -21,7 +21,7 @@ class FoodAdapter(private var mList : MutableList<FoodData>) :
         init {
             // 아이템 뷰가 클릭되었을 때의 동작을 정의
             itemView.setOnClickListener {
-                val calories = mList[absoluteAdapterPosition].calories
+//                val calories = mList[absoluteAdapterPosition].calories
 
                 onItemClickListener?.invoke(mList[absoluteAdapterPosition].title)
 
