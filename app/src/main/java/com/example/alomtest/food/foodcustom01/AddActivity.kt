@@ -29,6 +29,7 @@ import com.example.alomtest.food.foodcustom01.FoodData
 import com.example.alomtest.food.foodcustom01.SwipeGesture
 import com.example.alomtest.food.mainpage.Food
 import com.google.android.material.snackbar.Snackbar
+import java.util.Calendar
 
 class AddActivity : AppCompatActivity() {
 
@@ -171,6 +172,14 @@ class AddActivity : AppCompatActivity() {
             cardView.visibility = View.GONE
         }
 
+        val currentTime = Calendar.getInstance()
+        val currentHour = currentTime.get(Calendar.HOUR_OF_DAY) // 시
+        val currentMinute = currentTime.get(Calendar.MINUTE) // 분
+
+        binding.timePicker.hour = currentHour
+        binding.timePicker.minute = currentMinute
+
+
         binding.timePicker.setOnTimeChangedListener { timePicker, hour, minute ->
             val timeFormat = if (hour > 12) {
                 val adjustedHour = hour - 12
@@ -301,14 +310,15 @@ class AddActivity : AppCompatActivity() {
 
         val swipegesture = object : SwipeGesture(this){
             override fun onSwiped(viewHolder: ViewHolder,direction:Int){
-//                when(direction){
-//                    ItemTouchHelper.LEFT ->{
-//                        adapter.deleteItem(viewHolder.absoluteAdapterPosition)
                 when(direction){
                     ItemTouchHelper.LEFT ->{
                         adapter.deleteItem(viewHolder.absoluteAdapterPosition)
                         // 삭제된 음식을 SharedPreferences에 저장
                         saveFoodListToSharedPreferences(mList, deletedItems)
+                    }
+                    ItemTouchHelper.RIGHT -> {
+                        // 오른쪽으로 스와이프한 경우
+                        // 이 곳에 오른쪽 스와이프 시 수행할 동작을 추가하세요
                     }
                 }
             }
@@ -339,7 +349,7 @@ class AddActivity : AppCompatActivity() {
     private fun loadSavedData() {
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val foodSet = sharedPreferences.getStringSet("foods", setOf()) ?: setOf()
-         mList.clear() // 기존 데이터를 지우고 새로 불러옴
+        mList.clear() // 기존 데이터를 지우고 새로 불러옴
         foodSet.forEach { food ->
             val (title, calories) = food.split("|")
             mList.add(FoodData(title, calories.toInt()))
@@ -349,13 +359,6 @@ class AddActivity : AppCompatActivity() {
         // 삭제된 음식 리스트 불러오기
         val deletedItemsSet = sharedPreferences.getStringSet("deletedItems", setOf()) ?: setOf()
         val deletedItems = deletedItemsSet.toMutableList()
-
-        // 수정된 음식 리스트 불러오기
-//        val modifiedItemsSet = sharedPreferences.getStringSet("modifiedItems", setOf()) ?: setOf()
-//        val modifiedItems = modifiedItemsSet.map {
-//            val (title, calories) = it.split("|")
-//            FoodData(title, calories.toInt())
-//        }.toMutableList()
 
         // 삭제된 음식 및 수정된 음식 적용
         mList.removeAll { deletedItems.contains(it.title) }
