@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".food.foodcustom01.AddActivity">
 
     <LinearLayout
@@ -117,6 +118,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="23dp"
                     android:layout_marginRight="20dp"
+                    app:cardCornerRadius="15dp"
                     android:background="#B9BDFF"
                     app:cardElevation="0dp">
 
