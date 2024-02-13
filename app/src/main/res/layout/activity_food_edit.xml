@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".food.foodcustom02.FoodEditActivity">
 
     <LinearLayout
@@ -117,6 +118,7 @@
                     android:layout_marginTop="23dp"
                     android:layout_marginRight="20dp"
                     app:cardElevation="0dp"
+                    app:cardCornerRadius="15dp"
                     android:background="#B9BDFF">
 
                     <androidx.appcompat.widget.SearchView
@@ -124,6 +126,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="top"
+                        app:theme="@style/MySearchViewStyle"
                         android:background="@drawable/search"
                         app:searchIcon="@android:color/transparent"
                         app:iconifiedByDefault="false"

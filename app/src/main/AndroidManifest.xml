@@ -87,6 +87,11 @@
         <activity
             android:name=".login.first"
             android:exported="false" />
+        <activity
+            android:name=".food.foodcustom02.FoodEditActivity"
+            android:label="Food Edit Activity">
+            <!-- Add necessary intent filters if needed -->
+        </activity>
 
 
 <!--        <activity-->

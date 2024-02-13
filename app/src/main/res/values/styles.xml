@@ -13,6 +13,11 @@
         <item name="android:itemBackground">@android:color/transparent</item>
         <item name="android:colorControlHighlight">@android:color/transparent</item>
     </style>
+    <style name="MySearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <!-- 입력된 텍스트 색상 -->
+        <item name="android:editTextColor">#3A46FF</item>
+    </style>
+
 
 
     <style name="BottomNavigationTextStyle">

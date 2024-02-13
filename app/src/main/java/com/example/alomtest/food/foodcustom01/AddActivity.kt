@@ -339,7 +339,7 @@ class AddActivity : AppCompatActivity() {
     private fun loadSavedData() {
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val foodSet = sharedPreferences.getStringSet("foods", setOf()) ?: setOf()
-//        mList.clear() // 기존 데이터를 지우고 새로 불러옴
+         mList.clear() // 기존 데이터를 지우고 새로 불러옴
         foodSet.forEach { food ->
             val (title, calories) = food.split("|")
             mList.add(FoodData(title, calories.toInt()))

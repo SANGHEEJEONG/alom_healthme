@@ -1,6 +1,7 @@
 package com.example.alomtest.food.foodcustom02
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
@@ -38,6 +39,7 @@ class FoodEditActivity : AppCompatActivity() {
     private lateinit var timeimageView : ImageView
     private lateinit var expandableLayout: View
     private lateinit var expandableLayout_time: View
+    private val deletedItems: MutableList<String> = mutableListOf()
     private var mList: MutableList<FoodData> = mutableListOf()
     private lateinit var adapter: FoodAdapter
     private lateinit var binding: ActivityFoodEditBinding
@@ -88,7 +90,7 @@ class FoodEditActivity : AppCompatActivity() {
         timePicker = findViewById(R.id.timePicker)
 
 
-        addDefaultFoodToList()
+        loadSavedData()
 
         // loadData()
 
@@ -192,38 +194,17 @@ class FoodEditActivity : AppCompatActivity() {
         }
     }
 
-    private fun addDefaultFoodToList() {
-        val nextPosition = mList.size // 다음 위치는 현재 리스트의 크기와 같습니다.
-        mList.add(FoodData("피자",100))
-        mList.add(FoodData("치킨",200))
-        mList.add(FoodData("떡볶이",300))
-        mList.add(FoodData("김치볶음밥",400))
-        mList.add(FoodData("짜장면",500))
-        mList.add(FoodData("짬뽕",600))
-        mList.add(FoodData("탕수육",700))
-        mList.add(FoodData("초코우유",800))
-        mList.add(FoodData("딸기우유",900))
-
-        adapter.notifyDataSetChanged()
-
-        addFoodToList(mList.size - 1)
-    }
 
     private fun addFoodToList(nextPosition: Int? = null) {
         val userInput = foodAddEditText.text.toString().trim()
         val userInput2 = kcalAddEditText.text.toString().trim()
 
-        if (userInput2.isNotEmpty()) {
+        if (userInput.isNotEmpty()&&userInput2.isNotEmpty()) {
             try {
-                val calories = userInput2.toInt()
-                if (userInput.isNotEmpty()) {
-                    if (nextPosition != null) {
-                        mList.add(nextPosition, FoodData(userInput, calories))
-                    } else {
-                        mList.add(FoodData(userInput, calories))
-                    }
-                    adapter.notifyDataSetChanged()
-                }
+                val newFood = FoodData(userInput, userInput2.toInt())
+                mList.add(newFood)
+                adapter.notifyItemInserted(mList.size - 1)
+                saveFoodListToSharedPreferences(mList, mutableListOf())
             } catch (e: NumberFormatException) {
                 // 변환 실패 처리
                 // 사용자가 정수로 변환할 수 없는 값을 입력한 경우 예외가 발생합니다.
@@ -263,6 +244,8 @@ class FoodEditActivity : AppCompatActivity() {
                 when(direction){
                     ItemTouchHelper.LEFT ->{
                         adapter.deleteItem(viewHolder.absoluteAdapterPosition)
+                        // 삭제된 음식을 SharedPreferences에 저장
+                        saveFoodListToSharedPreferences(mList, deletedItems)
                     }
                 }
             }
@@ -277,6 +260,43 @@ class FoodEditActivity : AppCompatActivity() {
         expandBtn.text = clickedItemTitle
         expandBtn.setTextColor(Color.parseColor("#000000"))
         toggleImage()
+    }
+    private fun saveFoodListToSharedPreferences(
+        foodList: MutableList<FoodData>,
+        deletedItems: MutableList<String>,
+    ) {
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val foodSet = foodList.map { "${it.title}|${it.calories}" }.toMutableSet()
+        sharedPreferences.edit().putStringSet("foods", foodSet).apply()
+
+        // 삭제된 음식 리스트 저장
+        sharedPreferences.edit().putStringSet("deletedItems", deletedItems.toSet()).apply()
+    }
+
+    private fun loadSavedData() {
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val foodSet = sharedPreferences.getStringSet("foods", setOf()) ?: setOf()
+        mList.clear() // 기존 데이터를 지우고 새로 불러옴
+        foodSet.forEach { food ->
+            val (title, calories) = food.split("|")
+            mList.add(FoodData(title, calories.toInt()))
+        }
+        adapter.notifyDataSetChanged()
+
+        // 삭제된 음식 리스트 불러오기
+        val deletedItemsSet = sharedPreferences.getStringSet("deletedItems", setOf()) ?: setOf()
+        val deletedItems = deletedItemsSet.toMutableList()
+
+        // 수정된 음식 리스트 불러오기
+//        val modifiedItemsSet = sharedPreferences.getStringSet("modifiedItems", setOf()) ?: setOf()
+//        val modifiedItems = modifiedItemsSet.map {
+//            val (title, calories) = it.split("|")
+//            FoodData(title, calories.toInt())
+//        }.toMutableList()
+
+        // 삭제된 음식 및 수정된 음식 적용
+        mList.removeAll { deletedItems.contains(it.title) }
+        adapter.notifyDataSetChanged()
     }
 
 
